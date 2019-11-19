@@ -22,8 +22,8 @@
     </header>
     <div class="nav-content">
         <nav>
-            <a href="">Home</a>
-            <a href="">Women</a>
+            <h2><a href="">Home</a></h2>
+            <h2><a href="">Women</a></h2>
             <ul>
                 <li><a href="">Coats</a></li>
                 <li><a href="">Jackets</a></li>
