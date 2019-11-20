@@ -1,1 +1,56 @@
-@import '../styles/_variables.sass'
+@import '../styles/variables'
+
+header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin: 20px
+    .login
+        a
+            margin: 20px
+            font-weight: 600
+
+.nav-content
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+
+    h2
+        margin: 0 20px
+        width: 75px
+
+
+li
+    display: none
+    list-style-type: none
+    padding: 5px
+
+    a
+        color: $grey-dark-2
+        font-family: Arial, Helvetica, sans-serif
+        text-decoration: none
+
+        &:hover
+            color: $primary-color
+
+.dropdown
+    display: flex
+    ul
+        &:hover
+            li
+                display: block
+        
+        
+
+form
+    margin-right: 20px
+    border: 2px $primary-color solid;
+    border-radius: 5px
+    input
+        border: none
+    button
+        background-color: $primary-color
+        box-shadow: none
+        border: none
+
+

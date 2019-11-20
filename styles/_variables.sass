@@ -1,13 +1,9 @@
+*
+  margin: 0
+  padding: 0
+/* Colors */
 
-  //  Here we add the common sass (variables) which will be fonts, colors, common paddings, maybe buttons etc.
-
-  //    ex:
-
-  //     $bebas-neue: 'Bebas Neue Regular';
-  //     $roboto: 'Roboto Thin';
-
-/** Colors **/
-
+  
 $primary-color: #e8a798
 $secondary-color: #f2cec5
 
@@ -18,5 +14,21 @@ $grey-light-2: #95989a
 $grey-dark: #707070
 $grey-dark-2: #303030
 
-  body
-background-color: blue
+
+h2 a
+  color: $grey-dark-2
+  font-family: Arial, Helvetica, sans-serif
+  text-decoration: none
+  font-size: 16px
+  &:hover
+    color: $primary-color
+
+a
+  color: $grey-dark-2
+  font-family: Arial, Helvetica, sans-serif
+  text-decoration: none
+
+p
+  color: $grey-dark-2
+  font-family: Arial, Helvetica, sans-serif
+  font-size: 12px
