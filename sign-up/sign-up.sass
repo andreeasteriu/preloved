@@ -1,0 +1,71 @@
+@import '../styles/variables', url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap');
+
+body
+    padding: 1em
+    font-family: $montserrat
+.signup
+    display: grid
+    height: 90vh
+    justify-items: center
+    align-items: center
+    &-bg-color
+        display: grid
+        grid-template-rows: 10% 80%
+        background-color: $secondary-color
+        height: 300px
+        padding: 4em 3em 4em
+        @media screen and (min-width : 768px) 
+            height: 400px
+            padding: 4em 3em 2em
+    &-wrapper
+        width: 100%
+    &-title
+        display: block
+        color: #FFF
+        font-size: 1.5rem
+        @media screen and (min-width : 768px) 
+            font-size: 1.9rem
+    &-inputs-grid
+        display: grid
+        align-items: center
+    &-inputs
+        justify-self: center
+        width: 100%
+    input
+        width: 97%
+        height: 30px
+        margin: 1.5em auto 0
+        border-radius: 5px
+        border: none
+        padding: 5px 0 0 10px 
+        outline: none
+        &::placeholder
+            font-size: 13px
+            color: $primary-color
+        &[type="text"]
+            font-size: 13px
+            font-family: $montserrat
+        &[type="date"]
+            font-size: 13px
+            font-family: $montserrat
+        &[type="email"]
+            font-size: 13px
+            font-family: $montserrat
+        @media screen and (min-width : 768px) 
+            height: 40px
+    button
+        display: block
+        cursor: pointer
+        outline: none
+        font-size: 1rem
+        margin: 3em auto 0
+        font-weight: 700
+        color: #FFF
+        width: 20em
+        height: 3em
+        background-color: $secondary-color
+        border: none
+        border-radius: 5px
+    @media screen and (min-width : 768px) 
+        width: 450px
+        margin: auto

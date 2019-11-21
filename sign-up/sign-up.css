@@ -1,1 +1,171 @@
-/* No CSS *//*# sourceMappingURL=sign-up.css.map */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Colors */
+/**Greys**/
+h2 a {
+  color: #303030;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+h2 a:hover {
+  color: #e8a798;
+}
+
+h3 {
+  font-family: "Montserrat";
+  font-size: 1.2rem;
+}
+
+a {
+  color: #303030;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+p {
+  color: #303030;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+body {
+  padding: 1em;
+  font-family: "Montserrat";
+}
+
+.signup {
+  display: -ms-grid;
+  display: grid;
+  height: 90vh;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.signup-bg-color {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 10% 80%;
+      grid-template-rows: 10% 80%;
+  background-color: #f2cec5;
+  height: 300px;
+  padding: 4em 3em 4em;
+}
+
+@media screen and (min-width: 768px) {
+  .signup-bg-color {
+    height: 400px;
+    padding: 4em 3em 2em;
+  }
+}
+
+.signup-wrapper {
+  width: 100%;
+}
+
+.signup-title {
+  display: block;
+  color: #FFF;
+  font-size: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .signup-title {
+    font-size: 1.9rem;
+  }
+}
+
+.signup-inputs-grid {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.signup-inputs {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  width: 100%;
+}
+
+.signup input {
+  width: 97%;
+  height: 30px;
+  margin: 1.5em auto 0;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 0 0 10px;
+  outline: none;
+}
+
+.signup input::-webkit-input-placeholder {
+  font-size: 13px;
+  color: #e8a798;
+}
+
+.signup input:-ms-input-placeholder {
+  font-size: 13px;
+  color: #e8a798;
+}
+
+.signup input::-ms-input-placeholder {
+  font-size: 13px;
+  color: #e8a798;
+}
+
+.signup input::placeholder {
+  font-size: 13px;
+  color: #e8a798;
+}
+
+.signup input[type="text"] {
+  font-size: 13px;
+  font-family: "Montserrat";
+}
+
+.signup input[type="date"] {
+  font-size: 13px;
+  font-family: "Montserrat";
+}
+
+.signup input[type="email"] {
+  font-size: 13px;
+  font-family: "Montserrat";
+}
+
+@media screen and (min-width: 768px) {
+  .signup input {
+    height: 40px;
+  }
+}
+
+.signup button {
+  display: block;
+  cursor: pointer;
+  outline: none;
+  font-size: 1rem;
+  margin: 3em auto 0;
+  font-weight: 700;
+  color: #FFF;
+  width: 20em;
+  height: 3em;
+  background-color: #f2cec5;
+  border: none;
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .signup {
+    width: 450px;
+    margin: auto;
+  }
+}
+/*# sourceMappingURL=sign-up.css.map */
