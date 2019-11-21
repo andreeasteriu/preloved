@@ -33,6 +33,10 @@ p {
   font-size: 12px;
 }
 
+.header-main {
+  z-index: 0;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -46,7 +50,7 @@ header {
   margin: 20px;
 }
 
-header .login a {
+header .header-login a {
   margin: 20px;
   font-weight: 600;
 }
@@ -96,18 +100,24 @@ li a:hover {
   display: block;
 }
 
-form .header-search {
+.header-list-item {
+  position: absolute;
+}
+
+.header-form {
   margin-right: 20px;
   border: 2px #e8a798 solid;
   border-radius: 5px;
 }
 
-form .header-search input {
+.header-input {
   border: none;
+  outline: none;
 }
 
-form .header-search header-button {
-  background-color: #e8a798;
+.header-button {
+  padding: 2px;
+  background-color: #ffffff;
   -webkit-box-shadow: none;
           box-shadow: none;
   border: none;
