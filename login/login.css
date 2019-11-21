@@ -296,7 +296,7 @@ footer p {
   width: 100%;
 }
 
-.login input {
+.login-input {
   width: 97%;
   height: 30px;
   margin: 1em auto;
@@ -306,37 +306,37 @@ footer p {
   outline: none;
 }
 
-.login input::-webkit-input-placeholder {
+.login-input::-webkit-input-placeholder {
   font-size: 13px;
   color: #e8a798;
 }
 
-.login input:-ms-input-placeholder {
+.login-input:-ms-input-placeholder {
   font-size: 13px;
   color: #e8a798;
 }
 
-.login input::-ms-input-placeholder {
+.login-input::-ms-input-placeholder {
   font-size: 13px;
   color: #e8a798;
 }
 
-.login input::placeholder {
+.login-input::placeholder {
   font-size: 13px;
   color: #e8a798;
 }
 
-.login input[type="email"] {
+.login-input[type="email"] {
   font-size: 13px;
 }
 
 @media screen and (min-width: 768px) {
-  .login input {
+  .login-input {
     height: 40px;
   }
 }
 
-.login button {
+.login-button {
   display: block;
   cursor: pointer;
   outline: none;
