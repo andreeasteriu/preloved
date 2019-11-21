@@ -24,7 +24,7 @@
         </header>
         <div class="nav-content">
             <nav>
-                <div class="dropdown">
+                <div class="dropdown" id="dropdownMenu">
                     <h2><a href="">Home</a></h2>
                     <ul>
                         <h2><a href="">Women</a></h2>
@@ -65,8 +65,51 @@
                     <h2><a href="">Contact</a></h2>
                 </div>
             </nav>
-            <form class="header-form">
-                <input class="header-input">
-                <button class="header-button"><img src="../graphics/search-bar-icon.svg"></button> </form>
+           <div class="header-search">
+               <div class="header-search-content">
+                    <form class="header-form">
+                        <input class="header-input">
+                        <button class="header-button"><img src="../graphics/search-bar-icon.svg"></button> 
+                    </form>
+                    <div class="header-mobile-logo">
+                        <img src="../graphics/preloved-logo-mobile.svg" </a>
+                    </div>
+                    <a href="javascript:void(0);" id="icon" onclick="burgerMenu()"> <img src="../graphics/menu.svg" </a>
+            </div>
+                </div>
         </div>
     </div>
+
+    <script>
+   
+        if (matchMedia) {
+            const mq = window.matchMedia("(min-width: 30em)");
+            mq.addListener(WidthChange);
+            WidthChange(mq);
+        }
+
+        // media query change
+        function WidthChange(mq) {
+            var x = document.getElementById("icon")
+            if (mq.matches) {
+                x.style.display = "none";
+                document.getElementById("dropdownMenu").style.display = "flex";
+            } else {
+               
+                x.style.display = "block";
+                document.getElementById("dropdownMenu").style.display = "none";
+            }
+
+        }
+
+
+        // media burgermenu
+        function burgerMenu() {
+            var x = document.getElementById("dropdownMenu");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+            }
+        </script>

@@ -38,6 +38,7 @@ li
 
 .dropdown
     display: flex
+    flex-wrap: wrap
     ul
         &:hover
             li
@@ -60,3 +61,24 @@ li
     background-color: #ffffff
     box-shadow: none
     border: none
+
+.header-mobile-logo
+    display: none
+/** media queries **/
+
+@media screen and ( max-width: 30em )
+    header
+        display: none 
+ 
+    .header-search-content
+        width: 80vw
+        padding: 20px
+        display: flex
+        justify-content: space-between
+    .header-form
+        border: none
+    .header-input
+        display: none
+    .header-mobile-logo
+        display: block
+    
