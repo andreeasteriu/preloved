@@ -1,4 +1,4 @@
- <!-- <?php
+ <?php
 session_start();
 if(isset($_SESSION['user'])){
     require_once(__DIR__ . '/../login-header.php');
@@ -8,19 +8,11 @@ if(isset($_SESSION['user'])){
     require_once(__DIR__ . '/../navigation/header.php');
 
   }
-?>  -->
+?>  
 
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="login.css">
-        <title>PRELOVED</title>
-    </head>
-    <body>
+    <link rel="stylesheet" href="login.css">
+    <div class="body-login">
     <div class="login">
         <div class="login-wrapper">
         <div class="login-bg-color">
@@ -36,10 +28,6 @@ if(isset($_SESSION['user'])){
         </div>
         <button>Login</button>
     </div>
+    </div>    
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    </body>
-    </html>
-
-
-<!-- <?php require_once(__DIR__ . '/../footer/footer.php'); ?> -->
+ <?php require_once(__DIR__ . '/../footer/footer.php'); ?> 

@@ -63,4 +63,4 @@
         </nav>
         <form>
             <input name="search">
-            <button><img src="../graphics/search-bar-icon.svg" </button> </form> </div>
+            <button><img src="../graphics/search-bar-icon.svg"></button> </form> </div>
