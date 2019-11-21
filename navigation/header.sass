@@ -5,7 +5,7 @@ header
     justify-content: space-between
     align-items: center
     margin: 20px
-    .header-login
+    .login
         a
             margin: 20px
             font-weight: 600
@@ -20,13 +20,10 @@ header
         margin: 0 20px
         width: 75px
 
-
 li
     display: none
     list-style-type: none
     padding: 5px
-   
-        
 
     a
         color: $grey-dark-2
@@ -42,18 +39,15 @@ li
         &:hover
             li
                 display: block
-        
-        
 
 form
-    margin-right: 20px
-    border: 2px $primary-color solid;
-    border-radius: 5px
-    input
-        border: none
-    button
-        background-color: $primary-color
-        box-shadow: none
-        border: none
-
-
+    .header-search
+        margin-right: 20px
+        border: 2px $primary-color solid
+        border-radius: 5px
+        input
+            border: none
+        header-button
+            background-color: $primary-color
+            box-shadow: none
+            border: none
