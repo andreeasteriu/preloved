@@ -25,43 +25,42 @@
     <div class="nav-content">
         <nav>
             <div class="dropdown">
-            <h2><a href="">Home</a></h2>
-            <ul><h2><a href="">Women</a></h2>
-                <li><a href="">Coats</a></li>
-                <li><a href="">Jackets</a></li>
-                <li><a href="">Blazers</a></li>
-                <li><a href="">Dresses</a></li>
-                <li><a href="">Shirts | Tops</a></li>
-                <li><a href="">Trousers</a></li>
-                <li><a href="">Jeans</a></li>
-                <li><a href="">T-Shirts</a></li>
-                <li><a href="">Sweatshirts</a></li>
-                <li><a href="">Skirts | Shorts</a></li>
-                <li><a href="">Shoes</a></li>
-                <li><a href="">Bags</a></li>
-            </ul>
-            
-            <ul>
-            <h2><a href="">Men</a></h2>
-                <li><a href="">Coats</a></li>
-                <li><a href="">Jackets</a></li>
-                <li><a href="">Blazers</a></li>
-                <li><a href="">Suits</a></li>
-                <li><a href="">Shirts</a></li>
-                <li><a href="">Knitwear</a></li>
-                <li><a href="">Cashmere</a></li>
-                <li><a href="">Trousers</a></li>
-                <li><a href="">Shorts</a></li>
-                <li><a href="">Jeans</a></li>
-                <li><a href="">Tracksuits</a></li>
-                <li><a href="">Sweatshirts</a></li>
-            </ul>
-            <h2><a href="">About</a></h2>
-            <h2><a href="">Contact</a></h2>
+                <h2><a href="">Home</a></h2>
+                <ul>
+                    <h2><a href="">Women</a></h2>
+                    <li><a href="">Coats</a></li>
+                    <li><a href="">Jackets</a></li>
+                    <li><a href="">Blazers</a></li>
+                    <li><a href="">Dresses</a></li>
+                    <li><a href="">Shirts | Tops</a></li>
+                    <li><a href="">Trousers</a></li>
+                    <li><a href="">Jeans</a></li>
+                    <li><a href="">T-Shirts</a></li>
+                    <li><a href="">Sweatshirts</a></li>
+                    <li><a href="">Skirts | Shorts</a></li>
+                    <li><a href="">Shoes</a></li>
+                    <li><a href="">Bags</a></li>
+                </ul>
+
+                <ul>
+                    <h2><a href="">Men</a></h2>
+                    <li><a href="">Coats</a></li>
+                    <li><a href="">Jackets</a></li>
+                    <li><a href="">Blazers</a></li>
+                    <li><a href="">Suits</a></li>
+                    <li><a href="">Shirts</a></li>
+                    <li><a href="">Knitwear</a></li>
+                    <li><a href="">Cashmere</a></li>
+                    <li><a href="">Trousers</a></li>
+                    <li><a href="">Shorts</a></li>
+                    <li><a href="">Jeans</a></li>
+                    <li><a href="">Tracksuits</a></li>
+                    <li><a href="">Sweatshirts</a></li>
+                </ul>
+                <h2><a href="">About</a></h2>
+                <h2><a href="">Contact</a></h2>
             </div>
         </nav>
         <form>
             <input name="search">
-            <button>Search</button>
-        </form>
-    </div>
+            <button><img src="../graphics/search-bar-icon.svg" </button> </form> </div>
