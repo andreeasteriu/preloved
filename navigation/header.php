@@ -17,7 +17,7 @@
 
     <header>
         <a href=""><img src="../graphics/preloved_logo.svg" alt="preloved_logo"></a>
-        <div class="login">
+        <div class="header-login">
             <a href="">Login</a>
             <a href="">Sign Up</a>
         </div>
@@ -62,5 +62,6 @@
             </div>
         </nav>
         <form>
-            <input name="search">
-            <button><img src="../graphics/search-bar-icon.svg"></button> </form> </div>
+            <input name="header-search">
+            <button class="header-button"><img src="../graphics/search-bar-icon.svg"></button> </form>
+    </div>
