@@ -1,1 +1,110 @@
-/* No CSS *//*# sourceMappingURL=header.css.map */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Colors */
+/**Greys**/
+h2 a {
+  color: #303030;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+h2 a:hover {
+  color: #e8a798;
+}
+
+a {
+  color: #303030;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+p {
+  color: #303030;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px;
+}
+
+header .login a {
+  margin: 20px;
+  font-weight: 600;
+}
+
+.nav-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.nav-content h2 {
+  margin: 0 20px;
+  width: 75px;
+}
+
+li {
+  display: none;
+  list-style-type: none;
+  padding: 5px;
+}
+
+li a {
+  color: #303030;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: #e8a798;
+}
+
+.dropdown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dropdown ul:hover li {
+  display: block;
+}
+
+form {
+  margin-right: 20px;
+  border: 2px #e8a798 solid;
+  border-radius: 5px;
+}
+
+form input {
+  border: none;
+}
+
+form button {
+  background-color: #e8a798;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+}
+/*# sourceMappingURL=header.css.map */
+

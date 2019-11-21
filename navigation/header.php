@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="header.css">
     <title>
         <?php
         echo  $sPageName;
@@ -15,15 +16,17 @@
 <body>
 
     <header>
-        <a href=""><img alt="preloved-logo"></a>
-        <a href="">Login</a>
-        <a href="">Sign Up</a>
+        <a href=""><img src="../graphics/preloved_logo.svg" alt="preloved_logo"></a>
+        <div class="login">
+            <a href="">Login</a>
+            <a href="">Sign Up</a>
+        </div>
     </header>
     <div class="nav-content">
         <nav>
-            <a href="">Home</a>
-            <a href="">Women</a>
-            <ul>
+            <div class="dropdown">
+            <h2><a href="">Home</a></h2>
+            <ul><h2><a href="">Women</a></h2>
                 <li><a href="">Coats</a></li>
                 <li><a href="">Jackets</a></li>
                 <li><a href="">Blazers</a></li>
@@ -37,8 +40,9 @@
                 <li><a href="">Shoes</a></li>
                 <li><a href="">Bags</a></li>
             </ul>
-            <a href="">Men</a>
+            
             <ul>
+            <h2><a href="">Men</a></h2>
                 <li><a href="">Coats</a></li>
                 <li><a href="">Jackets</a></li>
                 <li><a href="">Blazers</a></li>
@@ -52,8 +56,9 @@
                 <li><a href="">Tracksuits</a></li>
                 <li><a href="">Sweatshirts</a></li>
             </ul>
-            <a href="">About</a>
-            <a href="">Contact</a>
+            <h2><a href="">About</a></h2>
+            <h2><a href="">Contact</a></h2>
+            </div>
         </nav>
         <form>
             <input name="search">

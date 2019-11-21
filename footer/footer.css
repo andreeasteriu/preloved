@@ -1,1 +1,74 @@
-/* No CSS *//*# sourceMappingURL=footer.css.map */
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Colors */
+/**Greys**/
+h2 a {
+  color: #303030;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+h2 a:hover {
+  color: #e8a798;
+}
+
+a {
+  color: #303030;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+p {
+  color: #303030;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 200px;
+  width: 100%;
+  background-color: #e6e6e6;
+}
+
+footer p {
+  color: #95989a;
+  padding: 20px 0;
+}
+
+form {
+  margin-right: 20px;
+  border: 2px #95989a solid;
+  border-radius: 5px;
+}
+
+form input {
+  border: none;
+  background-color: #e6e6e6;
+}
+
+form button {
+  height: 25px;
+  background-color: #95989a;
+  color: #e6e6e6;
+  padding: 5px 15px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+  font-size: 8px;
+}
+/*# sourceMappingURL=footer.css.map */
+
