@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -55,6 +56,8 @@ header .login a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -111,3 +114,4 @@ form button {
   border: none;
 }
 /*# sourceMappingURL=header.css.map */
+
