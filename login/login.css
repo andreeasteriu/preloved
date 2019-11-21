@@ -148,6 +148,7 @@ li a:hover {
 
 .header-input {
   border: none;
+  outline: none;
 }
 
 .header-button {
