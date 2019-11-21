@@ -1,9 +1,10 @@
-@import '../styles/variables', url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap');
-@import '../navigation/header';
-@import '../footer/footer';
+@import '../styles/variables', url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap')
+@import '../navigation/header'
+@import '../footer/footer'
 .body-login
     padding: 1em
     font-family: $montserrat
+    z-index: 1
 .login
     display: grid
     height: 90vh
@@ -37,7 +38,7 @@
         margin: 1em auto
         border-radius: 5px
         border: none
-        padding: 5px 0 0 10px 
+        padding: 5px 0 0 10px
         outline: none
         &::placeholder
             font-size: 13px
@@ -62,8 +63,3 @@
     @media screen and (min-width : 768px) 
         width: 450px
         margin: auto
-
- 
-
-    
-

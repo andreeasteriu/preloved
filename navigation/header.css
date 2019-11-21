@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -97,21 +96,20 @@ li a:hover {
   display: block;
 }
 
-form {
+form .header-search {
   margin-right: 20px;
   border: 2px #e8a798 solid;
   border-radius: 5px;
 }
 
-form input {
+form .header-search input {
   border: none;
 }
 
-form button {
+form .header-search header-button {
   background-color: #e8a798;
   -webkit-box-shadow: none;
           box-shadow: none;
   border: none;
 }
 /*# sourceMappingURL=header.css.map */
-

@@ -1,5 +1,8 @@
 @import '../styles/variables'
 
+.header-main
+    z-index: 0
+
 header
     display: flex
     justify-content: space-between
@@ -20,13 +23,10 @@ header
         margin: 0 20px
         width: 75px
 
-
 li
     display: none
     list-style-type: none
     padding: 5px
-   
-        
 
     a
         color: $grey-dark-2
@@ -42,18 +42,20 @@ li
         &:hover
             li
                 display: block
-        
-        
 
-form
+.header-list-item
+    position: absolute
+
+.header-form
     margin-right: 20px
-    border: 2px $primary-color solid;
+    border: 2px $primary-color solid
     border-radius: 5px
-    input
-        border: none
-    button
-        background-color: $primary-color
-        box-shadow: none
-        border: none
 
+.header-input
+    border: none
 
+.header-button
+    padding: 2px
+    background-color: #ffffff
+    box-shadow: none
+    border: none
