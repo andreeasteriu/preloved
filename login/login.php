@@ -21,12 +21,12 @@ if(isset($_SESSION['user'])){
         </h3>
         <div class="login-inputs-grid">
         <div class="login-inputs">
-        <input type="email" name="email" id="email" placeholder="Email">
-        <input type="password" name="password" id="password" placeholder="Password">
+        <input class="login-input" type="email" name="email" id="email" placeholder="Email">
+        <input class="login-input" type="password" name="password" id="password" placeholder="Password">
         </div>
         </div>
         </div>
-        <button>Login</button>
+        <button class="login-button">Login</button>
     </div>
     </div>    
     </div>

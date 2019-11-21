@@ -34,7 +34,7 @@ p {
   font-size: 12px;
 }
 
-body {
+.body-sign-up {
   padding: 1em;
   font-family: "Montserrat";
 }
@@ -96,7 +96,7 @@ body {
   width: 100%;
 }
 
-.signup input {
+.signup-input {
   width: 97%;
   height: 30px;
   margin: 1.5em auto 0;
@@ -106,48 +106,48 @@ body {
   outline: none;
 }
 
-.signup input::-webkit-input-placeholder {
+.signup-input::-webkit-input-placeholder {
   font-size: 13px;
   color: #e8a798;
 }
 
-.signup input:-ms-input-placeholder {
+.signup-input:-ms-input-placeholder {
   font-size: 13px;
   color: #e8a798;
 }
 
-.signup input::-ms-input-placeholder {
+.signup-input::-ms-input-placeholder {
   font-size: 13px;
   color: #e8a798;
 }
 
-.signup input::placeholder {
+.signup-input::placeholder {
   font-size: 13px;
   color: #e8a798;
 }
 
-.signup input[type="text"] {
+.signup-input[type="text"] {
   font-size: 13px;
   font-family: "Montserrat";
 }
 
-.signup input[type="date"] {
+.signup-input[type="date"] {
   font-size: 13px;
   font-family: "Montserrat";
 }
 
-.signup input[type="email"] {
+.signup-input[type="email"] {
   font-size: 13px;
   font-family: "Montserrat";
 }
 
 @media screen and (min-width: 768px) {
-  .signup input {
+  .signup-input {
     height: 40px;
   }
 }
 
-.signup button {
+.signup-button {
   display: block;
   cursor: pointer;
   outline: none;
