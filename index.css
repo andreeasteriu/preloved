@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Colors */
+/**Greys**/
+h2 a {
+  color: #303030;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+h2 a:hover {
+  color: #e8a798;
+}
+
+a {
+  color: #303030;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+p {
+  color: #303030;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.category_grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: auto;
+}
+
+.column {
+  height: 300px;
+  width: 235px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1vw;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-size: 3vh;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+}
+
+.row {
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#category {
+  text-align: center;
+  font-size: 5vh;
+  padding: 10% 0 2% 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  color: #e8a798;
+}
+
+#picture {
+  width: 100%;
+  height: 550px;
+}
+
+#main_title {
+  padding: 20px 0 0 0;
+  text-align: center;
+  font-size: 5vh;
+  padding: 15% 0 0 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  color: #e8a798;
+}
+
+#title_description {
+  text-align: center;
+  font-size: 3vh;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+#title_description #description {
+  display: -ms-grid;
+  display: grid;
+  -webkit-columns: 1 1 1;
+          columns: 1 1 1;
+  color: white;
+}
+
+#title1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: white;
+}
+
+#title2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: white;
+}
+
+#text1 {
+  color: white;
+}
+
+#text2 {
+  color: white;
+}
+
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #e8a798;
+}
+/*# sourceMappingURL=index.css.map */
