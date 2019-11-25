@@ -12,7 +12,7 @@ if(isset($_SESSION['user'])){
 
 
     <link rel="stylesheet" href="login.css">
-    <div class="body-login">
+    <section class="body-login">
     <div class="login">
         <div class="login-wrapper">
         <div class="login-bg-color">
@@ -29,5 +29,5 @@ if(isset($_SESSION['user'])){
         <button class="login-button">Login</button>
     </div>
     </div>    
-    </div>
+</section>
  <?php require_once(__DIR__ . '/../footer/footer.php'); ?> 
