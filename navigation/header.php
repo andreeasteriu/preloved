@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../products-list/products-list.css">
     <link rel="stylesheet" href="../navigation/header.css">
+    <link rel="stylesheet" href="../products-list/products-list.css">
     <link rel="stylesheet" href="../footer/footer.css">
 
     <title>
@@ -31,7 +31,7 @@
                     <h2><a href="">Home</a></h2>
                     <ul>
                         <h2><a href="">Women</a></h2>
-                        <div class="header-list-item" >
+                        <div class="header-list-item">
                             <li><a href="">Coats</a></li>
                             <li><a href="">Jackets</a></li>
                             <li><a href="">Blazers</a></li>
