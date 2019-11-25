@@ -1,0 +1,129 @@
+@import '../styles/variables'
+
+.header-main
+    z-index: 0
+    width: 100vw
+
+header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin: 20px
+    .header-login
+        a
+            margin: 20px
+            font-weight: 600
+
+.nav-content
+    width: 100vw
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-items: flex-start
+    h2
+        margin: 0 20px
+        width: 75px
+
+.header-dropdown-content
+    display: flex
+    flex-direction: row
+
+.header-mobile-login
+    display: none
+
+li
+    display: none
+    list-style-type: none
+    padding: 5px
+
+    a
+        color: $grey-dark-2
+        font-family: Arial, Helvetica, sans-serif
+        text-decoration: none
+
+        &:hover
+            color: $primary-color
+
+.dropdown
+    display: flex
+    flex-wrap: wrap
+    ul
+        &:hover
+            li
+                display: block
+
+.header-list-item
+    position: absolute
+
+.header-form
+    margin-right: 20px
+    border: 2px $primary-color solid
+    border-radius: 5px
+
+.header-input
+    border: none
+    outline: none
+
+.header-button
+    padding: 2px
+    background-color: #ffffff
+    box-shadow: none
+    border: none
+
+.header-mobile-logo
+    display: none
+
+/** media queries **/
+
+@media screen and ( max-width: 30em )
+    header
+        display: none
+
+    .nav-content
+        flex-direction: column-reverse
+
+    nav
+        position: absolute
+        top: 63px
+        width: 100vw
+        height: calc( 100vh - 63px )
+        text-align: center
+        background-color: #ffffff
+        z-index: 1
+
+    .header-dropdown-content
+        padding: 20px
+        position: relative
+        display: flex
+        flex-direction: column
+        align-items: center
+        h2
+            height: 50px
+
+    .header-mobile-login
+        height: 100px
+        width: 100vw
+        display: block
+        position: absolute
+        top: calc( 100vh - 163px )
+        padding: 20px
+        background-color: $primary-color
+        a
+            color: #ffffff
+    .header-search-content
+        width: 80vw
+        padding: 20px
+        display: flex
+        justify-content: space-between
+    .header-form
+        border: none
+    .header-input
+        display: none
+    .header-mobile-logo
+        display: block
+
+    .dropdown
+        ul
+            &:hover
+                li
+                    display: none
