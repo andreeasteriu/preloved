@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Colors */
+/**Greys**/
+h2 a {
+  color: #303030;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+h2 a:hover {
+  color: #e8a798;
+}
+
+h3 {
+  font-family: "Montserrat";
+  font-size: 1.2rem;
+}
+
+a {
+  color: #303030;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+p {
+  color: #303030;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.product-list-main {
+  border: 1px #e6e6e6 solid;
+  border-radius: 5px;
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.product-list-sidebar {
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  padding: 20px;
+}
+
+.product-list-products {
+  border-left: 1px #e6e6e6 solid;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  padding: 20px;
+}
+
+.product-list-navigation ul h3 {
+  font-size: 14px;
+  padding: 10px 0;
+}
+
+.product-list-item li {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+/*# sourceMappingURL=products-list.css.map */

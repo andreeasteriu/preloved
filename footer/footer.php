@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="footer.css">
 <footer>
     <div class="logo"><a href=""><img src="../graphics/preloved_logo.svg" alt="preloved_logo"></a>
     </div>

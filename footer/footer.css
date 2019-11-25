@@ -1,5 +1,3 @@
-
-
 * {
   margin: 0;
   padding: 0;
@@ -40,10 +38,10 @@ footer {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   height: 200px;
   width: 100%;
   background-color: #e6e6e6;
@@ -54,26 +52,25 @@ footer p {
   padding: 20px 0;
 }
 
-form {
+.footer-form {
   margin-right: 20px;
   border: 2px #95989a solid;
   border-radius: 5px;
 }
 
-form input {
+.footer-input {
   border: none;
   background-color: #e6e6e6;
 }
 
-form button {
+.footer-button {
   height: 25px;
   background-color: #95989a;
   color: #e6e6e6;
   padding: 5px 15px;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border: none;
   font-size: 8px;
 }
 /*# sourceMappingURL=footer.css.map */
-

@@ -74,19 +74,19 @@ header .header-login a {
   width: 75px;
 }
 
-li {
+.header-list-item {
   display: none;
   list-style-type: none;
   padding: 5px;
 }
 
-li a {
+.header-list-item a {
   color: #303030;
   font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
 }
 
-li a:hover {
+.header-list-item a:hover {
   color: #e8a798;
 }
 
