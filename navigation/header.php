@@ -27,11 +27,11 @@
         </header>
         <div class="nav-content">
             <nav>
-                <div class="dropdown">
+                <div class="dropdown" id="dropdownMenu">
                     <h2><a href="">Home</a></h2>
                     <ul>
                         <h2><a href="">Women</a></h2>
-                        <div class="header-list-item">
+                        <div class="header-list-item" >
                             <li><a href="">Coats</a></li>
                             <li><a href="">Jackets</a></li>
                             <li><a href="">Blazers</a></li>
@@ -102,7 +102,6 @@
             var x = document.getElementById("icon")
             if (mq.matches) {
                 x.style.display = "none";
-                document.getElementById("iconClose").style.display = "none";
                 document.getElementById("dropdownMenu").style.display = "flex";
             } else {
                 x.style.display = "block";
