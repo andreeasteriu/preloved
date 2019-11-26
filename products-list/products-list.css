@@ -71,4 +71,24 @@ p {
   font-weight: 600;
   line-height: 1.5;
 }
+
+.product-list-products-header {
+  width: 100%;
+  height: 45%;
+  background-image: url("../pictures/product-list-header.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+}
+
+.product-list-products-filter {
+  padding-top: 37px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 /*# sourceMappingURL=products-list.css.map */

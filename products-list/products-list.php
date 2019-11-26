@@ -45,12 +45,14 @@ require_once(__DIR__ . '/../navigation/header.php');
         </div>
     </div>
     <div class="product-list-products">
-        <div class="product-list-products-header"></div>
-        <div class="product-list-products-filter">
-            <input name="size">
-            <input name="color">
-            <input name="brand">
-            <input name="material">
+        <div class="product-list-products-header">
+
+        </div>
+        <div class="product-list<button></button>-products-filter">
+            <input name="size"><button></button>
+            <input name="color"><button></button>
+            <input name="brand"><button></button>
+            <input name="material"><button></button>
         </div>
         <div class="product-list-products-column">
             <div class="product-list-products-content">
