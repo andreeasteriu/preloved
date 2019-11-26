@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="index.css">
-</head>
-<body>
+<?php
+session_start();
+if(isset($_SESSION['user'])){
+    require_once(__DIR__ . '/../login/login-header.php');
+    // echo "<div class='session-message'>Hi, {$_SESSION['user']->name}!</div>";
+  
+  } else if(empty($_SESSION)){
+    require_once(__DIR__ . '/../navigation/header.php');
+
+  }
+?>   
+
+<link rel="stylesheet" href="index.css">
+
   <div id="main_picture">
-    <div id='picture' style="background-image: url('pictures/0.png');">
+    <div id='picture' style="background-image: url('../pictures/0.png');">
     <div id="main_title"><span style="color: #e6e6e6;">PRE</span><span style="color: #e8a798;">LOVED.</span></div>
     <div id='title_description'>Another journey chamber way yet females man.</div>
 <div id="main_row">
@@ -31,33 +36,31 @@
 
 <div id='category'><span style="color: #e6e6e6;">CAT</span><span style="color: #e8a798;">EGORIES.</span></div>
 <div class="category_grid">
-  <div class="column" style="background-image: url('pictures/1.png');">
+  <div class="column" style="background-image: url('../pictures/1.png');">
   <a href="url"><h2>JEANS</h2></a>
   </div>
-  <div class="column" style="background-image: url('pictures/2.png');">
+  <div class="column" style="background-image: url('../pictures/2.png');">
   <a href="url"><h2>T-SHIRTS</h2></a>
   </div>
-  <div class="column" style="background-image: url('pictures/3.png');">
+  <div class="column" style="background-image: url('../pictures/3.png');">
   <a href="url"><h2>JACKETS</h2></a>
   </div>
-  <div class="column" style="background-image: url('pictures/4.png');">
+  <div class="column" style="background-image: url('../pictures/4.png');">
   <a href="url"><h2>SKIRTS</h2></a>
   </div>
-  <div class="column" style="background-image: url('pictures/5.png');">
+  <div class="column" style="background-image: url('../pictures/5.png');">
   <a href="url"><h2>HOODIES</h2></a>
   </div>
-  <div class="column" style="background-image: url('pictures/6.png');">
+  <div class="column" style="background-image: url('../pictures/6.png');">
   <a href="url"><h2>KNITS</h2></a>
   </div>
-  <div class="column" style="background-image: url('pictures/7.png');">
+  <div class="column" style="background-image: url('../pictures/7.png');">
   <a href="url"><h2>PANTS</h2></a>
   </div>
-  <div class="column" style="background-image: url('pictures/8.png');">
+  <div class="column" style="background-image: url('../pictures/8.png');">
   <a href="url"><h2>DRESSES</h2></a>
 </div>
 
 </div>
 
-
-</body>
-</html>
+<?php require_once(__DIR__ . '/../footer/footer.php'); ?>  

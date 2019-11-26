@@ -4,7 +4,7 @@
     "sources": [
         "about.sass",
         "../styles/_variables.sass",
-        "../navigation/_header.sass",
+        "../navigation/header.sass",
         "../styles/_variables.sass",
         "../footer/_footer.sass",
         "../styles/_variables.sass"
