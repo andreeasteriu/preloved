@@ -1,4 +1,4 @@
-@import  'styles/variables';
+@import  '../styles/variables';
 @import '../navigation/header'
 @import '../footer/footer'
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap');
@@ -24,9 +24,7 @@
 			text-align: center
 			width: auto
 			padding: 0 5% 5% 5%
-		
 			
-  					
 .column 
 	margin: 1vw
 	height: 200px 
@@ -45,14 +43,19 @@
 		width: auto
 	 
 
-h1 
-	font-size: 3vh 
-h2 
-	font-family: 'Montserrat', sans-serif 
-	font-weight: 900
+div.main_description a
+	&:link 
+		color: white 
+		text-decoration: none 
+		font-family: 'Montserrat', sans-serif
+		font-weight: 700
+		font-size: 3vh
 	@media screen and (max-width : 480px)
 		text-align: center
 		margin-top: 20% 
+	&:hover 
+		color: #e8a798 
+
 .row 
 	text-align: center 
 	justify-content: center 
@@ -65,8 +68,7 @@ h2
 	color: #e8a798 
 #picture 
 	width: 100%
-	height: 220px 
-
+	height: 220px
 	background-repeat: no-repeat
 
 	@media screen and (min-width : 768px)
@@ -137,10 +139,16 @@ h2
 	align-items: center 
 	font-family: 'Montserrat', sans-serif 
 	
-a 
+div.cat_title a
 	&:link 
 		color: white 
 		text-decoration: none 
+		font-family: 'Montserrat', sans-serif
+		font-weight: 900
+		font-size: 3vh
+	@media screen and (max-width : 480px)
+		text-align: center
+		margin-top: 20% 
 	&:hover 
 		color: #e8a798 
 
