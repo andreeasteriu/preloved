@@ -397,20 +397,23 @@ footer p {
   }
 }
 
-h1 {
+div.main_description a:link {
+  color: white;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   font-size: 3vh;
 }
 
-h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-}
-
 @media screen and (max-width: 480px) {
-  h2 {
+  div.main_description a {
     text-align: center;
     margin-top: 20%;
   }
+}
+
+div.main_description a:hover {
+  color: #e8a798;
 }
 
 .row {
@@ -432,7 +435,6 @@ h2 {
 #picture {
   width: 100%;
   height: 220px;
-  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -547,12 +549,22 @@ h2 {
   font-family: 'Montserrat', sans-serif;
 }
 
-a:link {
+div.cat_title a:link {
   color: white;
   text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 3vh;
 }
 
-a:hover {
+@media screen and (max-width: 480px) {
+  div.cat_title a {
+    text-align: center;
+    margin-top: 20%;
+  }
+}
+
+div.cat_title a:hover {
   color: #e8a798;
 }
 /*# sourceMappingURL=index.css.map */
