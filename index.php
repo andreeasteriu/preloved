@@ -9,7 +9,7 @@
 <body>
   <div id="main_picture">
     <div id='picture' style="background-image: url('pictures/0.png');">
-    <div id="main_title"><span style="color: #95989a;">PRE</span><span style="color: #e8a798;">LOVED.</span></div>
+    <div id="main_title"><span style="color: #e6e6e6;">PRE</span><span style="color: #e8a798;">LOVED.</span></div>
     <div id='title_description'>Another journey chamber way yet females man.</div>
 <div id="main_row">
     <div id="main_column1">
@@ -29,7 +29,7 @@
     </div> 
 </div>
 
-<div id='category'><span style="color: #95989a;">CAT</span><span style="color: #e8a798;">EGORIES.</span></div>
+<div id='category'><span style="color: #e6e6e6;">CAT</span><span style="color: #e8a798;">EGORIES.</span></div>
 <div class="category_grid">
   <div class="column" style="background-image: url('pictures/1.png');">
   <a href="url"><h2>JEANS</h2></a>
