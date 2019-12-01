@@ -111,6 +111,7 @@
                 x.style.display = "none";
                 document.getElementById("iconClose").style.display = "none";
                 document.getElementById("dropdownMenu").style.display = "flex";
+                document.getElementById("dropdownMenu").style.backgroundColor = "#ffffff";
             } else {
                 x.style.display = "block";
                 document.getElementById("dropdownMenu").style.display = "none";
