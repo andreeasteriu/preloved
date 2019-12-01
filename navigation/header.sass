@@ -8,7 +8,7 @@ header
     display: flex
     justify-content: space-between
     align-items: center
-    margin: 20px
+    padding: 20px
     .header-login
         a
             margin: 20px
@@ -45,12 +45,16 @@ li
             color: $primary-color
 
 .dropdown
+    
     display: flex
     flex-wrap: wrap
     ul
         &:hover
             li
                 display: block
+                background-color: #ffffff
+                padding: 10px
+                
 
 .header-list-item
     position: absolute
@@ -88,7 +92,7 @@ li
         width: 100vw
         height: calc( 100vh - 63px )
         text-align: center
-        background-color: #ffffff
+       
         z-index: 1
 
     .header-dropdown-content
@@ -123,6 +127,9 @@ li
         display: block
 
     .dropdown
+        background-color: #ffffff
+        height: 100%
+        width: 100%
         ul
             &:hover
                 li
