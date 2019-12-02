@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Preloved</title>
+<?php
+session_start();
+if(isset($_SESSION)){
+    require_once(__DIR__ . '/../navigation/header.php');
+    // echo "<div class='session-message'>Hi, {$_SESSION['user']->name}!</div>";
+}
+?>  
     <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
   crossorigin="anonymous">
-</head>
-<body>
+
 <div class="body-profile">
     <section class="profile">
         <div class="profile-about-container">
@@ -88,7 +87,5 @@
         </div>
     </section>
 
-
 </div>
-</body>
-</html>
+<?php require_once(__DIR__ . '/../footer/footer.php'); ?>  

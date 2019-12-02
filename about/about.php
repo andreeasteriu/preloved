@@ -1,14 +1,10 @@
- <?php
+<?php
 session_start();
-if(isset($_SESSION['user'])){
-    require_once(__DIR__ . '/../login-header.php');
-    // echo "<div class='session-message'>Hi, {$_SESSION['user']->name}!</div>";
-  
-  } else if(empty($_SESSION)){
+if(isset($_SESSION)){
     require_once(__DIR__ . '/../navigation/header.php');
-
-  }
-?>   
+    // echo "<div class='session-message'>Hi, {$_SESSION['user']->name}!</div>";
+}
+?> 
 
 
     <link rel="stylesheet" href="about.css">

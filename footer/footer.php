@@ -1,4 +1,4 @@
-<footer>
+<footer id="footer">
     <div class="logo"><a href=""><img src="../graphics/preloved_logo.svg" alt="preloved_logo"></a>
     </div>
     <div class="links">

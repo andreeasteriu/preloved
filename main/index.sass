@@ -1,26 +1,23 @@
 @import  '../styles/variables';
-@import '../navigation/header'
-@import '../footer/footer'
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap');
 
-* 
-	margin: 0
+
 .category_grid
 		display: grid
 		grid-gap: 1px
-		grid-template-columns: repeat(2, 1fr)
+		grid-template-columns: 1fr 1fr 
 		vertical-align: middle
 		
 
 		@media screen and (min-width : 768px)
 			display: grid
 			grid-gap: 10px
-			grid-template-columns: repeat(4, 1fr)
+			grid-template-columns: 1fr 1fr 1fr 1fr
 			text-align: center
 		@media screen and (min-width : 1224px) 
 			display: grid
 			grid-gap: 30px
-			grid-template-columns: repeat(4, 1fr)
+			grid-template-columns: 1fr 1fr 1fr 1fr
 			text-align: center
 			width: auto
 			padding: 0 5% 5% 5%

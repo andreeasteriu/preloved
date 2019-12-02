@@ -20,8 +20,8 @@
         <header>
             <a href=""><img src="../graphics/preloved_logo.svg" alt="preloved_logo"></a>
             <div class="header-login">
-                <a href="">Login</a>
-                <a href="">Sign Up</a>
+                <a href="../login/login.php">Login</a>
+                <a href="../sign-up/sign-up.php">Sign Up</a>
             </div>
         </header>
         <div class="nav-content">
@@ -29,7 +29,7 @@
                 <div class="dropdown" id="dropdownMenu">
                     <div class="header-dropdown-content">
 
-                        <h2><a href="">Home</a></h2>
+                        <h2><a href="../main/index.php">Home</a></h2>
                         <ul>
                             <h2><a href="">Women</a></h2>
                             <div class="header-list-item">
@@ -65,10 +65,10 @@
                                 <li><a href="">Tracksuits</a></li>
                             </div>
                         </ul>
-                        <h2><a href="">About</a></h2>
-                        <h2><a href="">Contact</a></h2>
+                        <h2><a href="../about/about.php">About</a></h2>
+                        <h2><a href="#footer">Contact</a></h2>
                         <div class="header-mobile-login">
-                            <a href="">Login</a>
+                            <a href="../login/login.php">Login</a>
                         </div>
                     </div>
 
