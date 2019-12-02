@@ -21,11 +21,14 @@ if(isset($_SESSION['user'])){
         <div class="details_first"> 
             <div class="view_detail">SIZE</div>
             <div class="view_detail">BRAND</div>
+            <div class="view_detail">CATEGORY</div>
             <div class="view_detail">CONDITION</div>
+            
         </div>
         <div class="details_second"> 
             <div class="view_detail2">XL</div>
             <div class="view_detail2">ZARA</div>
+            <div class="view_detail2">JEANS</div>
             <div class="view_detail2">GOOD</div>
         </div>
     </div>
@@ -38,22 +41,22 @@ if(isset($_SESSION['user'])){
   <div id='other'><span style="color: #e6e6e6;">OTHER </span><span style="color: #e8a798;">ITEMS.</span></div>
 <div class="other_grid">
     <div class="one">
-        <div class="other_column" style="background-image: url('../pictures/1.png');"></div>
+    <a href="#"><div class="other_column" style="background-image: url('../pictures/1.png');"></div></a>
         <div class="text">Fine knit sweater in alpaca mix</div>
         <div class="text_price">699 DKK</div>
   </div>
     <div class="one">
-        <div class="other_column" style="background-image: url('../pictures/3.png');"></div>
+    <a href="#"><div class="other_column" style="background-image: url('../pictures/3.png');"></div></a>
         <div class="text">Fine knit sweater in alpaca mix</div>
         <div class="text_price">699 DKK</div>
   </div>
     <div class="one">
-        <div class="other_column" style="background-image: url('../pictures/5.png');"></div>
+    <a href="#"><div class="other_column" style="background-image: url('../pictures/5.png');"></div></a>
         <div class="text">Fine knit sweater in alpaca mix</div>
         <div class="text_price">699 DKK</div>
   </div>
     <div class="one">
-        <div class="other_column" style="background-image: url('../pictures/4.png');"></div>
+    <a href="#"><div class="other_column" style="background-image: url('../pictures/4.png');"></div></a>
         <div class="text">Fine knit sweater in alpaca mix</div>
         <div class="text_price">699 DKK</div>
   </div>
