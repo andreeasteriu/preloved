@@ -3,6 +3,6 @@
 $dbServerName = 'localhost';
 $dbUserName = 'root';
 $dbpassword = '';
-$dbName = 'sql_preloved';
+$dbName = 'preloved';
 
-$conn = mysqli_connect($dbServerName,$dbUserName,$dbpassword,$dbName);
+$conn = mysqli_connect($dbServerName, $dbUserName, $dbpassword, $dbName);

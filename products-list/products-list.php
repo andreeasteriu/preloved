@@ -51,9 +51,8 @@ require_once(__DIR__ . '/../includes/db-connect.php');
         </div>
         <div class="product-list-products-filter">
             <form class="product-list-products-filter-input"><input placeholder="size" name="size"><button><img src="../graphics/filter.svg"> </button></form>
-            <form class="product-list-products-filter-input"><input placeholder="color" name="color"><button><img src="../graphics/filter.svg"></button></form>
             <form class="product-list-products-filter-input"><input placeholder="brand" name="brand"><button><img src="../graphics/filter.svg"></button></form>
-            <form class="product-list-products-filter-input"><input placeholder="material" name="material"><button><img src="../graphics/filter.svg"></button></form>
+            <form class="product-list-products-filter-input"><input placeholder="condition" name="condition"><button><img src="../graphics/filter.svg"></button></form>
         </div>
         <div class="product-list-products-column">
             <div class="product-list-products-content">
