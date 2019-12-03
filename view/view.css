@@ -84,7 +84,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 20px;
+  padding: 20px;
 }
 
 header .header-login a {
@@ -152,6 +152,8 @@ li a:hover {
 
 .dropdown ul:hover li {
   display: block;
+  background-color: #ffffff;
+  padding: 10px;
 }
 
 .header-list-item {
@@ -198,7 +200,6 @@ li a:hover {
     width: 100vw;
     height: calc( 100vh - 63px);
     text-align: center;
-    background-color: #ffffff;
     z-index: 1;
   }
   .header-dropdown-content {
@@ -248,6 +249,11 @@ li a:hover {
   }
   .header-mobile-logo {
     display: block;
+  }
+  .dropdown {
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
   }
   .dropdown ul:hover li {
     display: none;
