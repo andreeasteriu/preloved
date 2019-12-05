@@ -71,7 +71,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: -2;
 }
 
 .profile-image {
@@ -156,6 +156,12 @@ body {
   cursor: pointer;
 }
 
+@media screen and (min-width: 1224px) {
+  .manage-plan {
+    margin: 3em 0 3em;
+  }
+}
+
 .sell-your-clothes {
   display: none;
 }
@@ -198,11 +204,12 @@ body {
 .sell-your-clothes-input {
   font-family: "Montserrat";
   border: 1px solid #e6e6e6;
-  padding: .5em;
+  padding: .8em;
   border-radius: 5px;
-  font-size: .9rem;
+  font-size: .8rem;
   font-weight: 700;
   outline: none;
+  color: #e8a798;
 }
 
 .sell-your-clothes-input:focus {
@@ -211,9 +218,25 @@ body {
   font-weight: 400;
 }
 
+.sell-your-clothes-input::-webkit-input-placeholder {
+  color: #000;
+}
+
+.sell-your-clothes-input:-ms-input-placeholder {
+  color: #000;
+}
+
+.sell-your-clothes-input::-ms-input-placeholder {
+  color: #000;
+}
+
+.sell-your-clothes-input::placeholder {
+  color: #000;
+}
+
 .sell-your-clothes-submit {
   display: block;
-  margin-top: 50px;
+  margin-top: 35px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
