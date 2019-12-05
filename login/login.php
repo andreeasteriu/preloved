@@ -17,6 +17,7 @@ if(isset($_SESSION)){
         </h3>
         <form action="" method="POST">
         <div class="login-inputs-grid">
+ php-login
         <div class="login-inputs">
         <input class="login-input" type="username" name="username" id="username" placeholder="Username">
         <input class="login-input" type="password" name="password" id="password" placeholder="Password">
