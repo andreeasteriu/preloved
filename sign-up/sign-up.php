@@ -13,13 +13,13 @@ if(isset($_SESSION)){
     <div class="body-sign-up">
     <div class="signup">
         <div class="signup-wrapper">
-        <form class="signup-bg-color" action="../includes/signup.inc.php" method="POST">
+        <form id="fvSignup" class="signup-bg-color" action="../includes/signup.inc.php" method="POST">
         <h3 class="signup-title">
             Create an Account
         </h3>
         <div class="signup-inputs-grid">
         
-        <div id="frmSignup" class="signup-inputs">
+        <div class="signup-inputs">
             
             <input class="signup-input" type="email" name="email" id="email" placeholder="Email*" maxlength="100" data-type="email">
             <input class="signup-input" type="text" name="firstName" id="firstname" placeholder="First Name*" maxlength="60" data-type="string" data-min="1" data-max="60">
@@ -29,7 +29,6 @@ if(isset($_SESSION)){
             <input class="signup-input" type="password" name="repeatPassword" id="password-repeat" placeholder="Repeat Password*" minlength="6" maxlength="255" data-min="6" data-max="255" data-type="string">
             <input class="signup-input" type="number" name="phoneNr" id="phonenr" placeholder="Phone Nr.*" minlength="8" maxlength="8" data-min="8" data-max="8" data-type="string">
             <input class="signup-input" type="text" name="address" id="address" placeholder="Address*" maxlength="100" data-type="string" data-min="5" data-max="100">
-            <input type="checkbox" name="provider"><p class="checkbox-provider"> Provider<p>
             <div id="error_message"></div>
         </div>
         </div>
@@ -52,14 +51,16 @@ if(isset($_SESSION)){
 
     })
     .done(function(response){
-        if( response.status === 1 ){
+        if( response.status == 1 ){
             window.location='../login/login.php'
         }else{
             $('#error_message').text(response.message)
         }
         console.log(response)
     })
-    .fail()
+    .fail(function(fail){
+        $('#error_message').text(fail.message)
+    })
 
 })
 
