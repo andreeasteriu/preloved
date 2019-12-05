@@ -157,4 +157,19 @@ p {
     margin: auto;
   }
 }
+
+.error {
+  border: 1px solid #f54066;
+  color: #f54066;
+}
+
+.error:focus {
+  color: #000;
+}
+
+#error_message {
+  padding-top: 5px;
+  font-size: 12px;
+  color: #f54066;
+}
 /*# sourceMappingURL=login.css.map */

@@ -2,13 +2,10 @@
 session_start();
 if(isset($_SESSION)){
     require_once(__DIR__ . '/../navigation/header.php');
-    // echo "<div class='session-message'>Hi, {$_SESSION['user']->name}!</div>";
+    echo "<div class='session-message'>Hi, !</div>";
 }
 ?> 
-<?php
-require('db.php');
-include("auth.php");
-?>
+
 <link rel="stylesheet" href="index.css">
 
   <div id="main_picture">

@@ -1,8 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION)){
-    require_once(__DIR__ . '/../navigation/header.php');
-    // echo "<div class='session-message'>Hi, {$_SESSION['user']->name}!</div>";
+     require_once(__DIR__ . '/../navigation/header.php');
 }
 ?> 
 
@@ -11,77 +10,50 @@ if(isset($_SESSION)){
     <section class="body-login">
     <div class="login">
         <div class="login-wrapper">
-        <div class="login-bg-color">
+        <form class="login-bg-color" id="frmLogin" action="" method="POST">
         <h3 class="login-title">
             Login into your account
         </h3>
-        <form action="" method="POST">
         <div class="login-inputs-grid">
- php-login
+
         <div class="login-inputs">
-        <input class="login-input" type="username" name="username" id="username" placeholder="Username">
-        <input class="login-input" type="password" name="password" id="password" placeholder="Password">
+        <input class="login-input" type="text" name="username" placeholder="Username"  data-type="string" data-min="1" data-max="60">
+        <input class="login-input" type="password" name="password" placeholder="Password" data-type="string" data-min="6" data-max="255">
+        <div id="error_message"></div>
         </div>
         </div>
-        </div>
-        <button type="submit" value="Submit">Submit</button>
-        </form>
+        <button id="loginbtn" class="login-button" type="submit" value="Submit" onclick="login(this); return false">Login</button>
       
+    </form>
     </div>
     </div>    
 </section>
-
-<?php
-
-if (isset($_POST['login-submit'])){ 
-
-    require 'db.php';
-
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    if (empty($username) || empty($password)){
-        header("Location: ../main/index.php?error=emptyfields");
-        exit();
-
-    }else{
-        $sql = "SELECT * FROM customers WHERE username=? "; //check here
-        $stmt = mysqli_stmt_init($con);
-        if (!mysqli_stmt_prepare($stmt, $sql)){
-            header("Location: ../main/index.php?error=sqlerror");
-             exit();
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $('#loginbtn').click(function(event){
+    event.preventDefault()
+    // console.log('test')
+    // console.log($('form').serialize())
+    $.ajax({
+        url : "../includes/login.inc.php",
+        method: "POST",
+        data : $('form').serialize(), // create the form to be passed
+        dataType:"JSON"
+    })
+    .done(function(response){
+        console.log('Hi');
+        if( response.status === 1 ){
+            window.location='../main/index.php'
         }else{
-            mysqli_stmt_bind_param($stmt, "ss", $username, $username);
-            mysqli_stmt_execute($stmt);
-            $result =  mysqli_stmt_get_result($stmt);
-            if ($row = mysqli_fetch_assoc($result)) {
-                $passCheck = password_verify($password, $row['passwordUsers']); // how is called in data
-                if ($passCheck == false) {
-                    header("Location: ../main/index.php?error=wrongpassword");
-                exit();
-                }
-                else if($passCheck == true){
-                    session_start();
-                    $_SESSION['userId'] = $row['idUser']; // how is called in data - store more?
-
-                    header("Location: ../main/index.php?login=success");
-                    exit();
-
-                }else {
-                    header("Location: ../main/index.php?error=wrongpassword");
-                    exit();
-                }
-            }else {
-                header("Location: ../main/index.php?error=nouser");
-                exit();
-            }
-           
+            $('#error_message').text(response.message)
         }
-    }
-}else {
-    header("Location: ../main/index.php");
-    exit();
+        console.log(response)
+    })
+    .fail()
 
-    }
- ?>
+})
+
+</script>
+<script src="../validate.js"></script>
+
  <?php require_once(__DIR__ . '/../footer/footer.php'); ?> 
