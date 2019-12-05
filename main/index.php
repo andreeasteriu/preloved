@@ -5,6 +5,10 @@ if(isset($_SESSION)){
     // echo "<div class='session-message'>Hi, {$_SESSION['user']->name}!</div>";
 }
 ?> 
+<?php
+require('db.php');
+include("auth.php");
+?>
 <link rel="stylesheet" href="index.css">
 
   <div id="main_picture">
