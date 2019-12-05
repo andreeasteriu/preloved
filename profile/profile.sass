@@ -24,7 +24,7 @@ body
         position: absolute
         top: 0
         left: 0
-        z-index: -1
+        z-index: -2
     &-image
         margin: 40px auto 0
         background-image: url(../graphics/andreea.svg)
@@ -77,6 +77,8 @@ body
     display: block
     font-weight: 700
     cursor: pointer
+    @media screen and (min-width : 1224px) 
+        margin: 3em 0 3em
 .sell-your-clothes
     display: none
     @media screen and (min-width : 1224px) 
@@ -104,18 +106,21 @@ body
     &-input
         font-family: $montserrat
         border: 1px solid $grey-light
-        padding: .5em
+        padding: .8em
         border-radius: 5px
-        font-size: .9rem
+        font-size: .8rem
         font-weight: 700
         outline: none
+        color: $primary-color
         &:focus
             color: $primary-color
             border-color: $secondary-color
             font-weight: 400
+        &::placeholder
+            color: #000
     &-submit
         display: block
-        margin-top: 50px
+        margin-top: 35px
         width: fit-content
         border-radius: 5px
         padding: 12px 

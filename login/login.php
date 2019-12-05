@@ -16,10 +16,10 @@ if(isset($_SESSION)){
             Login into your account
         </h3>
         <div class="login-inputs-grid">
-        <div class="login-inputs">
-        <input class="login-input" type="email" name="email" id="email" placeholder="Email">
-        <input class="login-input" type="password" name="password" id="password" placeholder="Password">
-        </div>
+        <form class="login-inputs" method="post">
+            <input class="login-input" type="email" name="email" id="email" placeholder="Email">
+            <input class="login-input" type="password" name="password" id="password" placeholder="Password">
+        </form>
         </div>
         </div>
         <button class="login-button">Login</button>
