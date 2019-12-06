@@ -36,6 +36,7 @@ if($_POST){
     }
 }       
 
+
 $firstName = mysqli_real_escape_string($conn, $_POST['firstName']);
 $lastName = mysqli_real_escape_string($conn, $_POST['lastName']);
 $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -44,45 +45,7 @@ $phoneNr = mysqli_real_escape_string($conn, $_POST['phoneNr']);
 $userName =  mysqli_real_escape_string($conn, $_POST['userName']);
 $address = mysqli_real_escape_string($conn,  $_POST['address']);
 $date = date('Y-m-d H:i:s');
-$provider = $_POST['provider'];
 
-if ($provider === "on")   {
-
-    $sql = "SELECT email, userName FROM providers WHERE email=? OR userName=?";
-    $stmt = mysqli_stmt_init($conn);
-
-    if(!mysqli_stmt_prepare($stmt, $sql)){
-        sendErrorMessage('* sql error', __LINE__ );
-    }
-    else {
-        mysqli_stmt_bind_param($stmt, "ss", $email, $userName);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_store_result($stmt);
-        $resultCheck = mysqli_stmt_num_rows($stmt);
-        if($resultCheck > 0) {
-            sendErrorMessage('* user taken', __LINE__ );
-        }
-        else {
-
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-            $sql = "INSERT INTO providers (`email`,`firstName`,`lastName`,`password`,`phoneNr`,`joiningDate`,`userName`,`address`) 
-            VALUES ('$email','$firstName','$lastName','$hashedPassword','$phoneNr','$date','$userName','$address');";
-            // mysqli_query($conn, $sql);
-            
-
-            if ($conn->query($sql) === TRUE) {
-                echo '{"status": 1, "message":"New record created successfully", "line":"'.__LINE__.'"}';
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-               
-            }
-
-            $conn->close();
-        }
-    }
- }  
- else {
 
     $sql = "SELECT email, userName FROM customers WHERE email=? OR userName=?";
     $stmt = mysqli_stmt_init($conn);
@@ -102,12 +65,12 @@ if ($provider === "on")   {
 
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            $sql = "INSERT INTO customers (`email`,`firstName`,`lastName`,`password`,`phoneNr`,`totalAmount`,`joiningDate`,`userName`,`address`) 
-            VALUES ('$email','$firstName','$lastName','$hashedPassword','$phoneNr', 5000.00,'$date','$userName','$address');";
+            $sql = "INSERT INTO customers (`email`,`firstName`,`lastName`,`password`,`phoneNr`,`joiningDate`,`userName`,`address`) 
+            VALUES ('$email','$firstName','$lastName','$hashedPassword','$phoneNr','$date','$userName','$address');";
             // mysqli_query($conn, $sql);
             
 
-            if ($conn->query($sql) === TRUE) {
+            if ($conn->query($sql) == TRUE) {
                 echo '{"status": 1, "message":"New record created successfully", "line":"'.__LINE__.'"}';
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
@@ -117,7 +80,7 @@ if ($provider === "on")   {
             $conn->close();
         }
     }
-}
+
 
    
     function sendErrorMessage($sErrorMessage, $iLineNumber){
