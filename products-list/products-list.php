@@ -58,99 +58,129 @@ require_once(__DIR__ . '/../includes/db-connect.php');
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 
 <div class="product-list-products-filter">
-<div class="container">
-  <form action="" method="post">
-    <div class="row">
-        <div class="form-group">
-            <select class="form-control" name="size">
-                <option value="">SELECT SIZE</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-            </select>
-        </div>
+        <form class="product-list-products-filter-content" action="" method="get">
+           
+                <div class="product-list-products-filter-input">
+                    <select class="" name="size" >
+                        <option value="">size</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary"><img src="../graphics/filter.svg"></button>
+                </div>
 
-        <div class="form-group">
-            <select class="form-control" name="brand">
-                <option value ="">SELECT BRAND</option>
-                <option value="ZARA">ZARA</option>
-                <option value="H&M">H&M</option>
-                <option value="Calvin Klein">Calvin Klein</option>
-                <option value="Versace">Versace</option>
-                <option value="Levis">Levis</option>
-                <option value="Gucci">Gucci</option>
-                <option value="Nike">Nike</option>
-            </select>
-        </div>
+                <div class="product-list-products-filter-input">
+                    <select class="" name="brand">
+                        <option value="">brand</option>
+                        <option value="ZARA">ZARA</option>
+                        <option value="H&M">H&M</option>
+                        <option value="Calvin Klein">Calvin Klein</option>
+                        <option value="Versace">Versace</option>
+                        <option value="Levis">Levis</option>
+                        <option value="Gucci">Gucci</option>
+                        <option value="Nike">Nike</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary"><img src="../graphics/filter.svg"></button>
+                </div>
+
+                <div class="product-list-products-filter-input">
+                    <select class="" name="condition">
+                        <option value="">condition</option>
+                        <option value="Good">Good</option>
+                        <option value="Very Good">Very Good</option>
+                        <option value="Not That Good">Not That Good</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary"><img src="../graphics/filter.svg"></button>
+                </div>
+           
+            
+        </form>
     
-	        <div class="form-group">
-            <select class="form-control" name="condition">
-                <option value="">SELECY CONDITION</option>
-                <option value="Good">Good</option>
-                <option value="Very Good">Very Good</option>
-                <option value="Not That Good">Not That Good</option>
-            </select>
-        </div>
-    </div>
-	<button type="submit" class="btn btn-primary">Apply</button>
-</form>
 </div>
-</div>
-<div class="product-list-products">
-<div class="container-fluid">
-    <div class="row"><?php
+<div class="product-list-products-column">
+<div class="product-list-products-content">
+    
+        <?php
+        if(!$_GET){
+            {
+                $sql = "SELECT * FROM products";
+                $result = mysqli_query($conn,$sql);
+                $num = mysqli_num_rows($result);
+                if($num > 0) while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){ 
+    
+                        echo '<div class="product-list-products-item"><div class="product-list-products-item-details">'
+                            . '<div class="product-list-products-item-image">
+                            <a href="../view/view.php?id='.$row['idProduct'].'"><img src="../pictures/product-list-product-placeholder.png">
+                            <span class="product-list-products-item-image-overlay"></span></a>
+                            </div>'
+                            . '<div><p>' . $row['title'] . '</p></div>'
+                            . '<div><p>' . $row['price'] . ' kr.</p></div>'
+                            . '</div></div>'; 
+                        }
+            }
+        }
+        else{
+            $size = $_GET['size'];
+            $brand = $_GET['brand'];
+            $condition = $_GET['condition'];
+            
+            if(isset($_GET['size']) && isset($_GET['brand']) && isset($_GET['condition'])) { $sql = "SELECT * FROM products
+            WHERE size ='$size' AND condition = $condition AND brand ='$brand'"; }
+            if(isset($_GET['size']) && isset($_GET['brand']) && $_GET['condition']==NULL){
+                $sql = "SELECT * FROM products
+            WHERE size ='$size' AND brand ='$brand'";
+            
+            }
+            if(isset($_GET['brand']) && isset($_GET['condition']) && $_GET['size']==NULL){
+                $sql = "SELECT * FROM products
+            WHERE condition = '$condition' AND brand ='$brand'";
+            }
+            if(isset($_GET['size']) && isset($_GET['condition']) && $_GET['brand']==NULL){
+                $sql = "SELECT * FROM products
+            WHERE size ='$size' AND condition = '$condition'";
+            }
+            if(isset($_GET['brand']) && $_GET['condition']==NULL && $_GET['size']==NULL){
+                $sql = "SELECT * FROM products
+            WHERE brand ='$brand'";
+            }
+            if($_GET['brand']==NULL && isset($_GET['condition']) && $_GET['size']==NULL){
+                $sql = "SELECT * FROM products
+            WHERE condition = '$condition'";
+            }
+            if($_GET['brand']==NULL && $_GET['condition']==NULL && isset($_GET['size'])){
+                $sql = "SELECT * FROM products
+            WHERE size ='$size'";
+            }
+            if($_GET['brand']==NULL && $_GET['condition']==NULL && $_GET['size']==NULL){
+                $sql = "SELECT * FROM products";
+            }
+        
+            $result = mysqli_query($conn,$sql);
+            $num = mysqli_num_rows($result);
+            if($num > 0) while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){ 
 
-		$size = $_POST['size'];
-		$brand = $_POST['brand'];
-		$condition = $_POST['condition'];
-		include '../includes/db-connect.php';
-		if(isset($_POST['size']) && isset($_POST['brand']) && isset($_POST['condition'])) { $sql = "SELECT * FROM products
-		WHERE size ='$size' AND condition = $condition AND brand ='$brand'"; }
-		if(isset($_POST['size']) && isset($_POST['brand']) && $_POST['condition']==NULL){
-			$sql = "SELECT * FROM products
-		WHERE size ='$size' AND brand ='$brand'";
-		}
-		if(isset($_POST['brand']) && isset($_POST['condition']) && $_POST['size']==NULL){
-			$sql = "SELECT * FROM products
-		WHERE condition = '$condition' AND brand ='$brand'";
-		}
-		if(isset($_POST['size']) && isset($_POST['condition']) && $_POST['brand']==NULL){
-			$sql = "SELECT * FROM products
-		WHERE size ='$size' AND condition = '$condition'";
-		}
-		if(isset($_POST['brand']) && $_POST['condition']==NULL && $_POST['size']==NULL){
-			$sql = "SELECT * FROM products
-		WHERE brand ='$brand'";
-		}
-		if($_POST['brand']==NULL && isset($_POST['condition']) && $_POST['size']==NULL){
-			$sql = "SELECT * FROM products
-		WHERE condition = '$condition'";
-		}
-		if($_POST['brand']==NULL && $_POST['condition']==NULL && isset($_POST['size'])){
-			$sql = "SELECT * FROM products
-		WHERE size ='$size'";
-		}
-		if($_POST['brand']==NULL && $_POST['condition']==NULL && $_POST['size']==NULL){
-			$sql = "SELECT * FROM products";
-		}
-		$result = mysqli_query($conn,$sql);
-		$num = mysqli_num_rows($result);
-		  if($num > 0) while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){ 
-
-                echo '<div class="product-list-products-item"><div class="product-list-products-item-details">'
-                    . '<div class="product-list-products-item-image">
-                        <img src="../pictures/product-list-product-placeholder.png">
-                        <div class="product-list-products-item-image-overlay"></div>
-                    </div>'
-                    . '<div><p>' . $row['title'] . '</p></div>'
-                    . '<div><p>' . $row['price'] . ' kr.</p></div>'
-                    . '</div></div>';
-            }else{
-			   echo "<h4>No Result Found</h4>"; } ?>
+                    echo '<div class="product-list-products-item"><div class="product-list-products-item-details">'
+                        . '<div class="product-list-products-item-image">
+                            <a href="../view/view.php?id='.$row['idProduct'].'"><img src="../pictures/product-list-product-placeholder.png">
+                            <span class="product-list-products-item-image-overlay"></span></a>
+                        </div>'
+                        . '<div><p>' . $row['title'] . '</p></div>'
+                        . '<div><p>' . $row['price'] . ' kr.</p></div>'
+                        . '</div></div>';
+          }
+        
+    
+         }?>
       
+
 </div>
 </div>
+    
 </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <?php require_once(__DIR__ . '/../footer/footer.php'); ?>  
