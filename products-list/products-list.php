@@ -18,38 +18,34 @@ if(empty($_SESSION)){
         <div class="product-list-sidebar-content">
             <div class="product-list-navigation">
                 <ul>
-                    <h3><a href="">Women</a></h3>
+                    <h3><a href="?gender=1&category=&size=&brand=&condition=">Women</a></h3>
                     <div class="product-list-item">
-                        <li><a href="">Coats</a></li>
-                        <li><a href="">Jackets</a></li>
-                        <li><a href="">Blazers</a></li>
-                        <li><a href="">Dresses</a></li>
-                        <li><a href="">Shirts | Tops</a></li>
-                        <li><a href="">Trousers</a></li>
-                        <li><a href="">Jeans</a></li>
-                        <li><a href="">T-Shirts</a></li>
-                        <li><a href="">Sweatshirts</a></li>
-                        <li><a href="">Skirts | Shorts</a></li>
-                        <li><a href="">Shoes</a></li>
-                        <li><a href="">Bags</a></li>
+                        <li><a href="?gender=1&category=1&size=&brand=&condition=">Coats</a></li>
+                        <li><a href="?gender=1&category=2&size=&brand=&condition=">Jackets</a></li>
+                        <li><a href="?gender=1&category=3&size=&brand=&condition=">Blazers</a></li>
+                        <li><a href="?gender=1&category=4&size=&brand=&condition=">Dresses</a></li>
+                        <li><a href="?gender=1&category=6&size=&brand=&condition=">Shirts | Tops</a></li>
+                        <li><a href="?gender=1&category=8&size=&brand=&condition=">Trousers</a></li>
+                        <li><a href="?gender=1&category=9&size=&brand=&condition=">Jeans</a></li>
+                        <li><a href="?gender=1&category=10&size=&brand=&condition=">T-Shirts</a></li>
+                        <li><a href="?gender=1&category=11&size=&brand=&condition=">Skirts | Shorts</a></li>
+                        <li><a href="?gender=1&category=14&size=&brand=&condition=">Shoes</a></li>
+                        <li><a href="?gender=1&category=15&size=&brand=&condition=">Bags</a></li>
                     </div>
                 </ul>
 
                 <ul>
-                    <h3><a href="">Men</a></h3>
+                    <h3><a href="?gender=0&category=&size=&brand=&condition=">Men</a></h3>
                     <div class="product-list-item">
-                        <li><a href="">Coats</a></li>
-                        <li><a href="">Jackets</a></li>
-                        <li><a href="">Blazers</a></li>
-                        <li><a href="">Suits</a></li>
-                        <li><a href="">Shirts</a></li>
-                        <li><a href="">Knitwear</a></li>
-                        <li><a href="">Cashmere</a></li>
-                        <li><a href="">Trousers</a></li>
-                        <li><a href="">Shorts</a></li>
-                        <li><a href="">Jeans</a></li>
-                        <li><a href="">Tracksuits</a></li>
-                        <li><a href="">Sweatshirts</a></li>
+                        <li><a href="?gender=0&category=1&size=&brand=&condition=">Coats</a></li>
+                        <li><a href="?gender=0&category=2&size=&brand=&condition=">Jackets</a></li>
+                        <li><a href="?gender=0&category=3&size=&brand=&condition=">Blazers</a></li>
+                        <li><a href="?gender=0&category=6&size=&brand=&condition=">Shirts</a></li>
+                        <li><a href="?gender=0&category=7&size=&brand=&condition=">Knitwear</a></li>
+                        <li><a href="?gender=0&category=8&size=&brand=&condition=">Trousers</a></li>
+                        <li><a href="?gender=0&category=11&size=&brand=&condition=">Shorts</a></li>
+                        <li><a href="?gender=0&category=9&size=&brand=&condition=">Jeans</a></li>
+                        <li><a href="?gender=0&category=13&size=&brand=&condition=">Tracksuits</a></li>
                     </div>
                 </ul>
             </div>
@@ -62,15 +58,16 @@ if(empty($_SESSION)){
 
 
 
-                
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 
-<div class="product-list-products-filter">
-        <form class="product-list-products-filter-content" action="" method="get">
-           
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <div class="product-list-products-filter">
+            <form class="product-list-products-filter-content" action="" method="get">
+                <input type="hidden" name="gender">
+                <input type="hidden" name="category">
                 <div class="product-list-products-filter-input">
-                    <select class="" name="size" >
+                    <select class="" name="size">
                         <option value="">size</option>
                         <option value="S">S</option>
                         <option value="M">M</option>
@@ -103,15 +100,15 @@ if(empty($_SESSION)){
                     </select>
                     <button type="submit" class="btn btn-primary"><img src="../graphics/filter.svg"></button>
                 </div>
-           
-            
-        </form>
-    
-</div>
-<div class="product-list-products-column">
-<div class="product-list-products-content">
-    
-        <?php
+
+
+            </form>
+
+        </div>
+        <div class="product-list-products-column">
+            <div class="product-list-products-content">
+
+                <?php
         if(!$_GET){
             {
                 $sql = "SELECT * FROM products";
@@ -134,35 +131,49 @@ if(empty($_SESSION)){
             $size = $_GET['size'];
             $brand = $_GET['brand'];
             $condition = $_GET['condition'];
+            $category = $_GET['category'];
+            $gender = $_GET['gender'];
             
-            if(isset($_GET['size']) && isset($_GET['brand']) && isset($_GET['condition'])) { $sql = "SELECT * FROM products
+            /**conditions for filtering */
+
+            if(isset($_GET['gender']) && $_GET['brand']==NULL && $_GET['condition']==NULL && $_GET['size']==NULL && $_GET['category']==NULL){
+            $sql = "SELECT * FROM products WHERE gender = $gender";
+            }
+
+            if(isset($_GET['gender']) && $_GET['brand']==NULL && $_GET['condition']==NULL && $_GET['size']==NULL && isset($_GET['category'])){
+                $sql = "SELECT * FROM products WHERE idCategory = $category";
+            }
+            
+            if(isset($_GET['size']) && isset($_GET['brand']) && isset($_GET['condition']) && $_GET['gender']==NULL && $_GET['category']==NULL) 
+            { $sql = "SELECT * FROM products
             WHERE size ='$size' AND condition = $condition AND brand ='$brand'"; }
-            if(isset($_GET['size']) && isset($_GET['brand']) && $_GET['condition']==NULL){
+            
+            if(isset($_GET['size']) && isset($_GET['brand']) && $_GET['condition']==NULL && $_GET['gender']==NULL && $_GET['category']==NULL){
                 $sql = "SELECT * FROM products
             WHERE size ='$size' AND brand ='$brand'";
             
             }
-            if(isset($_GET['brand']) && isset($_GET['condition']) && $_GET['size']==NULL){
+            if(isset($_GET['brand']) && isset($_GET['condition']) && $_GET['size']==NULL && $_GET['gender']==NULL && $_GET['category']==NULL){
                 $sql = "SELECT * FROM products
             WHERE condition = '$condition' AND brand ='$brand'";
             }
-            if(isset($_GET['size']) && isset($_GET['condition']) && $_GET['brand']==NULL){
+            if(isset($_GET['size']) && isset($_GET['condition']) && $_GET['brand']==NULL && $_GET['gender']==NULL && $_GET['category']==NULL){
                 $sql = "SELECT * FROM products
             WHERE size ='$size' AND condition = '$condition'";
             }
-            if(isset($_GET['brand']) && $_GET['condition']==NULL && $_GET['size']==NULL){
+            if(isset($_GET['brand']) && $_GET['condition']==NULL && $_GET['size']==NULL && $_GET['gender']==NULL && $_GET['category']==NULL){
                 $sql = "SELECT * FROM products
             WHERE brand ='$brand'";
             }
-            if($_GET['brand']==NULL && isset($_GET['condition']) && $_GET['size']==NULL){
+            if($_GET['brand']==NULL && isset($_GET['condition']) && $_GET['size']==NULL && $_GET['gender']==NULL && $_GET['category']==NULL){
                 $sql = "SELECT * FROM products
             WHERE condition = '$condition'";
             }
-            if($_GET['brand']==NULL && $_GET['condition']==NULL && isset($_GET['size'])){
+            if($_GET['brand']==NULL && $_GET['condition']==NULL && isset($_GET['size']) && $_GET['gender']==NULL && $_GET['category']==NULL){
                 $sql = "SELECT * FROM products
             WHERE size ='$size'";
             }
-            if($_GET['brand']==NULL && $_GET['condition']==NULL && $_GET['size']==NULL){
+            if($_GET['brand']==NULL && $_GET['condition']==NULL && $_GET['size']==NULL && $_GET['gender']==NULL && $_GET['category']==NULL){
                 $sql = "SELECT * FROM products";
             }
         
@@ -182,14 +193,14 @@ if(empty($_SESSION)){
         
     
          }?>
-      
 
-</div>
-</div>
-    
-</div>
+
+            </div>
+        </div>
+
+    </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<?php require_once(__DIR__ . '/../footer/footer.php'); ?>  
+<?php require_once(__DIR__ . '/../footer/footer.php'); ?>
