@@ -1,16 +1,17 @@
 <?php
-session_start();
-if(isset($_SESSION)){
-     require_once(__DIR__ . '/../navigation/header.php');
-}
+$sPageName = "Login";
+require_once(__DIR__ . '/../navigation/header.php');
+
 ?> 
+
+
 
 
     <link rel="stylesheet" href="login.css">
     <section class="body-login">
     <div class="login">
-        <div class="login-wrapper">
-        <form class="login-bg-color" id="frmLogin" action="" method="POST">
+        <form class="login-wrapper" id="frmLogin" action="" method="POST">
+        <div class="login-bg-color">
         <h3 class="login-title">
             Login into your account
         </h3>
@@ -22,10 +23,10 @@ if(isset($_SESSION)){
         <div id="error_message"></div>
         </div>
         </div>
+        </div>
         <button id="loginbtn" class="login-button" type="submit" value="Submit" onclick="login(this); return false">Login</button>
       
     </form>
-    </div>
     </div>    
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

@@ -33,12 +33,19 @@ p {
   font-size: 12px;
 }
 
-.header-main {
-  z-index: 0;
-  width: 100vw;
+.header-list-item {
+  display: none;
 }
 
-header {
+@media screen and (min-width: 1224px) {
+  header {
+    height: 100px;
+    padding: 0;
+    border-bottom: 1px solid #e6e6e6;
+  }
+}
+
+.header-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -48,179 +55,332 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 20px;
+  padding: 1.5em 0 .5em;
+  border-bottom: 1px solid #e6e6e6;
 }
 
-header .header-login a {
-  margin: 20px;
-  font-weight: 600;
+@media screen and (min-width: 1224px) {
+  .header-nav {
+    padding: .5em 0;
+    border-bottom: none;
+  }
 }
 
-.nav-content {
-  width: 100vw;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-
-.nav-content h2 {
-  margin: 0 20px;
-  width: 75px;
-}
-
-.header-dropdown-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.header-mobile-login {
+.desktop-logo {
   display: none;
 }
 
-li {
-  display: none;
-  list-style-type: none;
-  padding: 5px;
+@media screen and (min-width: 1224px) {
+  .desktop-logo {
+    display: block;
+    padding-left: 1em;
+  }
 }
 
-li a {
-  color: #303030;
-  font-family: Arial, Helvetica, sans-serif;
-  text-decoration: none;
+.desktop-logo img {
+  display: block;
+  width: 70px;
 }
 
-li a:hover {
+.fas {
+  margin-left: 1em;
+  font-size: 20px;
   color: #e8a798;
 }
 
-.dropdown {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+@media screen and (min-width: 1224px) {
+  .fa-search {
+    padding-right: 1em;
+  }
 }
 
-.dropdown ul:hover li {
+@media screen and (min-width: 1224px) {
+  .logo {
+    display: none;
+  }
+}
+
+.logo-title-color {
+  color: #f2cec5;
+}
+
+#menuToggle {
   display: block;
-  background-color: #ffffff;
-  padding: 10px;
+  position: relative;
+  margin-right: 1em;
+  z-index: 2;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
 }
 
-.header-list-item {
+@media screen and (min-width: 1224px) {
+  #menuToggle {
+    display: none;
+  }
+}
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
   position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  -webkit-touch-callout: none;
 }
 
-.header-form {
-  margin-right: 20px;
-  border: 2px #e8a798 solid;
-  border-radius: 5px;
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin-bottom: 4px;
+  position: relative;
+  background: #e8a798;
+  z-index: 1;
+  -webkit-transform-origin: 4px 0px;
+          transform-origin: 4px 0px;
+  -webkit-transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
-.header-input {
-  border: none;
-  outline: none;
+#menuToggle span:nth-child(1) {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
 }
 
-.header-button {
-  padding: 2px;
-  background-color: #ffffff;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border: none;
+#menuToggle span:nth-child(2) {
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
 }
 
-.header-mobile-logo {
+/*
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  -webkit-transform: rotate(-45deg) translate(0, -2px);
+          transform: rotate(-45deg) translate(0, -2px);
+  background: #e8a798;
+  width: 25px;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-child(3) {
+  opacity: 0;
+  -webkit-transform: rotate(0deg) scale(0.2, 0.2);
+          transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-child(2) {
+  opacity: 1;
+  -webkit-transform: rotate(45deg) translate(-2px, -2px);
+          transform: rotate(45deg) translate(-2px, -2px);
+}
+
+nav {
+  position: relative;
+  width: 100%;
+}
+
+.nav-links {
   display: none;
 }
 
-/** media queries **/
-@media screen and (max-width: 30em) {
-  header {
-    display: none;
-  }
-  .nav-content {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
-  }
-  nav {
+@media screen and (min-width: 1224px) {
+  .nav-links {
     position: absolute;
-    top: 63px;
-    width: 100vw;
-    height: calc( 100vh - 63px);
-    text-align: center;
-    z-index: 1;
+    top: 70px;
+    left: 1em;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[20];
+        grid-template-columns: repeat(20, 1fr);
+    grid-gap: 1em;
+    list-style: none;
+    width: 99%;
   }
-  .header-dropdown-content {
-    padding: 20px;
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+  .nav-links li a {
+    font-size: 1rem !important;
+    text-transform: uppercase;
+    cursor: default;
   }
-  .header-dropdown-content h2 {
-    height: 50px;
+}
+
+@media screen and (min-width: 1224px) {
+  .nav-links .fa-arrow-right {
+    display: none;
   }
-  .header-mobile-login {
-    height: 100px;
-    width: 100vw;
-    display: block;
+}
+
+.nav-links-signup-login {
+  position: fixed;
+  bottom: 0;
+  display: -ms-grid;
+  display: grid;
+  padding: 1.5em 0;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  background: #f2cec5;
+  width: 100vw;
+}
+
+@media screen and (min-width: 1224px) {
+  .nav-links-signup-login {
     position: absolute;
-    top: calc( 100vh - 163px);
-    padding: 20px;
-    background-color: #e8a798;
+    top: 0;
+    right: 1em;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    width: auto;
+    background: none;
+    padding: 0;
   }
-  .header-mobile-login a {
-    color: #ffffff;
+}
+
+.nav-links-signup-login li {
+  width: 100%;
+  text-align: center;
+}
+
+.nav-links-signup-login a {
+  width: 100%;
+  color: #FFF !important;
+}
+
+@media screen and (min-width: 1224px) {
+  .nav-links-signup-login a {
+    color: #000 !important;
+    font-size: 1rem !important;
   }
-  .header-search-content {
-    width: 80vw;
-    padding: 20px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  .header-form {
-    border: none;
-  }
-  .header-input {
-    display: none;
-  }
-  .header-mobile-logo {
-    display: block;
-  }
-  .dropdown {
-    background-color: #ffffff;
-    height: 100%;
-    width: 100%;
-  }
-  .dropdown ul:hover li {
-    display: none;
+}
+
+.subnav-women,
+.subnav-men {
+  display: none;
+}
+
+.open {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #FFF;
+  height: 100%;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.open-subnav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1em 0 0;
+  list-style: none;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #FFF;
+  height: 100%;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.nav-links li a {
+  font-size: 20px;
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+  pointer-events: all;
+  cursor: default;
+}
+
+.fa-arrow-right {
+  position: absolute;
+  right: 1em;
+}
+
+.close {
+  display: none;
+}
+
+.fixed {
+  position: fixed !important;
+  right: 0;
+}
+
+.dropdown-content {
+  display: none;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: #fff;
+  position: absolute;
+  top: 20px;
+  left: -16px;
+  border-bottom: 1px solid #e6e6e6;
+  padding-top: 2em;
+  padding-bottom: 1em;
+  justify-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100vw;
+  z-index: 3;
+}
+
+@media screen and (min-width: 1224px) {
+  .dropdown:hover .dropdown-content {
+    display: -ms-grid;
+    display: grid;
   }
 }
 /*# sourceMappingURL=header.css.map */

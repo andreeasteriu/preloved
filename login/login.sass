@@ -3,7 +3,6 @@
 .body-login
     padding: 1em
     font-family: $montserrat
-    z-index: 1
 .login
     display: grid
     height: 90vh
@@ -33,19 +32,16 @@
         width: 100%
     &-input
         width: 97%
-        height: 30px
         margin: 1em auto
         border-radius: 5px
         border: none
-        padding: 5px 0 0 10px
+        padding: 12px 
         outline: none
         &::placeholder
             font-size: 13px
             color: $primary-color
         &[type="email"]
             font-size: 13px
-        @media screen and (min-width : 768px) 
-            height: 40px
     &-button
         display: block
         cursor: pointer

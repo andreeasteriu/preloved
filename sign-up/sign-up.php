@@ -1,19 +1,18 @@
 <?php
-session_start();
-if(isset($_SESSION)){
-    require_once(__DIR__ . '/../navigation/header.php');
-    // echo "<div class='session-message'>Hi, {$_SESSION['user']->name}!</div>";
-}
+$sPageName = "Sign Up";
+require_once(__DIR__ . '/../navigation/header.php');
+  
+ 
 ?> 
 
 
 
     <link rel="stylesheet" href="sign-up.css">
        
-    <div class="body-sign-up">
+<section class="body-sign-up">
     <div class="signup">
-        <div class="signup-wrapper">
-        <form id="fvSignup" class="signup-bg-color" action="../includes/signup.inc.php" method="POST">
+        <form id="fvSignup" class="signup-wrapper" action="../includes/signup.inc.php" method="POST">
+        <div class="signup-bg-color">
         <h3 class="signup-title">
             Create an Account
         </h3>
@@ -36,7 +35,7 @@ if(isset($_SESSION)){
         <button id="submit_customer_button" type="submit" name="signup-submit" class="signup-button" onclick="fvSignup(this); return false">Next</button>
     </form>
     </div>
-    </div>
+</section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     $('#submit_customer_button').click(function(event){

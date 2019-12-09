@@ -1,8 +1,12 @@
 <?php
+$sPageName = "Profile";
 session_start();
-if(isset($_SESSION)){
+if(isset($_SESSION['username'])){
+    require_once(__DIR__ . '/../navigation/header-logout.php');
+} 
+
+if(empty($_SESSION)){
     require_once(__DIR__ . '/../navigation/header.php');
-    // echo "<div class='session-message'>Hi, {$_SESSION['user']->name}!</div>";
 }
 ?>  
     <link rel="stylesheet" href="profile.css">
@@ -30,7 +34,7 @@ if(isset($_SESSION)){
                 <p class="info-desc">Annual plan, paid monthly. <br>
                 Automatically renewed on November 1, 2020</p>
             </div>
-            <button class="manage-plan"><img src="../graphics/card.svg"> Manage-plan/Payment</button>
+            <button class="manage-plan"><img src="../graphics/card.svg"> Manage Profile</button>
         </div>
         <div class="profile-sell-container">
         </div> 
