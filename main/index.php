@@ -37,28 +37,28 @@ if(empty($_SESSION)){
 <div id='category'><span style="color: #e6e6e6;">CAT</span><span style="color: #e8a798;">EGORIES.</span></div>
 <div class="category_grid">
   <div class="column" style="background-image: url('../pictures/1.png');">
-  <div class="cat_title"><a href="url">JEANS</a></div>
+  <div class="cat_title"><a href="../products-list/products-list.php?gender=&category=9&size=&brand=&condition=">JEANS</a></div>
   </div>
   <div class="column" style="background-image: url('../pictures/2.png');">
-  <div class="cat_title"><a href="url">T-SHIRTS</a></div>
+  <div class="cat_title"><a href="../products-list/products-list.php?gender=&category=10&size=&brand=&condition=">T-SHIRTS</a></div>
   </div>
   <div class="column" style="background-image: url('../pictures/3.png');">
-  <div class="cat_title"><a href="url">JACKETS</a></div>
+  <div class="cat_title"><a href="../products-list/products-list.php?gender=&category=2&size=&brand=&condition=">JACKETS</a></div>
   </div>
   <div class="column" style="background-image: url('../pictures/4.png');">
-  <div class="cat_title"><a href="url">SKIRTS</a></div>
+  <div class="cat_title"><a href="../products-list/products-list.php?gender=&category=11&size=&brand=&condition=">SKIRTS</a></div>
   </div>
   <div class="column" style="background-image: url('../pictures/5.png');">
-  <div class="cat_title"><a href="url">HOODIES</a></div>
+  <div class="cat_title"><a href="../products-list/products-list.php?gender=&category=2&size=&brand=&condition=">HOODIES</a></div>
   </div>
   <div class="column" style="background-image: url('../pictures/6.png');">
-  <div class="cat_title"><a href="url">KNITS</a></div>
+  <div class="cat_title"><a href="../products-list/products-list.php?gender=&category=7&size=&brand=&condition=">KNITS</a></div>
   </div>
   <div class="column" style="background-image: url('../pictures/7.png');">
-  <div class="cat_title"><a href="url">PANTS</a></div>
+  <div class="cat_title"><a href="../products-list/products-list.php?gender=&category=8&size=&brand=&condition=">PANTS</a></div>
   </div>
   <div class="column" style="background-image: url('../pictures/8.png');">
-  <div class="cat_title"><a href="url">DRESSES</a></div>
+  <div class="cat_title"><a href="../products-list/products-list.php?gender=1&category=4&size=&brand=&condition=">DRESSES</a></div>
 </div>
 
 </div>
