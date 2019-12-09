@@ -1,6 +1,15 @@
 <?php
-require_once(__DIR__ . '/../navigation/header.php');
+$sPageName = "Products List";
+session_start();
 require_once(__DIR__ . '/../includes/db-connect.php');
+if(isset($_SESSION['username'])){
+    require_once(__DIR__ . '/../navigation/header-logout.php');
+} 
+
+if(empty($_SESSION)){
+    require_once(__DIR__ . '/../navigation/header.php');
+}
+
 ?>
 
 <!-- navigation goes here -->

@@ -1,8 +1,4 @@
 
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,8 +67,8 @@ session_start();
         <li><a href="../about/about.php">About</a></li>
         <li><a href="#footer">Contact</a></li>
         <div class="nav-links-signup-login link">
-        <li><a href="../login/login.php">Login</a></li>
-        <li><a href="../sign-up/sign-up.php">Sign up</a></li>
+        <li><a href="../profile/profile.php">Profile</a></li>
+        <li><a href="../includes/logout.inc.php">Logout</a></li>
         </div>
     </ul>
 
@@ -140,6 +136,4 @@ links.addEventListener('click',() => {
 
     });
 </script>
-
-
 

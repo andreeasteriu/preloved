@@ -277,7 +277,7 @@ input[type="file"] {
 .view-clothes-wrap {
   display: block;
   position: relative;
-  z-index: 1000;
+  z-index: 2;
   background: white;
   background: -webkit-gradient(linear, left bottom, left top, from(white), to(rgba(253, 187, 45, 0)));
   background: linear-gradient(0deg, white 0%, rgba(253, 187, 45, 0) 100%);

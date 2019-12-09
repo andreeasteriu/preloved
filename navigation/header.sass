@@ -1,136 +1,242 @@
 @import '../styles/variables'
 
-.header-main
-    z-index: 0
-    width: 100vw
+.header-list-item 
+    display: none
 
+
+            
 header
+    @media screen and (min-width : 1224px) 
+        height: 100px
+        padding: 0
+        border-bottom: 1px solid $grey-light
+.header-nav
     display: flex
     justify-content: space-between
     align-items: center
-    padding: 20px
-    .header-login
-        a
-            margin: 20px
-            font-weight: 600
+    padding: 1.5em 0 .5em
+    border-bottom: 1px solid $grey-light
+    @media screen and (min-width : 1224px) 
+        padding: .5em 0
+        border-bottom: none
 
-.nav-content
-    width: 100vw
-    display: flex
-    flex-wrap: wrap
-    justify-content: space-between
-    align-items: flex-start
-    h2
-        margin: 0 20px
-        width: 75px
+.desktop-logo 
+    display: none   
+    @media screen and (min-width : 1224px) 
+        display: block
+        padding-left: 1em
+    img 
+        display: block
+        width: 70px
 
-.header-dropdown-content
-    display: flex
-    flex-direction: row
+.fas
+    margin-left: 1em
+    font-size: 20px
+    color: $primary-color
+.fa-search
+     @media screen and (min-width : 1224px) 
+        padding-right: 1em
+.logo
+    @media screen and (min-width : 1224px)
+        display: none
+    &-title-color
+        color: $secondary-color
+#menuToggle
+    display: block
+    position: relative
+    margin-right: 1em
+    z-index: 2
+    -webkit-user-select: none
+    user-select: none
+    @media screen and (min-width : 1224px) 
+        display: none
 
-.header-mobile-login
-    display: none
-
-li
-    display: none
-    list-style-type: none
-    padding: 5px
-
-    a
-        color: $grey-dark-2
-        font-family: Arial, Helvetica, sans-serif
-        text-decoration: none
-
-        &:hover
-            color: $primary-color
-
-.dropdown
-    
-    display: flex
-    flex-wrap: wrap
-    ul
-        &:hover
-            li
-                display: block
-                background-color: #ffffff
-                padding: 10px
-                
-
-.header-list-item
+#menuToggle input
+    display: block
+    width: 40px
+    height: 32px
     position: absolute
+    top: -7px
+    left: -5px
+    cursor: pointer
+    opacity: 0 /* hide this */
+    z-index: 2 /* and place it over the hamburger */
+    -webkit-touch-callout: none
 
-.header-form
-    margin-right: 20px
-    border: 2px $primary-color solid
-    border-radius: 5px
 
-.header-input
-    border: none
-    outline: none
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+    display: block
+    width: 25px
+    height: 3px
+    margin-bottom: 4px
+    position: relative
+    background: $primary-color
+    z-index: 1
+    transform-origin: 4px 0px
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), opacity 0.55s ease
 
-.header-button
-    padding: 2px
-    background-color: #ffffff
-    box-shadow: none
-    border: none
 
-.header-mobile-logo
+#menuToggle span:nth-child(1)
+    transform-origin: 0% 0%
+    
+    
+
+#menuToggle span:nth-child(2)
+    transform-origin: 0% 100%
+    
+
+    
+/*
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+    opacity: 1
+    transform: rotate(-45deg) translate(0, -2px)
+    background: $primary-color
+    width: 25px
+
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-child(3)
+    opacity: 0
+    transform: rotate(0deg) scale(0.2, 0.2)
+
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-child(2)
+    opacity: 1
+    transform: rotate(45deg) translate(-2px, -2px)
+nav 
+    position: relative
+    width: 100%
+.nav-links 
+    display: none
+    @media screen and (min-width : 1224px) 
+        position: absolute
+        top: 70px
+        left: 1em
+        display: grid
+        grid-template-columns: repeat(20, 1fr)
+        grid-gap: 1em
+        list-style: none
+        width: 99%
+        li a
+            font-size: 1rem !important
+            text-transform: uppercase
+            cursor: default
+    .fa-arrow-right
+        @media screen and (min-width : 1224px) 
+            display: none
+    &-signup-login
+        position: fixed
+        bottom: 0
+        display: grid
+        padding: 1.5em 0
+        grid-template-columns: 1fr 1fr
+        justify-items: center
+        background: $secondary-color
+        width: 100vw
+        @media screen and (min-width : 1224px) 
+            position: absolute
+            top: 0
+            right: 1em
+            display: grid
+            grid-template-columns: 1fr 1fr
+            grid-gap: 1em
+            width: auto
+            background: none
+            padding: 0
+        li
+            width: 100%
+            text-align: center
+        a
+            width: 100%
+            color: #FFF !important
+            @media screen and (min-width : 1224px) 
+                color: #000 !important
+                font-size: 1rem !important
+
+.subnav-women, 
+.subnav-men
+    display: none
+.open 
+    display: flex
+    list-style: none
+    justify-content: space-evenly
+    align-items: center
+    margin-left: auto
+    position: fixed
+    top: 0
+    right: 0
+    background: #FFF
+    height: 100%
+    width: 100%
+    flex-direction: column
+    transition: all 1s ease-in-out
+    pointer-events: none
+    z-index: 1
+    
+
+.open-subnav
+    display: flex
+    padding: 1em 0 0
+    list-style: none
+    justify-content: space-evenly
+    align-items: center
+    margin-left: auto
+    position: fixed
+    top: 0
+    right: 0
+    background: #FFF
+    height: 100%
+    width: 100%
+    flex-direction: column
+    transition: all 1s ease-in-out
+    pointer-events: none
+    z-index: 2
+    
+.nav-links li a 
+    font-size: 20px
+    color: #000
+    font-weight: 700
+    text-decoration: none
+    pointer-events: all
+    cursor: default
+
+.fa-arrow-right
+    position: absolute
+    right: 1em
+.close 
     display: none
 
-/** media queries **/
+.fixed 
+    position: fixed !important
+    right: 0
 
-@media screen and ( max-width: 30em )
-    header
-        display: none
-
-    .nav-content
-        flex-direction: column-reverse
-
-    nav
-        position: absolute
-        top: 63px
-        width: 100vw
-        height: calc( 100vh - 63px )
-        text-align: center
-       
-        z-index: 1
-
-    .header-dropdown-content
-        padding: 20px
-        position: relative
-        display: flex
-        flex-direction: column
-        align-items: center
-        h2
-            height: 50px
-
-    .header-mobile-login
-        height: 100px
-        width: 100vw
-        display: block
-        position: absolute
-        top: calc( 100vh - 163px )
-        padding: 20px
-        background-color: $primary-color
-        a
-            color: #ffffff
-    .header-search-content
-        width: 80vw
-        padding: 20px
-        display: flex
-        justify-content: space-between
-    .header-form
-        border: none
-    .header-input
-        display: none
-    .header-mobile-logo
-        display: block
-
-    .dropdown
-        background-color: #ffffff
-        height: 100%
-        width: 100%
-        ul
-            &:hover
-                li
-                    display: none
+.dropdown-content
+    display: none
+    grid-template-columns: 1fr 1fr 1fr 1fr
+    background-color: #fff
+    position: absolute
+    top: 20px
+    left: -16px
+    border-bottom: 1px solid $grey-light
+    padding-top: 2em
+    padding-bottom: 1em
+    justify-items: center
+    align-content: center
+    width: 100vw
+    z-index: 3
+      
+.dropdown:hover .dropdown-content 
+    @media screen and (min-width : 1224px) 
+        display: grid
+   

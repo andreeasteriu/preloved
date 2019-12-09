@@ -1,10 +1,16 @@
 <?php
+$sPageName = "About";
 session_start();
-if(isset($_SESSION)){
+if(isset($_SESSION['username'])){
+    require_once(__DIR__ . '/../navigation/header-logout.php');
+} 
+
+if(empty($_SESSION)){
     require_once(__DIR__ . '/../navigation/header.php');
-    // echo "<div class='session-message'>Hi, {$_SESSION['user']->name}!</div>";
 }
 ?> 
+
+
 
 
     <link rel="stylesheet" href="about.css">
