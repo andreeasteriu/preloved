@@ -4,7 +4,6 @@ session_start();
 if(isset($_SESSION['username'])){
     require_once(__DIR__ . '/../navigation/header-logout.php');
 } 
-
 if(empty($_SESSION)){
     require_once(__DIR__ . '/../navigation/header.php');
 }
@@ -18,19 +17,20 @@ if(empty($_SESSION)){
         <div class="profile-about-container">
             <div class="profile-pink-container"></div>
             <div class="profile-image"></div>
-            <h3 class="profile-name">Andreea Steriu</h3>
+            <h3 class="profile-name"><input type="text" name="firstName" data-update="updateFirstName" class="profile-info" maxlength="60" data-type="string" data-min="1" data-max="60" placeholder="First Name"><input type="text" name="lastName" data-update="updateLastName" class="profile-info" maxlength="60" data-type="string" data-min="1" data-max="60" placeholder="Last Name"></h3>
             <div class="profile-links">
             <a href="sell-clothes.php" class="profile-link sell"><img class="" src="../graphics/eye.svg"> Sell your clothes</a>
             <a href="view-clothes.php" class="profile-link view"><img class="profile-icon" src="../graphics/payment-method.svg"> View your clothes</a>
             </div>
             <p class="profile-description">
-                Ut labore et dolore roipi mana aliqua. Ut enim adeop minim veeniam, quis nostruklad.
+            Hi, welcome to my profile. I love sustainabilty and I have a lot of clothes to share with you, guys.
             </p>
             <div class="info">
-                <p class="info-phone-nr"><b>Phone</b> +45 50 65 44 17</p>
-                <p class="info-address"><b>Address</b> Gronjordsvej 3</p>
+                <p class="info-phone-nr"><b>Phone</b><input type="number" name="phoneNr" data-update="updatePhoneNr" class="profile-info" placeholder="Phone Number" minlength="8" maxlength="8" data-min="8" data-max="8" data-type="string" 
+              value="<?= $jUsers->$userId->name ?>"></p>
+                <p class="info-address"><b>Address</b><input type="text" name="address" class="profile-info" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Address"></p>
                 <p class="info-clothes-sold"><b>Clothes Sold</b> 4</p>
-                <p class="info-credit-card"><b>Debit Card</b>  *************4051 Visa</p>
+                <p class="info-credit-card"><b>Credit Card</b><input type="text" class="profile-info" placeholder="Credit Card" maxlength="100" data-type="string" data-min="5" data-max="100"></p>
                 <p class="info-desc">Annual plan, paid monthly. <br>
                 Automatically renewed on November 1, 2020</p>
             </div>
