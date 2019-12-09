@@ -1,21 +1,27 @@
 <?php
 $sPageName = "Product Description";
+require_once(__DIR__ . '/../includes/db-connect.php');
 session_start();
 if(isset($_SESSION['username'])){
   require_once(__DIR__ . '/../navigation/header-logout.php');
 } 
-
 if(empty($_SESSION)){
   require_once(__DIR__ . '/../navigation/header.php');
 }
 ?>  
 <link rel="stylesheet" href="view.css">
-
 <div class="view_grid">
   <div class="view_picture" style="background-image: url('../pictures/1.png');"></div>
   <div class="view_column">
-  <div class="view_title">KNITTED CARDIGAN WITH BUTTONS</div>
-  <div class="view_description">Cardigan in knit with V-cut, long sleeves, rib hem and button closure in front.</div>
+   <?php  
+   
+   $sql = "SELECT * FROM products WHERE idProduct = {$_GET['id']} ";
+                $result = mysqli_query($conn,$sql);
+                $num = mysqli_num_rows($result);
+                if($num > 0) while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){ 
+echo'  
+  <div class="view_title">'.$row['title'].'</div>
+  <div class="view_description">'.$row['description'].'</div>
   <hr noshade size="2" color="#E6E6E6">
     <div class="details_column">
         <div class="details_first"> 
@@ -26,16 +32,17 @@ if(empty($_SESSION)){
             
         </div>
         <div class="details_second"> 
-            <div class="view_detail2">XL</div>
-            <div class="view_detail2">ZARA</div>
-            <div class="view_detail2">JEANS</div>
-            <div class="view_detail2">GOOD</div>
+            <div class="view_detail2">'.$row['size'].'</div>
+            <div class="view_detail2">'.$row['brand'].'</div>
+            <div class="view_detail2">'.$row['idCategory'].'</div>
+            <div class="view_detail2">'.$row['condition'].'</div>
         </div>
+       
     </div>
     <hr noshade size="2" color="#E6E6E6">
     <div class="price">200 DKK</div>
     <div class="add_button"><button>ADD TO SHOPPING</button></div>
-  </div>
+  </div>';}?>
 </div>
 
   <div id='other'><span style="color: #e6e6e6;">OTHER </span><span style="color: #e8a798;">ITEMS.</span></div>
