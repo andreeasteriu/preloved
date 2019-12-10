@@ -18,7 +18,7 @@ require_once(__DIR__ . '/../navigation/header.php');
         <div class="login-inputs-grid">
 
         <div class="login-inputs">
-        <input class="login-input" type="text" name="username" placeholder="Username"  data-type="string" data-min="1" data-max="60">
+        <input class="login-input" type="text" name="userName" placeholder="Username"  data-type="string" data-min="1" data-max="60">
         <input class="login-input" type="password" name="password" placeholder="Password" data-type="string" data-min="6" data-max="255">
         <div id="error_message"></div>
         </div>

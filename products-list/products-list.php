@@ -2,6 +2,7 @@
 $sPageName = "Products List";
 session_start();
 require_once(__DIR__ . '/../includes/db-connect.php');
+
 if (isset($_SESSION['username'])) {
     require_once(__DIR__ . '/../navigation/header-logout.php');
 }

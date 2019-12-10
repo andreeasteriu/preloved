@@ -36,50 +36,58 @@ if($_POST){
     }
 }       
 
+   
+    //Getting Post Values
+    $firstName =$_POST['firstName'];
+    $lastName =$_POST['lastName'];
+    $email =$_POST['email'];
+    $password=$_POST['password'];    
+    $phoneNr =$_POST['phoneNr'];
+    $userName = $_POST['userName'];
+    $address = $_POST['address'];
+    $date = date('Y-m-d H:i:s');
+   
+    // Query for validation of username and email-id
+    $ret="SELECT * FROM customers where (userName=:userName ||  email=:email)";
+    $queryt = $dbh -> prepare($ret);
+    $queryt->bindParam(':email',$email,PDO::PARAM_STR);
+    $queryt->bindParam(':userName',$userName,PDO::PARAM_STR);
+    $queryt -> execute();
+    $results = $queryt -> fetchAll(PDO::FETCH_OBJ);
+    if($queryt -> rowCount() == 0)
+    {
+    // Query for Insertion
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $sql="INSERT INTO customers (`email`,`firstName`,`lastName`,`password`,`phoneNr`,`joiningDate`,`userName`,`address`) 
+            VALUES (:email,:firstName,:lastName,:password,:phoneNr,:joiningDate,:userName,:address)";
+    $query = $dbh->prepare($sql);
+    // Binding Post Values
+    $query->bindParam(':email',$email,PDO::PARAM_STR);
+    $query->bindParam(':firstName',$firstName,PDO::PARAM_STR);
+    $query->bindParam(':lastName',$lastName,PDO::PARAM_STR);
+    $query->bindParam(':password',$hashedPassword,PDO::PARAM_STR);
+    $query->bindParam(':phoneNr',$phoneNr,PDO::PARAM_STR);
+    $query->bindParam(':joiningDate',$date,PDO::PARAM_STR);
+    $query->bindParam(':userName',$userName,PDO::PARAM_STR);
+    $query->bindParam(':address',$address,PDO::PARAM_STR);
 
-$firstName = mysqli_real_escape_string($conn, $_POST['firstName']);
-$lastName = mysqli_real_escape_string($conn, $_POST['lastName']);
-$email = mysqli_real_escape_string($conn, $_POST['email']);
-$password = mysqli_real_escape_string($conn, $_POST['password']);
-$phoneNr = mysqli_real_escape_string($conn, $_POST['phoneNr']);
-$userName =  mysqli_real_escape_string($conn, $_POST['userName']);
-$address = mysqli_real_escape_string($conn,  $_POST['address']);
-$date = date('Y-m-d H:i:s');
 
-
-    $sql = "SELECT email, userName FROM customers WHERE email=? OR userName=?";
-    $stmt = mysqli_stmt_init($conn);
-
-    if(!mysqli_stmt_prepare($stmt, $sql)){
-        sendErrorMessage('* sql error', __LINE__ );
+    $query->execute();
+    $lastInsertId = $dbh->lastInsertId();
+    if($lastInsertId)
+    {
+        echo '{"status": 1, "message":"New record created successfully", "line":"'.__LINE__.'"}';
     }
-    else {
-        mysqli_stmt_bind_param($stmt, "ss", $email, $userName);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_store_result($stmt);
-        $resultCheck = mysqli_stmt_num_rows($stmt);
-        if($resultCheck > 0) {
-            sendErrorMessage('* user taken', __LINE__ );
-        }
-        else {
-
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-            $sql = "INSERT INTO customers (`email`,`firstName`,`lastName`,`password`,`phoneNr`,`joiningDate`,`userName`,`address`) 
-            VALUES ('$email','$firstName','$lastName','$hashedPassword','$phoneNr','$date','$userName','$address');";
-            // mysqli_query($conn, $sql);
-            
-
-            if ($conn->query($sql) == TRUE) {
-                echo '{"status": 1, "message":"New record created successfully", "line":"'.__LINE__.'"}';
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-               
-            }
-
-            $conn->close();
-        }
+    else
+    {
+        sendErrorMessage('* Something went wrong, please try again', __LINE__ );
     }
+    }
+     else
+    {
+        sendErrorMessage('* User or email already exist', __LINE__ );
+    }
+    
 
 
    
