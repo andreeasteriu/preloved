@@ -144,6 +144,9 @@ body {
 }
 
 .manage-plan {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   padding: 12px;
   border: 1px solid #f2cec5;
   border-radius: 5px;
@@ -159,6 +162,9 @@ body {
 @media screen and (min-width: 1224px) {
   .manage-plan {
     margin: 3em 0 3em;
+  }
+  .manage-plan a {
+    color: #e8a798;
   }
 }
 
@@ -351,5 +357,13 @@ input[type="file"] {
 .view-clothes-delete:hover {
   -webkit-transform: rotate(1turn);
           transform: rotate(1turn);
+}
+
+.container-grid-buttons {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  justify-items: center;
 }
 /*# sourceMappingURL=profile.css.map */
