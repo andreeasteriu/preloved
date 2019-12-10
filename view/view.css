@@ -35,31 +35,39 @@ p {
 }
 
 div.view_grid {
-  display: -ms-grid;
-  display: grid;
-  grid-gap: 20px;
-  -ms-grid-columns: 2fr 1fr;
-      grid-template-columns: 2fr 1fr;
-  vertical-align: middle;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0 300px 0 300px;
 }
 
-div.view_picture {
+.view_picture {
   height: 600px;
   width: auto;
   display: -ms-grid;
   display: grid;
   background-size: cover;
-  background-size-background-repeat: no-repeat;
+  background-repeat: no-repeat;
   -ms-flex-line-pack: center;
       align-content: center;
+}
+
+.view_picture img {
+  height: 550px;
+  width: auto;
 }
 
 div.view_column {
   display: -ms-grid;
   display: grid;
-  display-height: 200px;
-  display-width: 500px;
+  height: 200px;
+  width: 500px;
 }
 
 div.view_title {
@@ -125,12 +133,21 @@ div.add_button button {
   height: 40px;
   width: 160px;
   color: #e8a798;
-  border-color: #e8a798;
+  background-color: #ffffff;
+  border: #e8a798 3px solid;
+  border-radius: 10px;
   font-size: 1.5vh;
+}
+
+div.add_button button a {
+  color: #e8a798;
 }
 
 div.add_button button:hover {
   background-color: #e8a798;
+}
+
+div.add_button button:hover a {
   color: white;
 }
 
@@ -157,7 +174,8 @@ hr {
   background-size: cover;
   -ms-flex-line-pack: center;
       align-content: center;
-  align-content-box-shadow: red 2px 2px 10px;
+  -webkit-box-shadow: #95989a 2px 2px 10px;
+          box-shadow: #95989a 2px 2px 10px;
 }
 
 #other {

@@ -5,21 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css"
-        integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
     <link rel="stylesheet" href="../products-list/products-list.css">
     <link rel="stylesheet" href="../footer/footer.css">
     <link rel="stylesheet" href="../navigation/header.css">
     <title> <?php
-        echo  $sPageName;
-        ?> Preloved
+            echo  $sPageName;
+            ?> Preloved
     </title>
 </head>
 
 <body>
     <header>
         <nav class="header-nav">
-            <div class="desktop-logo"><img src="../graphics/preloved_logo.svg" alt=""></div>
+            <div class="desktop-logo"><a href="../main/index.php"> <img src="../graphics/preloved_logo.svg" alt=""></a></div>
             <i class="fas fa-search"></i>
             <div class="logo"><a href="../main/index.php">
                     <h3 class="logo-title">PRE<span class="logo-title-color">LOVED</span></h3>
@@ -35,47 +34,39 @@
             <ul class="nav-links">
 
                 <li><a href="../main/index.php">Home</a></li>
-                <li class="dropdown"><a id="women"><a href="../products-list/products-list.php?gender=1&category=&size=&brand=&condition=">Women</a><i class="fas fa-arrow-right"></i></a>
+                <li class="dropdown"><a id="women"><a href="../products-list/products-list.php">Women</a><i class="fas fa-arrow-right"></i></a>
                     <ul aria-label="submenu" class="dropdown-content nav-links">
-                        <li><a
-                                href="../products-list/products-list.php?gender=1&category=1&size=&brand=&condition=">Coats</a>
+                        <li><a href="../products-list/products-list.php?gender=1&category=1&size=&brand=">Coats</a></li>
+                        <li><a href="../products-list/products-list.php?gender=1&category=2&size=&brand=">Jackets</a>
                         </li>
-                        <li><a
-                                href="../products-list/products-list.php?gender=1&category=2&size=&brand=&condition=">Jackets</a>
-                        </li>
-                        <li><a href="?gender=1&category=4&size=&brand=&condition=">Dresses</a></li>
-                        <li><a href="../products-list/products-list.php?gender=1&category=6&size=&brand=&condition=">Shirts
+                        <li><a href="?gender=1&category=4&size=&brand=">Dresses</a></li>
+                        <li><a href="../products-list/products-list.php?gender=1&category=6&size=&brand=">Shirts
                                 | Tops</a></li>
-                        <li><a
-                                href="../products-list/products-list.php?gender=1&category=8&size=&brand=&condition=">Trousers</a>
+                        <li><a href="../products-list/products-list.php?gender=1&category=8&size=&brand=">Trousers</a>
                         </li>
-                        <li><a
-                                href="../products-list/products-list.php?gender=1&category=9&size=&brand=&condition=">Jeans</a>
+                        <li><a href="../products-list/products-list.php?gender=1&category=9&size=&brand=">Jeans</a>
                         </li>
-                        <li><a
-                                href="../products-list/products-list.php?gender=1&category=10&size=&brand=&condition=">T-Shirts</a>
+                        <li><a href="../products-list/products-list.php?gender=1&category=10&size=&brand=">T-Shirts</a>
                         </li>
-                        <li><a href="../products-list/products-list.php?gender=1&category=11&size=&brand=&condition=">Skirts
+                        <li><a href="../products-list/products-list.php?gender=1&category=11&size=&brand=">Skirts
                                 | Shorts</a></li>
-                        <li><a
-                                href="../products-list/products-list.php?gender=1&category=14&size=&brand=&condition=">Shoes</a>
+                        <li><a href="../products-list/products-list.php?gender=1&category=14&size=&brand=">Shoes</a>
                         </li>
-                        <li><a
-                                href="../products-list/products-list.php?gender=1&category=15&size=&brand=&condition=">Bags</a>
+                        <li><a href="../products-list/products-list.php?gender=1&category=15&size=&brand=">Bags</a>
                         </li>
                     </ul>
                 </li>
-                <li class="dropdown"><a id="men"><a href="../products-list/products-list.php?gender=0&category=&size=&brand=&condition=">Men</a><i class="fas fa-arrow-right"></i></a>
+                <li class="dropdown"><a id="men"><a href="../products-list/products-list.php">Men</a><i class="fas fa-arrow-right"></i></a>
                     <ul aria-label="submenu" class="dropdown-content nav-links">
-                        <li><a href="../products-list/products-list.php?gender=0&category=1&size=&brand=&condition=">Coats</a></li>
-                        <li><a href="../products-list/products-list.php?gender=0&category=2&size=&brand=&condition=">Jackets</a></li>
-                        <li><a href="../products-list/products-list.php?gender=0&category=3&size=&brand=&condition=">Blazers</a></li>
-                        <li><a href="../products-list/products-list.php?gender=0&category=6&size=&brand=&condition=">Shirts</a></li>
-                        <li><a href="../products-list/products-list.php?gender=0&category=7&size=&brand=&condition=">Knitwear</a></li>
-                        <li><a href="../products-list/products-list.php?gender=0&category=8&size=&brand=&condition=">Trousers</a></li>
-                        <li><a href="../products-list/products-list.php?gender=0&category=11&size=&brand=&condition=">Shorts</a></li>
-                        <li><a href="../products-list/products-list.php?gender=0&category=9&size=&brand=&condition=">Jeans</a></li>
-                        <li><a href="../products-list/products-list.php?gender=0&category=13&size=&brand=&condition=">Tracksuits</a></li>
+                        <li><a href="../products-list/products-list.php?gender=0&category=1&size=&brand=">Coats</a></li>
+                        <li><a href="../products-list/products-list.php?gender=0&category=2&size=&brand=">Jackets</a></li>
+                        <li><a href="../products-list/products-list.php?gender=0&category=3&size=&brand=">Blazers</a></li>
+                        <li><a href="../products-list/products-list.php?gender=0&category=6&size=&brand=">Shirts</a></li>
+                        <li><a href="../products-list/products-list.php?gender=0&category=7&size=&brand=">Knitwear</a></li>
+                        <li><a href="../products-list/products-list.php?gender=0&category=8&size=&brand=">Trousers</a></li>
+                        <li><a href="../products-list/products-list.php?gender=0&category=11&size=&brand=">Shorts</a></li>
+                        <li><a href="../products-list/products-list.php?gender=0&category=9&size=&brand=">Jeans</a></li>
+                        <li><a href="../products-list/products-list.php?gender=0&category=13&size=&brand=">Tracksuits</a></li>
                     </ul>
                 </li>
                 <li><a href="../about/about.php">About</a></li>
@@ -87,44 +78,37 @@
             </ul>
 
             <ul id="drowpdown-women" class="nav-links subnav-women">
-            <li><a
-                                href="../products-list/products-list.php?gender=1&category=1&size=&brand=&condition=">Coats</a>
-                        </li>
-                        <li><a
-                                href="../products-list/products-list.php?gender=1&category=2&size=&brand=&condition=">Jackets</a>
-                        </li>
-                        <li><a href="?gender=1&category=4&size=&brand=&condition=">Dresses</a></li>
-                        <li><a href="../products-list/products-list.php?gender=1&category=6&size=&brand=&condition=">Shirts
-                                | Tops</a></li>
-                        <li><a
-                                href="../products-list/products-list.php?gender=1&category=8&size=&brand=&condition=">Trousers</a>
-                        </li>
-                        <li><a
-                                href="../products-list/products-list.php?gender=1&category=9&size=&brand=&condition=">Jeans</a>
-                        </li>
-                        <li><a
-                                href="../products-list/products-list.php?gender=1&category=10&size=&brand=&condition=">T-Shirts</a>
-                        </li>
-                        <li><a href="../products-list/products-list.php?gender=1&category=11&size=&brand=&condition=">Skirts
-                                | Shorts</a></li>
-                        <li><a
-                                href="../products-list/products-list.php?gender=1&category=14&size=&brand=&condition=">Shoes</a>
-                        </li>
-                        <li><a
-                                href="../products-list/products-list.php?gender=1&category=15&size=&brand=&condition=">Bags</a>
-                        </li>
+                <li><a href="../products-list/products-list.php?gender=1&category=1&size=&brand=">Coats</a>
+                </li>
+                <li><a href="../products-list/products-list.php?gender=1&category=2&size=&brand=">Jackets</a>
+                </li>
+                <li><a href="?gender=1&category=4&size=&brand=">Dresses</a></li>
+                <li><a href="../products-list/products-list.php?gender=1&category=6&size=&brand=">Shirts
+                        | Tops</a></li>
+                <li><a href="../products-list/products-list.php?gender=1&category=8&size=&brand=">Trousers</a>
+                </li>
+                <li><a href="../products-list/products-list.php?gender=1&category=9&size=&brand=">Jeans</a>
+                </li>
+                <li><a href="../products-list/products-list.php?gender=1&category=10&size=&brand=">T-Shirts</a>
+                </li>
+                <li><a href="../products-list/products-list.php?gender=1&category=11&size=&brand=">Skirts
+                        | Shorts</a></li>
+                <li><a href="../products-list/products-list.php?gender=1&category=14&size=&brand=">Shoes</a>
+                </li>
+                <li><a href="../products-list/products-list.php?gender=1&category=15&size=&brand=">Bags</a>
+                </li>
             </ul>
 
             <ul id="drowpdown-men" class="nav-links subnav-men">
-            <li><a href="../products-list/products-list.php?gender=0&category=1&size=&brand=&condition=">Coats</a></li>
-                        <li><a href="../products-list/products-list.php?gender=0&category=2&size=&brand=&condition=">Jackets</a></li>
-                        <li><a href="../products-list/products-list.php?gender=0&category=3&size=&brand=&condition=">Blazers</a></li>
-                        <li><a href="../products-list/products-list.php?gender=0&category=6&size=&brand=&condition=">Shirts</a></li>
-                        <li><a href="../products-list/products-list.php?gender=0&category=7&size=&brand=&condition=">Knitwear</a></li>
-                        <li><a href="../products-list/products-list.php?gender=0&category=8&size=&brand=&condition=">Trousers</a></li>
-                        <li><a href="../products-list/products-list.php?gender=0&category=11&size=&brand=&condition=">Shorts</a></li>
-                        <li><a href="../products-list/products-list.php?gender=0&category=9&size=&brand=&condition=">Jeans</a></li>
-                        <li><a href="../products-list/products-list.php?gender=0&category=13&size=&brand=&condition=">Tracksuits</a></li>
+                <li><a href="../products-list/products-list.php?gender=0&category=1&size=&brand=">Coats</a></li>
+                <li><a href="../products-list/products-list.php?gender=0&category=2&size=&brand=">Jackets</a></li>
+                <li><a href="../products-list/products-list.php?gender=0&category=3&size=&brand=">Blazers</a></li>
+                <li><a href="../products-list/products-list.php?gender=0&category=6&size=&brand=">Shirts</a></li>
+                <li><a href="../products-list/products-list.php?gender=0&category=7&size=&brand=">Knitwear</a></li>
+                <li><a href="../products-list/products-list.php?gender=0&category=8&size=&brand=">Trousers</a></li>
+                <li><a href="../products-list/products-list.php?gender=0&category=11&size=&brand=">Shorts</a></li>
+                <li><a href="../products-list/products-list.php?gender=0&category=9&size=&brand=">Jeans</a></li>
+                <li><a href="../products-list/products-list.php?gender=0&category=13&size=&brand=">Tracksuits</a></li>
             </ul>
 
 
@@ -143,11 +127,11 @@
             $('.subnav-women').removeClass("open-subnav");
             $('.subnav-men').removeClass("open-subnav");
 
-            $("#women").click(function () {
+            $("#women").click(function() {
                 $('.subnav-women').toggleClass('open-subnav');
             });
 
-            $("#men").click(function () {
+            $("#men").click(function() {
                 $('.subnav-men').toggleClass('open-subnav');
             });
 
