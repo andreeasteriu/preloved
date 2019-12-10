@@ -34,8 +34,8 @@ if($_POST){
                 }
                 else if($passCheck == true){
                     session_start();
-                    $_SESSION['username'] = $row['userName'] && $row['idCustomer'] ;
-                    echo '{"status": 1, "message":"You logged in.", "line":"'.__LINE__.'"}';
+                    $_SESSION['username'] = $row['idCustomer'] ;
+                    echo '{"status": 1, "message":"You logged in.'.$_SESSION['username'].'", "line":"'.__LINE__.'"}';
 
         
                 }else {

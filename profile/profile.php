@@ -1,5 +1,6 @@
 <?php
 $sPageName = "Profile";
+require_once(__DIR__ . '/../includes/db-connect.php');
 session_start();
 if(isset($_SESSION['username'])){
     require_once(__DIR__ . '/../navigation/header-logout.php');
@@ -8,34 +9,45 @@ if(empty($_SESSION)){
     require_once(__DIR__ . '/../navigation/header.php');
 }
 ?>  
+
+<?php
+$sql = "SELECT customers.idCustomer,firstName,lastName,phoneNr,address,ibanCode 
+        FROM customers
+        LEFT JOIN creditcards 
+        ON customers.idCustomer = creditcards.idCustomer 
+        WHERE customers.idCustomer={$_SESSION['username']};";
+$result = mysqli_query($conn, $sql);
+$num = mysqli_num_rows($result);
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+?>
+
     <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
   crossorigin="anonymous">
 
 <div class="body-profile">
     <section class="profile">
-        <div class="profile-about-container">
+        <form id="profileInfo" class="profile-about-container" action="" method="POST">
             <div class="profile-pink-container"></div>
             <div class="profile-image"></div>
-            <h3 class="profile-name"><input type="text" name="firstName" data-update="updateFirstName" class="profile-info" maxlength="60" data-type="string" data-min="1" data-max="60" placeholder="First Name"><input type="text" name="lastName" data-update="updateLastName" class="profile-info" maxlength="60" data-type="string" data-min="1" data-max="60" placeholder="Last Name"></h3>
+            <h3 class="profile-name"><input data-update="newFirstName" type="text" name="firstName" class="edit-inputs" maxlength="60" data-type="string" data-min="1" data-max="60" placeholder="First Name" value="<?= $row['firstName']; ?>"><input data-update="newLastName" type="text" name="lastName" class="edit-inputs" maxlength="60" data-type="string" data-min="1" data-max="60" placeholder="Last Name" value="<?= $row['lastName']; ?>"></h3>
             <div class="profile-links">
             <a href="sell-clothes.php" class="profile-link sell"><img class="" src="../graphics/eye.svg"> Sell your clothes</a>
             <a href="view-clothes.php" class="profile-link view"><img class="profile-icon" src="../graphics/payment-method.svg"> View your clothes</a>
             </div>
             <p class="profile-description">
-            Hi, welcome to my profile. I love sustainabilty and I have a lot of clothes to share with you, guys.
+            Hi! Welcome to my profile. I love sustainabilty and I have a lot of clothes to share with you, guys.
             </p>
             <div class="info">
-                <p class="info-phone-nr"><b>Phone</b><input type="number" name="phoneNr" data-update="updatePhoneNr" class="profile-info" placeholder="Phone Number" minlength="8" maxlength="8" data-min="8" data-max="8" data-type="string" 
-              value="<?= $jUsers->$userId->name ?>"></p>
-                <p class="info-address"><b>Address</b><input type="text" name="address" class="profile-info" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Address"></p>
+                <p class="info-phone-nr"><b>Phone</b><input data-update="newPhoneNr" type="text" name="phoneNr" class="edit-inputs" placeholder="Phone Number" minlength="8" maxlength="8" data-min="8" data-max="8" data-type="string" value="<?= $row['phoneNr']; ?>"></p>
+                <p class="info-address"><b>Address</b><input data-update="newAddress" type="text" name="address" class="edit-inputs" d maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Address" value="<?= $row['address']; ?>"></p>
                 <p class="info-clothes-sold"><b>Clothes Sold</b> 4</p>
-                <p class="info-credit-card"><b>Credit Card</b><input type="text" class="profile-info" placeholder="Credit Card" maxlength="100" data-type="string" data-min="5" data-max="100"></p>
+                <p class="info-credit-card"><b>Credit Card</b><input type="text" class="insert-input" placeholder="Credit Card" maxlength="200" data-type="string" data-min="5" data-max="200" value="<?= $row['ibanCode']; ?>"></p>
                 <p class="info-desc">Annual plan, paid monthly. <br>
                 Automatically renewed on November 1, 2020</p>
             </div>
-            <button class="manage-plan"><img src="../graphics/card.svg"> Manage Profile</button>
-        </div>
+            <button id="clicker" class="manage-plan" type="submit" name="update"><img src="../graphics/card.svg"> Manage Profile</button>
+</form>
         <div class="profile-sell-container">
         </div> 
         <div class="profile-products-container">
@@ -92,4 +104,41 @@ if(empty($_SESSION)){
     </section>
 
 </div>
+<script src="../validate.js"></script>
+<script>
+$('.edit-inputs').attr({'disabled': 'disabled'})
+                .css("background", "rgba(180, 245, 253, 0.59)");
+
+
+$().ready(function() {
+    $('#clicker').click(function() {
+        $('.edit-inputs').each(function() {
+            if ($(this).attr('disabled')) {
+                $(this).removeAttr('disabled');
+                $(this).css({'background':'none', "border":"1px solid #00e1ff"});
+                $('#clicker').text('Save');
+            }
+            else {
+                $(this).attr({'disabled': 'disabled'});
+                $(this).css({'background':'rgba(180, 245, 253, 0.59)', "border":"none"});
+                $('#clicker').text('Edit');
+                
+            }
+        });   
+    });
+});
+
+$(document).on('blur','.profile-about-container input',  function(){
+    console.log($('#profileInfo').serialize())
+    $.ajax({
+        url : "../includes/update.inc.php",
+        method : "POST",
+        data : $('#profileInfo').serialize(), // create the form to be passed
+        dataType:"JSON"
+    })
+    .done(function(){
+        console.log('User has been updated')
+    })
+});
+</script>
 <?php require_once(__DIR__ . '/../footer/footer.php'); ?>  
