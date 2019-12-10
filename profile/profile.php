@@ -10,6 +10,7 @@ if(empty($_SESSION)){
 }
 ?>  
 
+<!-- **************************** PROFILE SECTION ******************************** -->
 <?php
 $sql = "SELECT customers.idCustomer,firstName,lastName,phoneNr,password,address,ibanCode 
         FROM customers
@@ -52,6 +53,12 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             <div id="clicker-delete" class="manage-plan" name="update"><a href="../includes/delete.profile.php"><img src="../graphics/delete.svg"> Delete Profile</a></div>
             </div>
 </form>
+
+
+<!-- **************************** SELL YOUR CLOTHES SECTION ******************************** -->
+
+
+
         <div class="profile-sell-container">
         </div> 
         <div class="profile-products-container">
@@ -74,6 +81,10 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
         <button type="submit" class="sell-your-clothes-submit" onclick="return uploadCheck(this);" id="btn_upload"><img src="../graphics/upload.svg"> Upload Product</button>    
     </form>   
     </section>
+
+
+<!-- **************************** VIEW THE PRODUCTS SECTION ******************************** -->
+
 
     <section class="view-clothes">
         <div class="view-clothes-container">
@@ -111,6 +122,8 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 </div>
 <script src="../validate.js"></script>
 <script>
+
+   /************************* PROFILE SECTION ***************************** */ 
 $('.edit-inputs').attr({'disabled': 'disabled'})
                 .css("background", "rgba(180, 245, 253, 0.59)");
 
@@ -145,5 +158,6 @@ $(document).on('blur','.profile-about-container input',  function(event){
         console.log('User has been updated')
     })
 });
+   /************************* PROFILE SECTION ***************************** */ 
 </script>
 <?php require_once(__DIR__ . '/../footer/footer.php'); ?>  
