@@ -11,7 +11,7 @@ if(empty($_SESSION)){
 ?>  
 
 <?php
-$sql = "SELECT customers.idCustomer,firstName,lastName,phoneNr,address,ibanCode 
+$sql = "SELECT customers.idCustomer,firstName,lastName,phoneNr,password,address,ibanCode 
         FROM customers
         LEFT JOIN creditcards 
         ON customers.idCustomer = creditcards.idCustomer 
@@ -39,14 +39,18 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             Hi! Welcome to my profile. I love sustainabilty and I have a lot of clothes to share with you, guys.
             </p>
             <div class="info">
-                <p class="info-phone-nr"><b>Phone</b><input data-update="newPhoneNr" type="text" name="phoneNr" class="edit-inputs" placeholder="Phone Number" minlength="8" maxlength="8" data-min="8" data-max="8" data-type="string" value="<?= $row['phoneNr']; ?>"></p>
-                <p class="info-address"><b>Address</b><input data-update="newAddress" type="text" name="address" class="edit-inputs" d maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Address" value="<?= $row['address']; ?>"></p>
-                <p class="info-clothes-sold"><b>Clothes Sold</b> 4</p>
-                <p class="info-credit-card"><b>Credit Card</b><input type="text" class="insert-input" placeholder="Credit Card" maxlength="200" data-type="string" data-min="5" data-max="200" value="<?= $row['ibanCode']; ?>"></p>
+                <p><b>Phone</b><input data-update="newPhoneNr" type="text" name="phoneNr" class="edit-inputs" placeholder="Phone Number" minlength="8" maxlength="8" data-min="8" data-max="8" data-type="string" value="<?= $row['phoneNr']; ?>"></p>
+                <p><b>Address</b><input data-update="newAddress" type="text" name="address" class="edit-inputs" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Address" value="<?= $row['address']; ?>"></p>
+                <p><b>Password</b><input data-update="newPassword" type="password" name="password" class="edit-inputs" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Password" value="<?= $row['password']; ?>"></p>
+                <p><b>Clothes Sold</b> 4</p>
+                <p><b>Credit Card</b><input type="text" class="insert-input" placeholder="Credit Card" maxlength="200" data-type="string" data-min="5" data-max="200" value="<?= $row['ibanCode']; ?>"></p>
                 <p class="info-desc">Annual plan, paid monthly. <br>
                 Automatically renewed on November 1, 2020</p>
             </div>
-            <button id="clicker" class="manage-plan" type="submit" name="update"><img src="../graphics/card.svg"> Manage Profile</button>
+            <div class="container-grid-buttons">
+            <div id="clicker" class="manage-plan" name="update"><img src="../graphics/card.svg"> Manage Profile</div>
+            <div id="clicker-delete" class="manage-plan" name="update"><a href="../includes/delete.profile.php"><img src="../graphics/delete.svg"> Delete Profile</a></div>
+            </div>
 </form>
         <div class="profile-sell-container">
         </div> 
@@ -66,6 +70,7 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
         <input id="txtBrand" class="sell-your-clothes-input" name="txtBrand" type="text" data-type="string" data-min="3" data-max="3000" value="" placeholder="Brand">
         <input id="txtCondition" class="sell-your-clothes-input" name="txtCondition" type="text" data-type="string" data-min="3" data-max="3000" value="" placeholder="Condition">
         <input id="txtPrice" class="sell-your-clothes-input" name="txtPrice" type="number" data-type="integer" data-min="1" data-max="999999999" value="" placeholder="Price">
+        <div id="error_message"></div>
         <button type="submit" class="sell-your-clothes-submit" onclick="return uploadCheck(this);" id="btn_upload"><img src="../graphics/upload.svg"> Upload Product</button>    
     </form>   
     </section>
@@ -109,26 +114,26 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $('.edit-inputs').attr({'disabled': 'disabled'})
                 .css("background", "rgba(180, 245, 253, 0.59)");
 
-
 $().ready(function() {
     $('#clicker').click(function() {
         $('.edit-inputs').each(function() {
             if ($(this).attr('disabled')) {
                 $(this).removeAttr('disabled');
                 $(this).css({'background':'none', "border":"1px solid #00e1ff"});
-                $('#clicker').text('Save');
+                $('#clicker').html("<img src='../graphics/save-icon.svg'> Save Profile");
             }
             else {
                 $(this).attr({'disabled': 'disabled'});
                 $(this).css({'background':'rgba(180, 245, 253, 0.59)', "border":"none"});
-                $('#clicker').text('Edit');
+                $('#clicker').html("<img src='../graphics/card.svg'> Manage Profile");
                 
             }
         });   
     });
 });
 
-$(document).on('blur','.profile-about-container input',  function(){
+$(document).on('blur','.profile-about-container input',  function(event){
+    event.preventDefault()
     console.log($('#profileInfo').serialize())
     $.ajax({
         url : "../includes/update.inc.php",

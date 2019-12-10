@@ -67,6 +67,7 @@ body
         font-size: .9rem
         padding: .5em
 .manage-plan
+    width: fit-content
     padding: 12px
     border: 1px solid $secondary-color
     border-radius: 5px
@@ -79,6 +80,8 @@ body
     cursor: pointer
     @media screen and (min-width : 1224px) 
         margin: 3em 0 3em
+        a
+            color: $primary-color
 .sell-your-clothes
     display: none
     @media screen and (min-width : 1224px) 
@@ -193,6 +196,9 @@ input[type="file"]
         &:hover
             transform: rotate(1turn)
     
-
+.container-grid-buttons 
+    display: grid
+    grid-template-columns: 1fr 1fr
+    justify-items: center
         
 
