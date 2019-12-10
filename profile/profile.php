@@ -1,7 +1,9 @@
 <?php
 $sPageName = "Profile";
 require_once(__DIR__ . '/../includes/db-connect.php');
+
 session_start();
+
 if(isset($_SESSION['username'])){
     require_once(__DIR__ . '/../navigation/header-logout.php');
 } 
@@ -16,10 +18,12 @@ $sql = "SELECT customers.idCustomer,firstName,lastName,phoneNr,password,address,
         FROM customers
         LEFT JOIN creditcards 
         ON customers.idCustomer = creditcards.idCustomer 
-        WHERE customers.idCustomer={$_SESSION['username']};";
-$result = mysqli_query($conn, $sql);
-$num = mysqli_num_rows($result);
-$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        WHERE customers.idCustomer=:idCustomer";
+        $stmt = $dbh -> prepare($sql);
+        $stmt->bindParam(':idCustomer',$_SESSION['username'],PDO::PARAM_STR);
+        $stmt -> execute();       
+        $count = $stmt->rowCount();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
     <link rel="stylesheet" href="profile.css">
@@ -44,7 +48,7 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                 <p><b>Address</b><input data-update="newAddress" type="text" name="address" class="edit-inputs" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Address" value="<?= $row['address']; ?>"></p>
                 <p><b>Password</b><input data-update="newPassword" type="password" name="password" class="edit-inputs" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Password" value="<?= $row['password']; ?>"></p>
                 <p><b>Clothes Sold</b> 4</p>
-                <p><b>Credit Card</b><input type="text" class="insert-input" placeholder="Credit Card" maxlength="200" data-type="string" data-min="5" data-max="200" value="<?= $row['ibanCode']; ?>"></p>
+                <p><b>Credit Card</b><input type="text" name="creditcard" class="insert-input" placeholder="Credit Card" minlength="22" maxlength="22" data-type="string" data-min="22" data-max="22" value="<?= $row['ibanCode']; ?>"></p>
                 <p class="info-desc">Annual plan, paid monthly. <br>
                 Automatically renewed on November 1, 2020</p>
             </div>
@@ -158,6 +162,9 @@ $(document).on('blur','.profile-about-container input',  function(event){
         console.log('User has been updated')
     })
 });
+
+
+
    /************************* PROFILE SECTION ***************************** */ 
 </script>
 <?php require_once(__DIR__ . '/../footer/footer.php'); ?>  

@@ -8,6 +8,8 @@ if (isset($_SESSION['username'])) {
 if (empty($_SESSION)) {
   require_once(__DIR__ . '/../navigation/header.php');
 }
+
+
 ?>
 
 <link rel="stylesheet" href="index.css">
