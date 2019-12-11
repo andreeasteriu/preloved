@@ -14,11 +14,10 @@ if (empty($_SESSION)) {
 
   <?php
 
-  $sql = "SELECT * FROM products WHERE idProduct = {$_GET['id']} ";
-  $result = mysqli_query($conn, $sql);
-  $num = mysqli_num_rows($result);
-  if ($num > 0) while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-    echo ' 
+  $stmt = $dbh->prepare("SELECT * FROM products where idProduct = ?");
+  if ($stmt->execute(array($_GET['id']))) {
+    while ($row = $stmt->fetch()) {
+      echo ' 
       <div class="view_picture">
         <img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '">
       </div>
@@ -46,6 +45,7 @@ if (empty($_SESSION)) {
     <div class="price">200 DKK</div>
     <div class="add_button"><button><a href="../audit/audit.php?id=' . $row['idProduct'] . '">Buy</a></button></div>
   </div>';
+    }
   } ?>
 </div>
 

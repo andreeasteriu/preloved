@@ -34,7 +34,7 @@
             <ul class="nav-links">
 
                 <li><a href="../main/index.php">Home</a></li>
-                <li class="dropdown"><a id="women"><a href="../products-list/products-list.php">Women</a><i class="fas fa-arrow-right"></i></a>
+                <li class="dropdown"><a id="women">Women<i class="fas fa-arrow-right"></i></a>
                     <ul aria-label="submenu" class="dropdown-content nav-links">
                         <li><a href="../products-list/products-list.php?gender=1&category=1&size=&brand=">Coats</a></li>
                         <li><a href="../products-list/products-list.php?gender=1&category=2&size=&brand=">Jackets</a>
@@ -56,7 +56,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="dropdown"><a id="men"><a href="../products-list/products-list.php">Men</a><i class="fas fa-arrow-right"></i></a>
+                <li class="dropdown"><a id="men">Men<i class="fas fa-arrow-right"></i></a>
                     <ul aria-label="submenu" class="dropdown-content nav-links">
                         <li><a href="../products-list/products-list.php?gender=0&category=1&size=&brand=">Coats</a></li>
                         <li><a href="../products-list/products-list.php?gender=0&category=2&size=&brand=">Jackets</a></li>

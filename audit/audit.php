@@ -13,18 +13,10 @@ if (empty($_SESSION)) {
 <link rel="stylesheet" href="audit.css">
 
 <?php
-$sql = "SELECT * FROM products WHERE products.idProduct = {$_GET['id']};";
+$stmt = $dbh->prepare("SELECT * FROM products where idProduct = ?");
+if ($stmt->execute(array($_GET['id']))) {
+    while ($row = $stmt->fetch()) {
 
-$result = mysqli_query($conn, $sql);
-
-$resultCheck = mysqli_num_rows($result);
-
-$sql2 = 'SELECT * FROM creditcards WHERE creditcards.idcustomer = 1 ;';
-$result2 = mysqli_query($conn, $sql2);
-$resultCheck2 = mysqli_num_rows($result);
-
-if ($resultCheck > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
         echo '<div class="audit_box">
                         <div class="audit_info">THANK YOU FOR CHOOSING <span style="color: #e6e6e6;">PRE</span><span style="color: #e8a798;">LOVED. </span>PRODUCT</div>
                         <div class="audit_product">' . $row['title'] . '</div>
@@ -37,8 +29,9 @@ if ($resultCheck > 0) {
 echo '<div class="audit_choice">Choose the card to proceed with the payment</div>
                 <div class="checkbox">';
 
-if ($resultCheck2 > 0) {
-    while ($row = mysqli_fetch_assoc($result2)) {
+$stmt = $dbh->prepare("SELECT * FROM creditcards where idCustomer = ?");
+if ($stmt->execute(array(1))) {
+    while ($row = $stmt->fetch()) {
         echo '<label><input value="' . $row['idCreditCard'] . '" 
         name="creditcard" id="creditcard-list" 
         type="radio" onclick="onlyOne(this)">' . $row['ibanCode'] . '</label>';
@@ -52,14 +45,24 @@ if (!$_POST) {
     echo '<form method="POST">
         <button name="audit-buy-button"> Buy </button> </form>';
 } else {
-    $sqlTransaction = 'CALL transaction (1,1,' . $_GET['id'] . ');';
 
+    try {
+        $sql = 'CALL transaction(?, ?, ?)';
+        $stmt = $dbh->prepare($sql);
 
-    if (mysqli_query($conn, $sqlTransaction)) {
+        $customer = 1;
+        $creditCard = 1;
+        $product = $_GET['id'];
+
+        $stmt->bindParam(1, $customer, PDO::PARAM_STR | PDO::PARAM_INT, 11);
+        $stmt->bindParam(2,  $creditCard, PDO::PARAM_INT, 11);
+        $stmt->bindParam(3, $product, PDO::PARAM_INT, 11);
+
+        $stmt->execute();
         echo '<p>Transaction complete! Thank you for purchasing</p>
         <h3><a href="../main/index.php">To return to the front page, click here</a></h3>';
-    } else {
-        echo 'We are sorry, an error has occured.';
+    } catch (PDOException $pe) {
+        die("Error occurred:" . $pe->getMessage());
     }
 }
 
