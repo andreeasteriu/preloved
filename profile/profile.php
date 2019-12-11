@@ -35,7 +35,7 @@ $sql = "SELECT customers.idCustomer,firstName,lastName,phoneNr,password,address,
         <form id="profileInfo" class="profile-about-container" action="" method="POST">
             <div class="profile-pink-container"></div>
             <div class="profile-image"></div>
-            <h3 class="profile-name"><input data-update="newFirstName" type="text" name="firstName" class="edit-inputs" maxlength="60" data-type="string" data-min="1" data-max="60" placeholder="First Name" value="<?= $row['firstName']; ?>"><input data-update="newLastName" type="text" name="lastName" class="edit-inputs" maxlength="60" data-type="string" data-min="1" data-max="60" placeholder="Last Name" value="<?= $row['lastName']; ?>"></h3>
+            <h3 class="profile-name-wrap"><input data-update="newFirstName" type="text" name="firstName" class="edit-inputs profile-name" maxlength="60" data-type="string" data-min="1" data-max="60" placeholder="First Name" value="<?= $row['firstName']; ?>"><input data-update="newLastName" type="text" name="lastName" class="edit-inputs profile-name" maxlength="60" data-type="string" data-min="1" data-max="60" placeholder="Last Name" value="<?= $row['lastName']; ?>"></h3>
             <div class="profile-links">
             <a href="sell-clothes.php" class="profile-link sell"><img class="" src="../graphics/eye.svg"> Sell your clothes</a>
             <a href="view-clothes.php" class="profile-link view"><img class="profile-icon" src="../graphics/payment-method.svg"> View your clothes</a>
@@ -44,17 +44,18 @@ $sql = "SELECT customers.idCustomer,firstName,lastName,phoneNr,password,address,
             Hi! Welcome to my profile. I love sustainabilty and I have a lot of clothes to share with you, guys.
             </p>
             <div class="info">
-                <p><b>Phone</b><input data-update="newPhoneNr" type="text" name="phoneNr" class="edit-inputs" placeholder="Phone Number" minlength="8" maxlength="8" data-min="8" data-max="8" data-type="string" value="<?= $row['phoneNr']; ?>"></p>
-                <p><b>Address</b><input data-update="newAddress" type="text" name="address" class="edit-inputs" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Address" value="<?= $row['address']; ?>"></p>
-                <p><b>Password</b><input data-update="newPassword" type="password" name="password" class="edit-inputs" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Password" value="<?= $row['password']; ?>"></p>
+                <p><b>Phone</b> <input data-update="newPhoneNr" type="text" name="phoneNr" class="edit-inputs" placeholder="Phone Number" minlength="8" maxlength="8" data-min="8" data-max="8" data-type="string" value="<?= $row['phoneNr']; ?>"></p>
+                <p><b>Address</b> <input data-update="newAddress" type="text" name="address" class="edit-inputs" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Address" value="<?= $row['address']; ?>"></p>
+                <p><b>Password</b> <input data-update="newPassword" type="password" name="password" class="edit-inputs" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Password" value="<?= $row['password']; ?>"></p>
                 <p><b>Clothes Sold</b> 4</p>
-                <p><b>Credit Card</b><input type="text" name="creditcard" class="insert-input" placeholder="Credit Card" minlength="22" maxlength="22" data-type="string" data-min="22" data-max="22" value="<?= $row['ibanCode']; ?>"></p>
+                <p><b>Credit Card</b> <input type="text" name="creditcard" class="insert-input" placeholder="Credit Card" minlength="22" maxlength="22" data-type="string" data-min="22" data-max="22" value="<?= $row['ibanCode']; ?>"></p>
+                <div id="btnUploadCreditCard" class="manage-plan creditcardbtn"><img src="../graphics/card.svg"> Upload Credit Card</div>
                 <p class="info-desc">Annual plan, paid monthly. <br>
                 Automatically renewed on November 1, 2020</p>
             </div>
             <div class="container-grid-buttons">
-            <div id="clicker" class="manage-plan" name="update"><img src="../graphics/card.svg"> Manage Profile</div>
-            <div id="clicker-delete" class="manage-plan" name="update"><a href="../includes/delete.profile.php"><img src="../graphics/delete.svg"> Delete Profile</a></div>
+            <div id="clicker" class="manage-plan" name="update"><img src="../graphics/edit.svg"> Manage Profile</div>
+            <div id="clicker-delete" class="manage-plan" name="update"><a href="../includes/delete.profile.php" class="profile-delete-link"><img src="../graphics/delete.svg"> Delete Profile</a></div>
             </div>
 </form>
 
@@ -129,20 +130,24 @@ $sql = "SELECT customers.idCustomer,firstName,lastName,phoneNr,password,address,
 
    /************************* PROFILE SECTION ***************************** */ 
 $('.edit-inputs').attr({'disabled': 'disabled'})
-                .css("background", "rgba(180, 245, 253, 0.59)");
+                .css("border", "none");
+$('#btnUploadCreditCard').css("display", "none");
+
 
 $().ready(function() {
     $('#clicker').click(function() {
         $('.edit-inputs').each(function() {
             if ($(this).attr('disabled')) {
                 $(this).removeAttr('disabled');
-                $(this).css({'background':'none', "border":"1px solid #00e1ff"});
-                $('#clicker').html("<img src='../graphics/save-icon.svg'> Save Profile");
+                $(this).css({'background':'none', "border":"1px solid #e6e6e6",  'padding':'.5em'});
+                $('#btnUploadCreditCard').css("display", "block"); 
+                $('#clicker').html("<img src='../graphics/edit.svg'> Save Profile");
             }
             else {
                 $(this).attr({'disabled': 'disabled'});
-                $(this).css({'background':'rgba(180, 245, 253, 0.59)', "border":"none"});
-                $('#clicker').html("<img src='../graphics/card.svg'> Manage Profile");
+                $(this).css( "border","none");
+                $('#btnUploadCreditCard').css("display", "none");
+                $('#clicker').html("<img src='../graphics/edit.svg'> Manage Profile");
                 
             }
         });   
@@ -167,4 +172,5 @@ $(document).on('blur','.profile-about-container input',  function(event){
 
    /************************* PROFILE SECTION ***************************** */ 
 </script>
+
 <?php require_once(__DIR__ . '/../footer/footer.php'); ?>  
