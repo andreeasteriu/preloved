@@ -8,38 +8,14 @@ if($_POST){
         sendErrorMessage('* Please fill in all fields', __LINE__ );   
     }
 
-    // if (!preg_match("/[a-zA-Z0-9.-]/", $_POST['title'])) {
-    //     sendErrorMessage('* Please fill another title', __LINE__ );
-    // }
-
-    // if (!preg_match("/[a-zA-Z0-9.-]/", $_POST['description'])) {
-    //     sendErrorMessage('* Last Name is not valid', __LINE__ );
-    // }
-
-    // if (!preg_match("/[a-zA-Z0-9.-]/", $_POST['condition'])) {
-    //     sendErrorMessage('* Last Name is not valid', __LINE__ );
-    // }
-
-    // if (!preg_match("/^[0-9.]*$/", $_POST['price'])) {
-    //     sendErrorMessage('* Last Name is not valid', __LINE__ );
-    // }
-
-    // if (!preg_match("/^[a-zA-Z0-9]*$/", $_POST['size'])) {
-    //     sendErrorMessage('* Phone Number is not valid', __LINE__ );
-    // }
-
-    // if (!preg_match("/^[a-zA-Z0-9]*$/", $_POST['brand'])) {
-    //     sendErrorMessage('* User name is not valid', __LINE__ );
-    // }
-    
    
 
 }       
 
 if($_POST['gender'] == 'f') {
-     $gender = '1';  
+     $gender = '0';  
 } else {
-     $gender = '0';
+     $gender = '1';
 }
 
 if (isset($_FILES['image']) && $_FILES['image']['size'] > 0) { 

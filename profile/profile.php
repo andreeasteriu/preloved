@@ -45,9 +45,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="info">
                 <p><b>Phone</b> <input data-update="newPhoneNr" type="text" name="phoneNr" class="edit-inputs" placeholder="Phone Number" minlength="8" maxlength="8" data-min="8" data-max="8" data-type="string" value="<?= $row['phoneNr']; ?>"></p>
                 <p><b>Address</b> <input data-update="newAddress" type="text" name="address" class="edit-inputs" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Address" value="<?= $row['address']; ?>"></p>
-                <p><b>Password</b> <input data-update="newPassword" type="password" name="password" class="edit-inputs" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Password" value=""></p>
+                <div class="parag-wrap"><p><b>Password</b><div id="btnUploadCreditCard"><a href="../login/password.php"><img src='../graphics/add-creditcard.svg'></a></div></p></div>
                 <p><b>Clothes Sold</b> 4</p>
-                <div class="parag-wrap"><p><b>Credit Card</b><div id="btnUploadCreditCard"><img src='../graphics/add-creditcard.svg'></div></p></div>
+                <div class="parag-wrap"><p><b>Credit Card</b><div id="btnUploadCreditCard"><a href="../login/credit-card.php"><img src='../graphics/add-creditcard.svg'></a></div></p></div>
                 <!-- <div class="manage-plan creditcardbtn"><img src="../graphics/card.svg"> Upload Credit Card</div> -->
                 <p class="info-desc">Annual plan, paid monthly. <br>
                     Automatically renewed on November 1, 2020</p>
