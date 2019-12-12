@@ -140,8 +140,9 @@ body
         color: $primary-color
         background-color: #FFF
         cursor: pointer
-input[type="file"] 
-    display: none
+        outline: none
+// input[type="file"] 
+//     display: none
    
 .view-clothes
     display: none
@@ -190,6 +191,7 @@ input[type="file"]
         background-color: rgba(253,187,45,0)
         cursor: pointer
         transition: transform .2s
+        outline: none
         &:hover
             transform: rotate(1turn)
     &-delete
@@ -200,6 +202,7 @@ input[type="file"]
         background-color: rgba(253,187,45,0)
         cursor: pointer
         transition: transform .2s
+         outline: none
         &:hover
             transform: rotate(1turn)
     
@@ -227,3 +230,20 @@ input[type="file"]
         font-weight: 400
     &::placeholder
         color: #000
+
+.parag-wrap
+    display: flex
+    align-items: center
+
+.error 
+    border: 1px solid #f54066
+    color: #f54066
+    &:focus 
+        color: #000
+    &::placeholder
+        color: #f54066
+        
+#error_message 
+    padding-top: 5px
+    font-size: 12px
+    color: #f54066

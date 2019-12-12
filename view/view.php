@@ -14,7 +14,13 @@ if (empty($_SESSION)) {
 
   <?php
 
-  $stmt = $dbh->prepare("SELECT * FROM products where idProduct = ?");
+  $stmt = $dbh->prepare("SELECT idProduct, title, description, image, size, products.condition, BrandName, categoryName 
+                          FROM products 
+                          LEFT JOIN brands 
+                          ON products.idBrand = brands.idBrand 
+                          INNER JOIN categories 
+                          ON products.idCategory = categories.idCategory 
+                          WHERE idProduct = ?");
   if ($stmt->execute(array($_GET['id']))) {
     while ($row = $stmt->fetch()) {
       echo ' 
@@ -35,8 +41,8 @@ if (empty($_SESSION)) {
         </div>
         <div class="details_second"> 
             <div class="view_detail2">' . $row['size'] . '</div>
-            <div class="view_detail2">' . $row['brand'] . '</div>
-            <div class="view_detail2">' . $row['idCategory'] . '</div>
+            <div class="view_detail2">' . $row['BrandName'] . '</div>
+            <div class="view_detail2">' . $row['categoryName'] . '</div>
             <div class="view_detail2">' . $row['condition'] . '</div>
         </div>
        
