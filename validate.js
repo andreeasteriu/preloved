@@ -73,7 +73,7 @@ function fvDo( aElements, fvCallback ){
 
 function uploadCheck(){
     console.log('clicked')
-    var property_upload = document.querySelector('#property_upload')
+    var property_upload = document.querySelector('#upload-clothes-form')
     return fnbIsFormValid(property_upload)
 
 }

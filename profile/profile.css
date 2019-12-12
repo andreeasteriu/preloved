@@ -268,10 +268,7 @@ body {
   color: #e8a798;
   background-color: #FFF;
   cursor: pointer;
-}
-
-input[type="file"] {
-  display: none;
+  outline: none;
 }
 
 .view-clothes {
@@ -348,6 +345,7 @@ input[type="file"] {
   transition: -webkit-transform .2s;
   transition: transform .2s;
   transition: transform .2s, -webkit-transform .2s;
+  outline: none;
 }
 
 .view-clothes-edit:hover {
@@ -362,10 +360,11 @@ input[type="file"] {
   border: none;
   background-color: rgba(253, 187, 45, 0);
   cursor: pointer;
-  -webkit-transition: -webkit-transform .2s;
-  transition: -webkit-transform .2s;
-  transition: transform .2s;
-  transition: transform .2s, -webkit-transform .2s;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+  transition-outline: none;
 }
 
 .view-clothes-delete:hover {
@@ -416,5 +415,45 @@ input[type="file"] {
 
 .edit-inputs::placeholder {
   color: #000;
+}
+
+.parag-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.error {
+  border: 1px solid #f54066;
+  color: #f54066;
+}
+
+.error:focus {
+  color: #000;
+}
+
+.error::-webkit-input-placeholder {
+  color: #f54066;
+}
+
+.error:-ms-input-placeholder {
+  color: #f54066;
+}
+
+.error::-ms-input-placeholder {
+  color: #f54066;
+}
+
+.error::placeholder {
+  color: #f54066;
+}
+
+#error_message {
+  padding-top: 5px;
+  font-size: 12px;
+  color: #f54066;
 }
 /*# sourceMappingURL=profile.css.map */
