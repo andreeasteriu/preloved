@@ -1,6 +1,7 @@
 <?php
     require_once(__DIR__ . '/db-connect.php'); 
 
+session_start();
 
 if($_POST){ 
 
@@ -9,11 +10,11 @@ if($_POST){
     }
   
     if (strlen($_POST['password']) < 6) {
-        sendErrorMessage('* Wrong Password', __LINE__ );
+        sendErrorMessage('* New password too short', __LINE__ );
     }
 
     if (strlen($_POST['oldPassword']) < 6) {
-        sendErrorMessage('* Wrong Password', __LINE__ );
+        sendErrorMessage('* Old password does not match', __LINE__ );
     }
 
     if ($_POST['password'] !== $_POST['repeatPassword']) {
@@ -23,21 +24,29 @@ if($_POST){
 $password = $_POST['password'];
 $oldPassword = $_POST['oldPassword'];
 
-$sql="SELECT * FROM customers where userName=:oldPassword";
+$sql="SELECT * FROM customers where idCustomer=:idCustomer";
 $stmt = $dbh -> prepare($sql);
-$stmt->bindParam(':oldPassword',$oldPassword,PDO::PARAM_STR);
+$stmt->bindParam('idCustomer',$_SESSION['username'],PDO::PARAM_STR);
 $stmt -> execute();
 $count = $stmt->rowCount();
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
       if($count == 1 && !empty($row)) {
-        $passCheck = password_verify($password, $row['oldPassword']);
+        $passCheck = password_verify($oldPassword, $row['password']);
             if ($passCheck == false) {
                 sendErrorMessage('* wrong password', __LINE__ );
             }
             else if($passCheck == true){
-                session_start();
-                $_SESSION['username'] = $row['idCustomer'] ;
-                echo '{"status": 1, "message":"You logged in id = '.$_SESSION['username'].'", "line":"'.__LINE__.'"}';
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                $sql = "UPDATE customers SET password=:newpassword
+                    WHERE idCustomer=:idCustomer";
+                $stmt = $dbh->prepare($sql);
+               
+                 // Binding Post Values
+                $stmt->bindParam(':newpassword',$hashedPassword,PDO::PARAM_STR);
+                $stmt->bindParam(':idCustomer',$_SESSION['username'],PDO::PARAM_STR);
+                $stmt -> execute();
+               
+                echo '{"status": 1, "message":"Password changed", "line":"'.__LINE__.'"}';
     } 
 } else {
     sendErrorMessage('* Invalid username and password', __LINE__ );

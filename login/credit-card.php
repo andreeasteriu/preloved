@@ -1,5 +1,5 @@
 <?php
-$sPageName = "Profile";
+$sPageName = "Insert Credit Card";
 require_once(__DIR__ . '/../includes/db-connect.php');
 
 session_start();
@@ -21,18 +21,23 @@ if (empty($_SESSION)) {
         <form class="login-wrapper" id="frmLogin" action="" method="POST">
         <div class="login-bg-color">
         <h3 class="login-title">
-            Login into your account
+            Upload Credit Card.
         </h3>
         <div class="login-inputs-grid">
 
         <div class="login-inputs">
-        <input class="login-input" type="text" name="userName" placeholder="Username"  data-type="string" data-min="1" data-max="60">
+        <input class="login-input" type="text" name="iban" placeholder="Credit Card"  data-type="string" data-min="18" data-max="18">
+        <div class="expiration-date">
+        <input class="login-input date" type="number" name="year" placeholder="Year"  data-type="string" data-min="4" data-max="4"><span> /</span>
+        <input class="login-input date" type="number" name="month" placeholder="Month"  data-type="string" data-min="1" data-max="2">
+        </div>
+        <input class="login-input" type="text" name="cvv" placeholder="CVV"  data-type="string" data-min="3" data-max="3">
         <input class="login-input" type="password" name="password" placeholder="Password" data-type="string" data-min="6" data-max="255">
         <div id="error_message"></div>
         </div>
         </div>
         </div>
-        <button id="loginbtn" class="login-button" type="submit" value="Submit" onclick="login(this); return false">Login</button>
+        <button id="loginbtn" class="login-button" type="submit" value="Submit" onclick="login(this); return false">Upload</button>
       
     </form>
     </div>    
@@ -41,18 +46,17 @@ if (empty($_SESSION)) {
 <script>
     $('#loginbtn').click(function(event){
     event.preventDefault()
-    // console.log('test')
-    // console.log($('form').serialize())
+    console.log('test')
+    console.log($('form').serialize())
     $.ajax({
-        url : "../includes/login.inc.php",
+        url : "../includes/insert-credit-card.php",
         method: "POST",
         data : $('form').serialize(), // create the form to be passed
         dataType:"JSON"
     })
     .done(function(response){
-        console.log('Hi');
         if( response.status === 1 ){
-            window.location='../main/index.php'
+            window.location='../profile/profile.php'
         }else{
             $('#error_message').text(response.message)
         }

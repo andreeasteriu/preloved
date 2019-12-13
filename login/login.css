@@ -164,4 +164,15 @@ p {
   font-size: 12px;
   color: #f54066;
 }
+
+.date {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+
+.expiration-date span {
+  color: #FFF;
+  font-weight: 700;
+}
 /*# sourceMappingURL=login.css.map */
