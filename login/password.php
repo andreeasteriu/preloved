@@ -1,5 +1,5 @@
 <?php
-$sPageName = "Profile";
+$sPageName = "Update Password";
 require_once(__DIR__ . '/../includes/db-connect.php');
 
 session_start();

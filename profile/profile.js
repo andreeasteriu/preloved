@@ -29,8 +29,9 @@ $('form#upload-clothes-form').submit(function(event){
 
     })
     .done(function(response){
-        if( response.status == 1 ){
-            console.log("Product added")
+
+        if( response.status === 1 ){
+            window.location='../profile/profile.php'
         }else{
             $('#error_message').text(response.message)
         }

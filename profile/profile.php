@@ -45,9 +45,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="info">
                 <p><b>Phone</b> <input data-update="newPhoneNr" type="text" name="phoneNr" class="edit-inputs" placeholder="Phone Number" minlength="8" maxlength="8" data-min="8" data-max="8" data-type="string" value="<?= $row['phoneNr']; ?>"></p>
                 <p><b>Address</b> <input data-update="newAddress" type="text" name="address" class="edit-inputs" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Address" value="<?= $row['address']; ?>"></p>
-                <div class="parag-wrap"><p><b>Password</b><div id="btnUploadCreditCard"><a href="../login/password.php"><img src='../graphics/add-creditcard.svg'></a></div></p></div>
+                <div class="parag-wrap"><p><b>Password</b><div class="btnUploadCreditCard"><a href="../login/password.php"><img src='../graphics/add-creditcard.svg'></a></div></p></div>
                 <p><b>Clothes Sold</b> 4</p>
-                <div class="parag-wrap"><p><b>Credit Card</b><div id="btnUploadCreditCard"><a href="../login/credit-card.php"><img src='../graphics/add-creditcard.svg'></a></div></p></div>
+                <div class="parag-wrap"><p><b>Credit Card</b><div class="btnUploadCreditCard"><a href="../login/credit-card.php"><img src='../graphics/add-creditcard.svg'></a></div></p></div>
                 <!-- <div class="manage-plan creditcardbtn"><img src="../graphics/card.svg"> Upload Credit Card</div> -->
                 <p class="info-desc">Annual plan, paid monthly. <br>
                     Automatically renewed on November 1, 2020</p>
@@ -146,11 +146,11 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- **************************** VIEW THE PRODUCTS SECTION ******************************** -->
 
 
-    <section class="view-clothes">
+    <section id="products_container"class="view-clothes">
 
         <?php
 
-        $stmt = $dbh->prepare("SELECT idCustomer,image,title,description,price,size,products.condition,brands.idBrand,brands.brandName 
+        $stmt = $dbh->prepare("SELECT idProduct,idCustomer,image,title,description,price,size,products.condition,brands.idBrand,brands.brandName 
                                 FROM products 
                                 LEFT JOIN brands 
                                 ON products.idBrand = brands.idBrand 
@@ -158,11 +158,11 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($stmt->execute(array($_SESSION['username']))) {
             while ($row = $stmt->fetch()) {
 
-                echo ' <div class="view-clothes-container">
+                echo ' <div id="'.$row['idProduct'].'" class="view-clothes-container">
             <span class="view-clothes-wrap">
                 <img class="view-clothes-image" src="data:image/jpeg;base64,' . base64_encode($row['image']) . '">
                 <button class="view-clothes-edit"><img src="../graphics/edit.svg" alt=""></button>
-                <button class="view-clothes-delete"><img src="../graphics/delete.svg" alt=""></button>
+                <button onclick="deleteProduct()" class="view-clothes-delete" data-id="'.$row['idProduct'].'" ><img src="../graphics/delete.svg" alt=""></button>
             </span>
             <span class="view-clothes-inputs">
             <p>Title.</p><input data-update="title" name="txtTitle" type="text" data-type="string" data-min="3" data-max="3000" value="' . $row['title'] . '">
@@ -188,22 +188,22 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
    /************************* PROFILE SECTION ***************************** */ 
 $('.edit-inputs').attr({'disabled': 'disabled'})
                 .css("border", "none");
-$('#btnUploadCreditCard').css("display", "none");
+$('.btnUploadCreditCard').css("display", "none");
 
-
+/************************* Update profile ***************************** */ 
 $().ready(function() {
     $('#clicker').click(function() {
         $('.edit-inputs').each(function() {
             if ($(this).attr('disabled')) {
                 $(this).removeAttr('disabled');
                 $(this).css({'background':'none', "border":"1px solid #e6e6e6",  'padding':'.5em'});
-                $('#btnUploadCreditCard').css("display", "block"); 
+                $('.btnUploadCreditCard').css("display", "block"); 
                 $('#clicker').html("<img src='../graphics/edit.svg'> Save Profile");
             }
             else {
                 $(this).attr({'disabled': 'disabled'});
                 $(this).css( "border","none");
-                $('#btnUploadCreditCard').css("display", "none");
+                $('.btnUploadCreditCard').css("display", "none");
                 $('#clicker').html("<img src='../graphics/edit.svg'> Manage Profile");
                 };
             
@@ -211,10 +211,6 @@ $().ready(function() {
 
     });
 });
-
-
-   
-
 
     $(document).on('blur', '.profile-about-container input', function(event) {
         event.preventDefault()
@@ -229,10 +225,35 @@ $().ready(function() {
                 console.log('User has been updated')
             })
     });
+/************************* Delete product ***************************** */ 
+
+function deleteProduct(){
+   
+   var product_delete_id = $('.view-clothes-delete').attr('data-id')
+   console.log(product_delete_id);
+   
+   $.ajax({
+        url : "../includes/delete.product.php", //the end point, "file"
+        method : "POST", 
+        dataType: 'json',
+        data : {id:product_delete_id}
+   }).done( function(response){
+
+        if( response.status === 1 ){
+            window.location='../profile/profile.php'
+        }else{
+            $('#error_message').text(response.message)
+        }
+        console.log(response)
+   })
+
+}
 
 
 </script>
-<script src="profile.js"></script>
+
+<script src="profile.js">
+</script>
 
 <?php require_once(__DIR__ . '/../footer/footer.php'); ?>  
 
