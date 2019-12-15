@@ -30,9 +30,9 @@ echo '<div class="audit_choice">Choose the card to proceed with the payment</div
                 <div class="checkbox">';
 
 $stmt = $dbh->prepare("SELECT * FROM creditcards where idCustomer = ?");
-if ($stmt->execute(array(1))) {
+if ($stmt->execute(array($_SESSION['username']))) {
     while ($row = $stmt->fetch()) {
-        echo '<label><input value="' . $row['idCreditCard'] . '" 
+        echo '<form method="post"><label><input name="idCreditcard" value="' . $row['idCreditCard'] . '" 
         name="creditcard" id="creditcard-list" 
         type="radio" onclick="onlyOne(this)">' . $row['ibanCode'] . '</label>';
     }
@@ -42,7 +42,7 @@ echo '</div>';
 
 
 if (!$_POST) {
-    echo '<form method="POST">
+    echo '
         <button name="audit-buy-button"> Buy </button> </form>';
 } else {
 
@@ -50,8 +50,8 @@ if (!$_POST) {
         $sql = 'CALL transaction(?, ?, ?)';
         $stmt = $dbh->prepare($sql);
 
-        $customer = 1;
-        $creditCard = 1;
+        $customer = $_SESSION['username'];
+        $creditCard = $_POST['idCreditcard'];
         $product = $_GET['id'];
 
         $stmt->bindParam(1, $customer, PDO::PARAM_STR | PDO::PARAM_INT, 11);
