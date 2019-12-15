@@ -326,14 +326,6 @@ body {
   font-size: .8rem;
 }
 
-.view-clothes-inputs input:focus {
-  border: none;
-  background-color: #f2cec5;
-  padding: 5px;
-  color: #FFF;
-  font-weight: 700;
-}
-
 .view-clothes-edit {
   position: absolute;
   bottom: 20px;
@@ -370,6 +362,10 @@ body {
 .view-clothes-delete:hover {
   -webkit-transform: rotate(1turn);
           transform: rotate(1turn);
+}
+
+.image-product {
+  width: 100%;
 }
 
 .container-grid-buttons {

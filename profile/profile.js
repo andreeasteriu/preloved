@@ -42,3 +42,6 @@ $('form#upload-clothes-form').submit(function(event){
     })
 
 })
+
+
+

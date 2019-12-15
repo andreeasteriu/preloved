@@ -158,21 +158,34 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($stmt->execute(array($_SESSION['username']))) {
             while ($row = $stmt->fetch()) {
 
-                echo ' <div id="'.$row['idProduct'].'" class="view-clothes-container">
+                echo ' <form id="'.$row['idProduct'].'" class="view-clothes-container">
             <span class="view-clothes-wrap">
                 <img class="view-clothes-image" src="data:image/jpeg;base64,' . base64_encode($row['image']) . '">
-                <button class="view-clothes-edit"><img src="../graphics/edit.svg" alt=""></button>
-                <button onclick="deleteProduct()" class="view-clothes-delete" data-id="'.$row['idProduct'].'" ><img src="../graphics/delete.svg" alt=""></button>
+                <div class="view-clothes-edit" data-id="'.$row['idProduct'].'"><img src="../graphics/edit.svg" alt=""></div>
+                <div onclick="deleteProduct()" class="view-clothes-delete" data-id="'.$row['idProduct'].'" ><img src="../graphics/delete.svg" alt=""></div>
             </span>
             <span class="view-clothes-inputs">
+            <input class="image-product" type="file" name="image-product"/>
             <p>Title.</p><input data-update="title" name="txtTitle" type="text" data-type="string" data-min="3" data-max="3000" value="' . $row['title'] . '">
             <p>Description.</p> <input data-update="description" name="txtDescription" type="text" data-type="string" data-min="3" data-max="3000" value="' . $row['description'] . '">
-            <p>Size.</p><input data-update="size" name="txtSize" type="text" data-type="string" data-min="1" data-max="3" value="' . $row['size'] . '">
-            <p>Brand.</p><input data-update="brand" name="txtBrand" type="text" data-type="string" data-min="3" data-max="3000" value="' . $row['brandName'] . '">
+            <p>Size.</p><input  data-update="size" name="txtSize" type="text" data-type="string" data-min="1" data-max="3" value="' . $row['size'] . '">
+            
+            <p>Brand.</p><input class="update-nodisplay" type="text" data-type="string" data-min="3" data-max="3000" value="' . $row['brandName'] . '">
+            <select class="update-select" name="txtBrand" data-update="idBrand">
+                        <option value="">' . $row['brandName'] . '</option>
+                        <option value="2">ZARA</option>
+                        <option value="1">H&M</option>
+                        <option value="3">Calvin Klein</option>
+                        <option value="4">Versace</option>
+                        <option value="5">Levis</option>
+                        <option value="7">Gucci</option>
+                        <option value="6">Nike</option>
+                        <option value="8">Other</option>
+            </select>
             <p>Condition.</p><input data-update="condition" name="txtCondition" type="text" data-type="string" data-min="3" data-max="3000" value="' . $row['condition'] . '">
             <p>Price.</p><input data-update="price" name="txtPrice" type="number" data-type="integer" value="' . $row['price'] . '">
             </span>
-        </div>';
+        </form>';
             }
         }
         ?>
@@ -182,6 +195,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 </div>
 <script src="../validate.js"></script>
+<script src="update-product.js"></script>
 <script>
 
 
@@ -248,6 +262,7 @@ function deleteProduct(){
    })
 
 }
+
 
 
 </script>
