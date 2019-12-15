@@ -21,13 +21,13 @@ if (empty($_SESSION)) {
     <div id="main_row">
       <div id="main_column1">
         <div id='title1'>
-          <div class="main_description"><a href="url">BUY</a></div>
+          <div class="main_description"><a href="../products-list/products-list.php">BUY</a></div>
         </div>
         <div id='text1'>Another journey chamber way yet females man.</div>
       </div>
       <div id="main_column2">
         <div id='title2'>
-          <div class="main_description"><a href="url">SELL</a></div>
+          <div class="main_description"><a href="../products-list/products-list.php">SELL</a></div>
         </div>
         <div id='text2'>Another journey chamber way yet females man.</div>
       </div>

@@ -1,0 +1,358 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Colors */
+/**Greys**/
+h2 a {
+  color: #303030;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+h2 a:hover {
+  color: #e8a798;
+}
+
+h3 {
+  font-family: "Montserrat";
+  font-size: 1.2rem;
+}
+
+a {
+  color: #303030;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+p {
+  color: #303030;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+body {
+  font-family: "Montserrat";
+}
+
+@media screen and (min-width: 1224px) {
+  .body-warehouses {
+    padding: 1em;
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+  }
+}
+
+.warehouses {
+  padding: 1em;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media screen and (min-width: 1224px) {
+  .warehouses {
+    border: 1px solid #e6e6e6;
+  }
+}
+
+.warehouses-pink-container {
+  display: block;
+  background-color: #f2cec5;
+  width: 100%;
+  height: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.warehouses-image {
+  margin: 40px auto 0;
+  background-image: url(../graphics/andreea.svg);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.warehouses-name-wrap {
+  padding: 1em 0 0;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.warehouses-name {
+  text-align: center;
+  font-weight: 700;
+  color: #000;
+  width: 25%;
+}
+
+.warehouses-links {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media screen and (min-width: 1224px) {
+  .warehouses-links {
+    display: none;
+  }
+}
+
+.warehouses-link {
+  border: 1px solid #f2cec5;
+  border-radius: 5px;
+  color: #e8a798;
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.warehouses-icon {
+  position: relative;
+  top: 5px;
+}
+
+.warehouses-description {
+  font-size: .9rem;
+  padding: 1.5em 0;
+}
+
+.view {
+  padding: 5px 12px 12px;
+}
+
+.sell {
+  padding: 12px 12px 5px;
+}
+
+.info {
+  padding: 1em 0;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.info p {
+  font-size: .9rem;
+  padding: .5em;
+}
+
+.manage-plan {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 12px;
+  border: 1px solid #f2cec5;
+  border-radius: 5px;
+  color: #e8a798;
+  font-size: .8rem;
+  background-color: #FFF;
+  margin: 3em auto;
+  display: block;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1224px) {
+  .manage-plan {
+    margin: 3em 0 3em;
+  }
+}
+
+.warehouses-delete-link {
+  color: #e8a798 !important;
+}
+
+.add-warehouse {
+  margin-top: 10px;
+  display: none;
+}
+
+@media screen and (min-width: 1224px) {
+  .add-warehouse {
+    display: block;
+    padding: 2em;
+    border: 1px solid #e6e6e6;
+  }
+}
+
+.add-warehouse-title {
+  font-size: 1.9rem;
+  color: #e8a798;
+  margin: 1em 0 1.8em;
+}
+
+.add-warehouse-form {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1em;
+}
+
+.add-warehouse-file-upload {
+  border: none;
+  border-radius: 5px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #FFF;
+  display: inline-block;
+  padding: 12px;
+  cursor: pointer;
+  background-color: #f2cec5;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.add-warehouse-input {
+  font-family: "Montserrat";
+  border: 1px solid #e6e6e6;
+  padding: .8em;
+  border-radius: 5px;
+  font-size: .8rem;
+  font-weight: 700;
+  outline: none;
+  color: #e8a798;
+}
+
+.add-warehouse-input:focus {
+  color: #e8a798;
+  border-color: #f2cec5;
+  font-weight: 400;
+}
+
+.add-warehouse-input::-webkit-input-placeholder {
+  color: #000;
+}
+
+.add-warehouse-input:-ms-input-placeholder {
+  color: #000;
+}
+
+.add-warehouse-input::-ms-input-placeholder {
+  color: #000;
+}
+
+.add-warehouse-input::placeholder {
+  color: #000;
+}
+
+.add-warehouse-submit {
+  display: block;
+  margin-top: 35px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 12px;
+  font-weight: 700;
+  font-size: .8rem;
+  border: 1px solid #f2cec5;
+  color: #e8a798;
+  background-color: #FFF;
+  cursor: pointer;
+  outline: none;
+}
+
+.warehouse-container {
+  margin: 20px;
+}
+
+.container-grid-buttons {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  margin-top: 5px;
+  justify-items: center;
+}
+
+.edit-inputs {
+  margin-top: .5em;
+  font-family: "Montserrat";
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  font-size: .8rem;
+  outline: none;
+  color: #000;
+  width: 100%;
+}
+
+.edit-inputs:focus {
+  color: #e8a798;
+  border-color: #f2cec5 !important;
+  font-weight: 400;
+}
+
+.edit-inputs::-webkit-input-placeholder {
+  color: #000;
+}
+
+.edit-inputs:-ms-input-placeholder {
+  color: #000;
+}
+
+.edit-inputs::-ms-input-placeholder {
+  color: #000;
+}
+
+.edit-inputs::placeholder {
+  color: #000;
+}
+
+.parag-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.error {
+  border: 1px solid #f54066;
+  color: #f54066;
+}
+
+.error:focus {
+  color: #000;
+}
+
+.error::-webkit-input-placeholder {
+  color: #f54066;
+}
+
+.error:-ms-input-placeholder {
+  color: #f54066;
+}
+
+.error::-ms-input-placeholder {
+  color: #f54066;
+}
+
+.error::placeholder {
+  color: #f54066;
+}
+
+#error_message {
+  padding-top: 5px;
+  font-size: 12px;
+  color: #f54066;
+}
+/*# sourceMappingURL=warehouses.css.map */

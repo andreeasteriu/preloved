@@ -1,0 +1,189 @@
+@import '../styles/variables', url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap')
+
+body
+    font-family: $montserrat
+.body-warehouses
+    @media screen and (min-width : 1224px)
+
+        padding: 1em
+        max-width: 1200px
+        width: 100%
+        margin: auto
+.warehouses
+    padding: 1em
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    @media screen and (min-width : 1224px)
+        border: 1px solid $grey-light
+    &-pink-container
+        display: block
+        background-color: $secondary-color
+        width: 100%
+        height: 120px
+        position: absolute
+        top: 0
+        left: 0
+        z-index: -2
+    &-image
+        margin: 40px auto 0
+        background-image: url(../graphics/andreea.svg)
+        width: 120px
+        height: 120px
+        border-radius: 50%
+        background-position: center
+        background-repeat: no-repeat
+        background-size: contain
+    &-name-wrap
+        padding: 1em 0 0
+        text-align: center
+        display: flex
+        justify-content: center
+    &-name
+        text-align: center
+        font-weight: 700
+        color: #000
+        width: 25%
+    &-links
+        width: 100%
+        display: flex
+        justify-content: space-between
+        @media screen and (min-width : 1224px)
+            display: none
+    &-link
+        border: 1px solid $secondary-color
+        border-radius: 5px
+        color: $primary-color
+        font-size: .8rem
+        font-weight: 700
+    &-icon
+        position: relative
+        top: 5px
+    &-description
+        font-size: .9rem
+        padding: 1.5em 0
+.view
+    padding: 5px 12px 12px
+.sell
+    padding: 12px 12px 5px
+.info
+    padding: 1em 0
+    border-top: 1px solid $grey-light
+    border-bottom: 1px solid $grey-light
+    p
+        font-size: .9rem
+        padding: .5em
+.manage-plan
+    width: fit-content
+    padding: 12px
+    border: 1px solid $secondary-color
+    border-radius: 5px
+    color: $primary-color
+    font-size: .8rem
+    background-color: #FFF
+    margin: 3em auto
+    display: block
+    font-weight: 700
+    cursor: pointer
+    @media screen and (min-width : 1224px)
+        margin: 3em 0 3em
+.warehouses-delete-link
+    color: $primary-color !important
+.add-warehouse
+    margin-top: 10px
+
+    display: none
+    @media screen and (min-width : 1224px)
+        display: block
+        padding: 2em
+        border: 1px solid $grey-light
+    &-title
+        font-size: 1.9rem
+        color: $primary-color
+        margin: 1em 0 1.8em
+    &-form
+        display: grid
+        grid-gap: 1em
+    &-file-upload
+        border: none
+        border-radius: 5px
+        width: fit-content
+        color: #FFF
+        display: inline-block
+        padding: 12px
+        cursor: pointer
+        background-color: $secondary-color
+        font-size: .9rem
+        font-weight: 700
+    &-input
+        font-family: $montserrat
+        border: 1px solid $grey-light
+        padding: .8em
+        border-radius: 5px
+        font-size: .8rem
+        font-weight: 700
+        outline: none
+        color: $primary-color
+        &:focus
+            color: $primary-color
+            border-color: $secondary-color
+            font-weight: 400
+        &::placeholder
+            color: #000
+    &-submit
+        display: block
+        margin-top: 35px
+        width: fit-content
+        border-radius: 5px
+        padding: 12px
+        font-weight: 700
+        font-size: .8rem
+        border: 1px solid $secondary-color
+        color: $primary-color
+        background-color: #FFF
+        cursor: pointer
+        outline: none
+// input[type="file"]
+//     display: none
+
+.warehouse-container
+    margin: 20px
+    .info
+
+.container-grid-buttons
+    display: grid
+    grid-template-columns: 1fr 1fr
+    margin-top: 5px
+    justify-items: center
+
+.edit-inputs
+    margin-top: .5em
+    font-family: $montserrat
+    border: 1px solid $grey-light
+    border-radius: 5px
+    font-size: .8rem
+    outline: none
+    color: #000
+    width: 100%
+    &:focus
+        color: $primary-color
+        border-color: $secondary-color !important
+        font-weight: 400
+    &::placeholder
+        color: #000
+
+.parag-wrap
+    display: flex
+    align-items: center
+
+.error
+    border: 1px solid #f54066
+    color: #f54066
+    &:focus
+        color: #000
+    &::placeholder
+        color: #f54066
+
+#error_message
+    padding-top: 5px
+    font-size: 12px
+    color: #f54066

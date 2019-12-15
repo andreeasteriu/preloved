@@ -1,5 +1,5 @@
 <?php
-$sPageName = "Profile";
+$sPageName = "warehouses";
 require_once(__DIR__ . '/../includes/db-connect.php');
 
 session_start();
@@ -12,20 +12,22 @@ if (empty($_SESSION)) {
 }
 ?>
 
-<!-- **************************** PROFILE SECTION ******************************** -->
-<link rel="stylesheet" href="profile.css">
+<!-- **************************** warehouses SECTION ******************************** -->
+<link rel="stylesheet" href="warehouses.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-<div class="body-profile">
-    <section class="profile">
+<div class="body-warehouses">
+    <h2 class="add-warehouse-title">Warehouses</h2>
+    <section class="warehouses">
+
         <?php
         $stmt = $dbh->prepare("SELECT * FROM warehouses");
         if ($stmt->execute(array())) {
             while ($row = $stmt->fetch()) {
 
                 echo '
-<div class="warehouse-container">
-        <form id="' . $row['idWarehouse'] . '" class="profile-about-container" method="post">
+    <div class="warehouse-container">
+        <form id="' . $row['idWarehouse'] . '" class="warehouses-about-container" method="post">
 
             <div class="info">
                 <p><b>Warehouse ' . $row['idWarehouse'] . '</b> </p> 
@@ -34,8 +36,8 @@ if (empty($_SESSION)) {
                 <input type="hidden" name="idWarehouse" value="' . $row['idWarehouse'] . '">
             </div>
             <div class="container-grid-buttons">
-                <div class="clicker" class="manage-plan" name="update"><img src="../graphics/edit.svg">Manage</div>
-                <div class="clicker-delete" class="manage-plan" name="update"><a href="../includes/delete.warehouse.php?id=' . $row['idWarehouse'] . '" class="profile-delete-link"><img src="../graphics/delete.svg"></a></div>
+                <div class="clicker" class="manage-plan" name="update"><img src="../graphics/edit.svg"></div>
+                <div class="clicker-delete" class="manage-plan" name="update"><a href="../includes/delete.warehouse.php?id=' . $row['idWarehouse'] . '" class="warehouses-delete-link"><img src="../graphics/delete.svg"></a></div>
 
             </div>
         </form>
@@ -46,15 +48,15 @@ if (empty($_SESSION)) {
 
 
         ?>
+    </section>
+    <section class="add-warehouse">
+        <h2 class="add-warehouse-title">Add Warehouse</h2>
+        <form id="upload-clothes-form" class="add-warehouse-form" method="POST">
+            <input class="add-warehouse-input" name="address" type="text" data-type="string" data-min="3" data-max="40" value="" placeholder="Address">
+            <button type="submit" class="add-warehouse-submit" onclick="return uploadCheck(this);" id="btn_upload"><img src="../graphics/upload.svg"> Add Warehouse</button>
+        </form>
+    </section>
 </div>
-<section class="sell-your-clothes">
-    <h2 class="sell-your-clothes-title">Add Warehouse</h2>
-    <form id="upload-clothes-form" class="sell-your-clothes-form" method="POST">
-        <input class="sell-your-clothes-input" name="address" type="text" data-type="string" data-min="3" data-max="40" value="" placeholder="Title">
-        <button type="submit" class="sell-your-clothes-submit" onclick="return uploadCheck(this);" id="btn_upload"><img src="../graphics/upload.svg"> Add Warehouse</button>
-    </form>
-</section>
-
 
 
 
@@ -64,14 +66,14 @@ if (empty($_SESSION)) {
 
 <script src="../validate.js"></script>
 <script>
-    /************************* PROFILE SECTION ***************************** */
+    /************************* warehouses SECTION ***************************** */
     $('.edit-inputs').attr({
             'disabled': 'disabled'
         })
         .css("border", "none");
     $('.btnUploadCreditCard').css("display", "none");
 
-    /************************* Update profile ***************************** */
+    /************************* Update warehouses ***************************** */
     $().ready(function() {
         $('.clicker').click(function() {
             $('.edit-inputs').each(function() {
@@ -83,14 +85,14 @@ if (empty($_SESSION)) {
                         'padding': '.5em'
                     });
                     $('.btnUploadCreditCard').css("display", "block");
-                    $('.clicker').html("<img src='../graphics/edit.svg'>Save");
+                    $('.clicker').html("<img src='../graphics/save.svg'>");
                 } else {
                     $(this).attr({
                         'disabled': 'disabled'
                     });
                     $(this).css("border", "none");
                     $('.btnUploadCreditCard').css("display", "none");
-                    $('.clicker').html("<img src='../graphics/edit.svg'>Manage");
+                    $('.clicker').html("<img src='../graphics/edit.svg'>");
                 };
 
             });
@@ -98,13 +100,13 @@ if (empty($_SESSION)) {
         });
     });
 
-    $(document).on('blur', '.profile-about-container input', function(event) {
+    $(document).on('blur', '.warehouses-about-container input', function(event) {
         event.preventDefault()
-        // console.log($('#profileInfo').serialize())
+        // console.log($('#warehousesInfo').serialize())
         $.ajax({
                 url: "../includes/update.warehouses.inc.php",
                 method: "POST",
-                data: $('.profile-about-container').serialize(), // create the form to be passed
+                data: $('.warehouses-about-container').serialize(), // create the form to be passed
                 dataType: "JSON"
             })
             .done(function() {
@@ -127,7 +129,7 @@ if (empty($_SESSION)) {
             .done(function(response) {
 
                 if (response.status === 1) {
-                    window.location = '../profile/warehouses.php'
+                    window.location = '../warehouses/warehouses.php'
                 } else {
                     $('#error_message').text(response.message)
                 }
