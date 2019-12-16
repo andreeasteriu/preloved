@@ -153,7 +153,7 @@ if (empty($_SESSION)) {
                         $sql = "SELECT * FROM products
             WHERE size ='$size' AND brand ='$brand'";
 
-                        $stmt = $dbh->prepare("SELECT * FROM products WHERE size = ? AND brand = ?");
+                        $stmt = $dbh->prepare("SELECT * FROM products INNER JOIN brands ON products.idBrand = brands.idBrand WHERE size = ? AND brands.brandName = ?");
                         if ($stmt->execute(array($size, $brand))) {
                             while ($row = $stmt->fetch()) {
                                 arrayResults($row);
@@ -163,7 +163,7 @@ if (empty($_SESSION)) {
 
                     if (isset($_GET['brand']) &&  $_GET['size'] == NULL && $_GET['gender'] == NULL && $_GET['category'] == NULL) {
 
-                        $stmt = $dbh->prepare("SELECT * FROM products WHERE brand = ?");
+                        $stmt = $dbh->prepare("SELECT * FROM products INNER JOIN brands ON products.idBrand = brands.idBrand  WHERE brands.brandName = ?");
                         if ($stmt->execute(array($brand))) {
                             while ($row = $stmt->fetch()) {
                                 arrayResults($row);

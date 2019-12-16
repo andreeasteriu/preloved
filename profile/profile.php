@@ -45,16 +45,24 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="info">
                 <p><b>Phone</b> <input data-update="newPhoneNr" type="text" name="phoneNr" class="edit-inputs" placeholder="Phone Number" minlength="8" maxlength="8" data-min="8" data-max="8" data-type="string" value="<?= $row['phoneNr']; ?>"></p>
                 <p><b>Address</b> <input data-update="newAddress" type="text" name="address" class="edit-inputs" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Address" value="<?= $row['address']; ?>"></p>
-                <div class="parag-wrap"><p><b>Password</b><div class="btnUploadCreditCard"><a href="../login/password.php"><img src='../graphics/add-creditcard.svg'></a></div></p></div>
+                <div class="parag-wrap">
+                    <p><b>Password</b>
+                        <div class="btnUploadCreditCard"><a href="../login/password.php"><img src='../graphics/add-creditcard.svg'></a></div>
+                    </p>
+                </div>
                 <p><b>Clothes Sold</b> 4</p>
-                <div class="parag-wrap"><p><b>Credit Card</b><div class="btnUploadCreditCard"><a href="../login/credit-card.php"><img src='../graphics/add-creditcard.svg'></a></div></p></div>
+                <div class="parag-wrap">
+                    <p><b>Credit Card</b>
+                        <div class="btnUploadCreditCard"><a href="../login/credit-card.php"><img src='../graphics/add-creditcard.svg'></a></div>
+                    </p>
+                </div>
                 <!-- <div class="manage-plan creditcardbtn"><img src="../graphics/card.svg"> Upload Credit Card</div> -->
                 <p class="info-desc">Annual plan, paid monthly. <br>
                     Automatically renewed on November 1, 2020</p>
             </div>
             <div class="container-grid-buttons">
-            <div id="clicker" class="manage-plan" name="update"><img src="../graphics/edit.svg"> Manage Profile</div>
-            <div id="clicker-delete" class="manage-plan" name="update"><a href="../includes/delete.profile.php" class="profile-delete-link"><img src="../graphics/delete.svg"> Delete Profile</a></div>
+                <div id="clicker" class="manage-plan" name="update"><img src="../graphics/edit.svg"> Manage Profile</div>
+                <div id="clicker-delete" class="manage-plan" name="update"><a href="../includes/delete.profile.php" class="profile-delete-link"><img src="../graphics/delete.svg"> Delete Profile</a></div>
 
             </div>
         </form>
@@ -72,30 +80,30 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <section class="sell-your-clothes">
         <h2 class="sell-your-clothes-title">Sell your clothes.</h2>
         <form id="upload-clothes-form" class="sell-your-clothes-form" method="POST" enctype="multipart/form-data">
-            
-            <input class="sell-your-clothes-input" id="file" type="file" name="image"/>
+
+            <input class="sell-your-clothes-input" id="file" type="file" name="image" />
             <input class="sell-your-clothes-input" name="title" type="text" data-type="string" data-min="3" data-max="40" value="" placeholder="Title">
             <input class="sell-your-clothes-input" name="description" type="text" data-type="string" data-min="3" data-max="255" value="" placeholder="Description">
             <select class="" name="category">
-                        <option value="">Category</option>
-                        <option value="1">Coats</option>
-                        <option value="2">Jackets</option>
-                        <option value="3">Blazers</option>
-                        <option value="4">Dresses</option>
-                        <option value="5">Suits</option>
-                        <option value="6">Shirts</option>
-                        <option value="7">Knitwears</option>
-                        <option value="8">Trousers</option>
-                        <option value="9">Jeans</option>
-                        <option value="10">T-shirts</option>
-                        <option value="11">Shorts</option>
-                        <option value="12">Skirts</option>
-                        <option value="13">Tracksuits</option>
-                        <option value="14">Shoes</option>
-                        <option value="15">Bags</option>
-                        
-                        
-            </select>      
+                <option value="">Category</option>
+                <option value="1">Coats</option>
+                <option value="2">Jackets</option>
+                <option value="3">Blazers</option>
+                <option value="4">Dresses</option>
+                <option value="5">Suits</option>
+                <option value="6">Shirts</option>
+                <option value="7">Knitwears</option>
+                <option value="8">Trousers</option>
+                <option value="9">Jeans</option>
+                <option value="10">T-shirts</option>
+                <option value="11">Shorts</option>
+                <option value="12">Skirts</option>
+                <option value="13">Tracksuits</option>
+                <option value="14">Shoes</option>
+                <option value="15">Bags</option>
+
+
+            </select>
             <select name="size">
                 <option value="">Size</option>
                 <option value="S">S</option>
@@ -104,38 +112,38 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 <option value="XL">XL</option>
             </select>
             <select class="" name="brand">
-                        <option value="">Brand</option>
-                        <option value="2">ZARA</option>
-                        <option value="1">H&M</option>
-                        <option value="3">Calvin Klein</option>
-                        <option value="4">Versace</option>
-                        <option value="5">Levis</option>
-                        <option value="7">Gucci</option>
-                        <option value="6">Nike</option>
-                        <option value="8">Other</option>
+                <option value="">Brand</option>
+                <option value="2">ZARA</option>
+                <option value="1">H&M</option>
+                <option value="3">Calvin Klein</option>
+                <option value="4">Versace</option>
+                <option value="5">Levis</option>
+                <option value="7">Gucci</option>
+                <option value="6">Nike</option>
+                <option value="8">Other</option>
             </select>
             <select class="" name="condition">
-                        <option value="">Condition</option>
-                        <option value="Not That Good">Not That Good</option>
-                        <option value="Good">Good</option>
-                        <option value="Very Good">Very Good</option>
-                        
+                <option value="">Condition</option>
+                <option value="Not That Good">Not That Good</option>
+                <option value="Good">Good</option>
+                <option value="Very Good">Very Good</option>
+
             </select>
             <input class="sell-your-clothes-input" name="price" type="number" data-type="integer" data-min="1" data-max="9999999" value="" placeholder="Price">
             <select class="" name="warehouses">
-                        <option value="">Warehouses</option>
-                        <option value="1">923 Nunc Av.</option>
-                        <option value="2">Ap #116-7636 Erat Road</option>
-                        <option value="3">282-728 Tempor Rd.</option>
-                        <option value="4">5940 Curae; Ave</option>
-                        <option value="5">132-7258 Id St.</option>
-                        <option value="6">Ap #310-4201 Parturient Ave</option>
-                        <option value="7">734-967 Imperdiet, Ave</option>
-                        
-            </select> 
+                <option value="">Warehouses</option>
+                <option value="1">923 Nunc Av.</option>
+                <option value="2">Ap #116-7636 Erat Road</option>
+                <option value="3">282-728 Tempor Rd.</option>
+                <option value="4">5940 Curae; Ave</option>
+                <option value="5">132-7258 Id St.</option>
+                <option value="6">Ap #310-4201 Parturient Ave</option>
+                <option value="7">734-967 Imperdiet, Ave</option>
+
+            </select>
             <span class="radio-wrap">
-            <span><input type="radio" name="gender" value="f" checked="checked" /><b>Female </b></span>    
-            <span><input type="radio" name="gender" value="m" checked="checked" /><b>Male</b></span> 
+                <span><input type="radio" name="gender" value="f" checked="checked" /><b>Female </b></span>
+                <span><input type="radio" name="gender" value="m" checked="checked" /><b>Male</b></span>
             </span>
             <div id="error_message"></div>
             <button type="submit" class="sell-your-clothes-submit" onclick="return uploadCheck(this);" id="btn_upload"><img src="../graphics/upload.svg"> Upload Product</button>
@@ -146,26 +154,26 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- **************************** VIEW THE PRODUCTS SECTION ******************************** -->
 
 
-    <section id="products_container"class="view-clothes">
+    <section id="products_container" class="view-clothes">
 
         <?php
 
-        $stmt = $dbh->prepare("SELECT idProduct,idCustomer,image,title,description,price,size,products.condition,brands.idBrand,brands.brandName 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            $stmt = $dbh->prepare("SELECT idProduct,idCustomer,image,title,description,price,size,products.condition,brands.idBrand,brands.brandName 
                                 FROM products 
                                 LEFT JOIN brands 
                                 ON products.idBrand = brands.idBrand 
                                 WHERE products.idCustomer= ?");
-        if ($stmt->execute(array($_SESSION['username']))) {
-            while ($row = $stmt->fetch()) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            if ($stmt->execute(array($_SESSION['username']))) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                while ($row = $stmt->fetch()) {
 
-                echo ' <form id="'.$row['idProduct'].'" class="view-clothes-container">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                    echo ' <form id="' . $row['idProduct'] . '"  enctype="multipart/form-data" class="view-clothes-container">
             <span class="view-clothes-wrap">
                 <img class="view-clothes-image" src="data:image/jpeg;base64,' . base64_encode($row['image']) . '">
-                <label for="image-product" class="view-clothes-camera-update" data-id="'.$row['idProduct'].'"><img src="../graphics/photo-camera.svg" alt="">            
+                <label for="image-product" class="view-clothes-camera-update" data-id="' . $row['idProduct'] . '"><img src="../graphics/photo-camera.svg" alt="">            
                 <input id="image-product" class="image-product" data-update="image" type="file" name="image"/>
                 </label>
-                <div class="view-clothes-edit" data-id="'.$row['idProduct'].'"><img src="../graphics/edit.svg" alt=""></div>
-                <div onclick="deleteProduct()" class="view-clothes-delete" data-id="'.$row['idProduct'].'" ><img src="../graphics/delete.svg" alt=""></div>
+                <div class="view-clothes-edit" data-id="' . $row['idProduct'] . '"><img src="../graphics/edit.svg" alt=""></div>
+                <div onclick="deleteProduct()" class="view-clothes-delete" data-id="' . $row['idProduct'] . '" ><img src="../graphics/delete.svg" alt=""></div>
             </span>
             <span class="view-clothes-inputs">
             <p>Title.</p><input data-update="title" name="txtTitle" type="text" data-type="string" data-min="3" data-max="3000" value="' . $row['title'] . '">
@@ -188,8 +196,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <p>Price.</p><input data-update="price" name="txtPrice" type="number" data-type="integer" value="' . $row['price'] . '">
             </span>
         </form>';
-            }
-        }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
         ?>
 
     </section>
@@ -199,34 +207,39 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 <script src="../validate.js"></script>
 <script src="update-product.js"></script>
 <script>
+    /************************* PROFILE SECTION ***************************** */
+    $('.edit-inputs').attr({
+            'disabled': 'disabled'
+        })
+        .css("border", "none");
+    $('.btnUploadCreditCard').css("display", "none");
 
-
-   /************************* PROFILE SECTION ***************************** */ 
-$('.edit-inputs').attr({'disabled': 'disabled'})
-                .css("border", "none");
-$('.btnUploadCreditCard').css("display", "none");
-
-/************************* Update profile ***************************** */ 
-$().ready(function() {
-    $('#clicker').click(function() {
-        $('.edit-inputs').each(function() {
-            if ($(this).attr('disabled')) {
-                $(this).removeAttr('disabled');
-                $(this).css({'background':'none', "border":"1px solid #e6e6e6",  'padding':'.5em'});
-                $('.btnUploadCreditCard').css("display", "block"); 
-                $('#clicker').html("<img src='../graphics/edit.svg'> Save Profile");
-            }
-            else {
-                $(this).attr({'disabled': 'disabled'});
-                $(this).css( "border","none");
-                $('.btnUploadCreditCard').css("display", "none");
-                $('#clicker').html("<img src='../graphics/edit.svg'> Manage Profile");
+    /************************* Update profile ***************************** */
+    $().ready(function() {
+        $('#clicker').click(function() {
+            $('.edit-inputs').each(function() {
+                if ($(this).attr('disabled')) {
+                    $(this).removeAttr('disabled');
+                    $(this).css({
+                        'background': 'none',
+                        "border": "1px solid #e6e6e6",
+                        'padding': '.5em'
+                    });
+                    $('.btnUploadCreditCard').css("display", "block");
+                    $('#clicker').html("<img src='../graphics/edit.svg'> Save Profile");
+                } else {
+                    $(this).attr({
+                        'disabled': 'disabled'
+                    });
+                    $(this).css("border", "none");
+                    $('.btnUploadCreditCard').css("display", "none");
+                    $('#clicker').html("<img src='../graphics/edit.svg'> Manage Profile");
                 };
-            
-        });   
 
+            });
+
+        });
     });
-});
 
     $(document).on('blur', '.profile-about-container input', function(event) {
         event.preventDefault()
@@ -241,36 +254,34 @@ $().ready(function() {
                 console.log('User has been updated')
             })
     });
-/************************* Delete product ***************************** */ 
+    /************************* Delete product ***************************** */
 
-function deleteProduct(){
-   
-   var product_delete_id = $('.view-clothes-delete').attr('data-id')
-   console.log(product_delete_id);
-   
-   $.ajax({
-        url : "../includes/delete.product.php", //the end point, "file"
-        method : "POST", 
-        dataType: 'json',
-        data : {id:product_delete_id}
-   }).done( function(response){
+    function deleteProduct() {
 
-        if( response.status === 1 ){
-            window.location='../profile/profile.php'
-        }else{
-            $('#error_message').text(response.message)
-        }
-        console.log(response)
-   })
+        var product_delete_id = $('.view-clothes-delete').attr('data-id')
+        console.log(product_delete_id);
 
-}
+        $.ajax({
+            url: "../includes/delete.product.php", //the end point, "file"
+            method: "POST",
+            dataType: 'json',
+            data: {
+                id: product_delete_id
+            }
+        }).done(function(response) {
 
+            if (response.status === 1) {
+                window.location = '../profile/profile.php'
+            } else {
+                $('#error_message').text(response.message)
+            }
+            console.log(response)
+        })
 
-
+    }
 </script>
 
 <script src="profile.js">
 </script>
 
-<?php require_once(__DIR__ . '/../footer/footer.php'); ?>  
-
+<?php require_once(__DIR__ . '/../footer/footer.php'); ?>
