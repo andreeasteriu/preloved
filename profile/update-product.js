@@ -1,4 +1,38 @@
 /************************* Update product ***************************** */ 
+// File type validation
+$("#image-product").change(function(e) {
+    var file = this.files[0];
+    var fileType = file.type;
+    var match = ['image/jpeg', 'image/png', 'image/jpg'];
+    if(!((fileType == match[0]) || (fileType == match[1]) || (fileType == match[2]))){
+        alert('Sorry, only JPG, JPEG, & PNG files are allowed to upload.');
+        $("#image-product").val('');
+        return false;
+    }
+
+    e.preventDefault();
+    console.log('calling update property');
+    var property_update_id = $('.view-clothes-container').attr('id')
+    var sUpdateKey = $(this).attr('data-update')
+    var sNewValue = $(this).val()
+    console.log('property_update_id', property_update_id)
+    console.log('sUpdateKey', sUpdateKey)
+    console.log('sNewValue', sNewValue)
+    $.ajax({
+        url : "../includes/update.products.php", //the end point, "file"
+        method : "POST", 
+        data : {
+            id:property_update_id, 
+            key:sUpdateKey,
+            value:sNewValue
+        }
+    }).done( function(){
+            console.log('all good in the hood');
+        // location.reload();
+    })
+
+})
+
 
 $(document).on('blur','.view-clothes-container select',  function(e){
     e.preventDefault();
@@ -69,3 +103,18 @@ $('.view-clothes-edit').click(function() {
     });
 });
 })
+
+
+
+/********** UPDATE IMAGE PRODUCT ************* */
+
+
+
+
+    
+
+// $('form#upload-clothes-form').submit(function(event){
+    
+// })
+
+
