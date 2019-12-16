@@ -89,3 +89,4 @@ if (empty($_SESSION)) {
 </div>
 
 <?php require_once(__DIR__ . '/../footer/footer.php'); ?>
+
