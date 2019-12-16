@@ -162,7 +162,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <span class="view-clothes-wrap">
                 <img class="view-clothes-image" src="data:image/jpeg;base64,' . base64_encode($row['image']) . '">
                 <label for="image-product" class="view-clothes-camera-update" data-id="'.$row['idProduct'].'"><img src="../graphics/photo-camera.svg" alt="">            
-                <input id="image-product" class="image-product" data-update="image" type="file" name="image-product"/>
+                <input id="image-product" class="image-product" data-update="image" type="file" name="image"/>
                 </label>
                 <div class="view-clothes-edit" data-id="'.$row['idProduct'].'"><img src="../graphics/edit.svg" alt=""></div>
                 <div onclick="deleteProduct()" class="view-clothes-delete" data-id="'.$row['idProduct'].'" ><img src="../graphics/delete.svg" alt=""></div>
