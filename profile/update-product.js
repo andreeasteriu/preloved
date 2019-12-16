@@ -10,28 +10,39 @@ $("#image-product").change(function(e) {
         return false;
     }
 
-    e.preventDefault();
-    console.log('calling update property');
-    var property_update_id = $('.view-clothes-container').attr('id')
-    var sUpdateKey = $(this).attr('data-update')
-    var sNewValue = $(this).val()
-    console.log('property_update_id', property_update_id)
-    console.log('sUpdateKey', sUpdateKey)
-    console.log('sNewValue', sNewValue)
-    $.ajax({
-        url : "../includes/update.products.php", //the end point, "file"
-        method : "POST", 
-        data : {
-            id:property_update_id, 
-            key:sUpdateKey,
-            value:sNewValue
-        }
-    }).done( function(){
-            console.log('all good in the hood');
-        // location.reload();
+    $(".view-clothes-container").change(function(e){
+        e.preventDefault();
+        var property_update_id = $('.view-clothes-container').attr('id')
+        var productFormData = new FormData(this);
+        console.log(productFormData); 
+        console.log(property_update_id);
+        $.ajax({
+            url : "../includes/update.image.product.php",
+            method: "POST",
+            data: {productFormData, id:property_update_id},
+            dataType: 'json',
+            contentType: false,
+            cache: false,
+            processData:false,
+    
+        })
+        .done(function(response){
+    
+            if( response.status === 1 ){
+                window.location='../profile/profile.php'
+            }else{
+                $('#error_message').text(response.message)
+            }
+            console.log(response)
+        })
+        .fail(function(fail){
+            $('#error_message').text(fail.message)
+        })
+    
     })
-
+    
 })
+
 
 
 $(document).on('blur','.view-clothes-container select',  function(e){
