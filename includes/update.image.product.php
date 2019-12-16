@@ -3,8 +3,7 @@ require_once(__DIR__ . '/db-connect.php');
 session_start();
 
 $idProduct = $_POST['id'];
-
-
+// sendErrorMessage("* Sorry, only JPG, JPEG, & PNG files are allowed to upload {$_FILES['image-product']}", __LINE__ );
 if(isset($_SESSION['username'])){
 
     $sql = "SELECT * FROM products WHERE idProduct=:idProduct";
@@ -15,14 +14,16 @@ if(isset($_SESSION['username'])){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     if($count == 1 && !empty($row)) {
         
-        if (isset($_FILES['image']) && $_FILES['image']['size'] > 0) { 
+        if (isset($_FILES['image-product']) && $_FILES['image-product']['size'] > 0) { 
+
+            
             // File path config 
-            $fileName = basename($_FILES["image"]["name"]); 
-            $fileType = pathinfo($_FILES['image']['name'])['extension'];
+            $fileName = basename($_FILES["image-product"]["name"]); 
+            $fileType = pathinfo($_FILES['image-product']['name'])['extension'];
             // Allow certain file formats 
             $allowTypes = array('jpg', 'png', 'jpeg'); 
             if(in_array($fileType, $allowTypes)){ 
-            $tmpName  = $_FILES['image']['tmp_name'];  
+            $tmpName  = $_FILES['image-product']['tmp_name'];  
             $fp = fopen($tmpName, 'rb'); // read binary
             } else{
                 sendErrorMessage('* Sorry, only JPG, JPEG, & PNG files are allowed to upload', __LINE__ );
@@ -40,7 +41,7 @@ if(isset($_SESSION['username'])){
                 sendErrorMessage('* sql error', __LINE__ );
             }
         
-
+        
        
        
   } else {

@@ -14,16 +14,15 @@ $("#image-product").change(function(e) {
   $(".view-clothes-container").change(function(e) {
     e.preventDefault();
     var property_update_id = $(".view-clothes-container").attr("id");
-    var productFormData = new FormData(this);
-    console.log(productFormData);
     console.log(property_update_id);
     var fd = new FormData();
     fd.append("id", property_update_id);
-    fd.append("data", "blob");
+    fd.append("image-product", $("input[name=image-product]")[0].files[0]);
     $.ajax({
       url: "../includes/update.image.product.php",
       method: "POST",
       data: fd,
+      dataType: 'json',
       contentType: false,
       cache: false,
       processData: false
