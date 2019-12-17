@@ -1,28 +1,31 @@
 /************************* Update product ***************************** */
 
 // File type validation
-$("#image-product").change(function(e) {
+$(".image-product").change(function(e) {
   var file = this.files[0];
   var fileType = file.type;
   var match = ["image/jpeg", "image/png", "image/jpg"];
   if (!(fileType == match[0] || fileType == match[1] || fileType == match[2])) {
     alert("Sorry, only JPG, JPEG, & PNG files are allowed to upload.");
-    $("#image-product").val("");
+    $(".image-product").val("");
     return false;
   }
 
   $(".view-clothes-container").change(function(e) {
     e.preventDefault();
-    var property_update_id = $(".view-clothes-container").attr("id");
+    var property_update_id = $(this).attr("data-id");
     console.log(property_update_id);
     var fd = new FormData();
     fd.append("id", property_update_id);
-    fd.append("image-product", $("input[name=image-product]")[0].files[0]);
+    fd.append(
+      "image-product",
+      $("input[name=image-product" + property_update_id + "]")[0].files[0]
+    );
     $.ajax({
       url: "../includes/update.image.product.php",
       method: "POST",
       data: fd,
-      dataType: 'json',
+      dataType: "json",
       contentType: false,
       cache: false,
       processData: false
@@ -44,7 +47,7 @@ $("#image-product").change(function(e) {
 $(document).on("blur", ".view-clothes-container select", function(e) {
   e.preventDefault();
   console.log("calling update property");
-  var property_update_id = $(".view-clothes-container").attr("id");
+  var property_update_id = $(this).attr("data-id");
   var sUpdateKey = $(this).attr("data-update");
   var sNewValue = $(this).val();
   console.log("property_update_id", property_update_id);
@@ -67,7 +70,7 @@ $(document).on("blur", ".view-clothes-container select", function(e) {
 $(document).on("blur", ".view-clothes-container input", function(e) {
   e.preventDefault();
   console.log("calling update property");
-  var property_update_id = $(".view-clothes-container").attr("id");
+  var property_update_id = $(this).attr("data-id");
   var sUpdateKey = $(this).attr("data-update");
   var sNewValue = $(this).val();
   console.log("property_update_id", property_update_id);
