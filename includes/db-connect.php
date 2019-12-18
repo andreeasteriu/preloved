@@ -1,7 +1,7 @@
 <?php
 
     $dbServerName = 'localhost';
-    $dbUserName = 'root';
+    $dbUserName = 'customer';
     $dbpassword = '';
     $dbName = 'preloved';
     $charset = 'utf8';
