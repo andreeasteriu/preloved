@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
     <link rel="stylesheet" href="../products-list/products-list.css">
-    <link rel="stylesheet" href="../footer/footer.css">
     <link rel="stylesheet" href="../navigation/header.css">
     <title> <?php
             echo  $sPageName;
