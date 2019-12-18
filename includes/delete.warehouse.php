@@ -10,6 +10,7 @@ if(isset($_SESSION['username'])){
         $stmt->bindParam(1,$idWarehouse,PDO::PARAM_STR);
         $stmt -> execute();
         echo '{"status": 1, "message":"Product deleted", "line":"'.__LINE__.'"}';
+        header("Location: http://localhost/preloved/profile/warehouses.php");
     } else {
         sendErrorMessage('* sql error', __LINE__ );
       

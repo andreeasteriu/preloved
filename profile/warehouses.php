@@ -31,7 +31,7 @@ if (empty($_SESSION)) {
 
             <div class="info">
                 <p><b>Warehouse ' . $row['idWarehouse'] . '</b> </p> 
-                
+                <p><b>Name</b> <input data-update="newName" type="text" data name="name" class="edit-inputs" maxlength="20" data-type="string" data-min="5" data-max="20" placeholder="Name" value="' . $row['nameWarehouse'] . '"></p>
                 <p><b>Address</b> <input data-update="newAddress" type="text" data name="address" class="edit-inputs" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Address" value="' . $row['addressWarehouse'] . '"></p>
                 <input type="hidden" name="idWarehouse" value="' . $row['idWarehouse'] . '">
             </div>
@@ -51,9 +51,11 @@ if (empty($_SESSION)) {
     </section>
     <section class="add-warehouse">
         <h2 class="add-warehouse-title">Add Warehouse</h2>
-        <form id="upload-clothes-form" class="add-warehouse-form" method="POST">
+        <form id="upload-warehouse" class="add-warehouse-form" method="POST">
+            <input class="add-warehouse-input" name="name" type="text" data-type="string" data-min="3" data-max="40" value="" placeholder="Name">
             <input class="add-warehouse-input" name="address" type="text" data-type="string" data-min="3" data-max="40" value="" placeholder="Address">
-            <button type="submit" class="add-warehouse-submit" onclick="return uploadCheck(this);" id="btn_upload"><img src="../graphics/upload.svg"> Add Warehouse</button>
+            <div id="error_message"></div>
+            <button type="submit" class="add-warehouse-submit" id="btn_upload"><img src="../graphics/upload.svg"> Add Warehouse</button>
         </form>
     </section>
 </div>
@@ -115,22 +117,22 @@ if (empty($_SESSION)) {
     //         })
     // });
 
-    $('form#upload-clothes-form').submit(function(event) {
+    $('form#upload-warehouse').submit(function(event) {
         event.preventDefault()
         var productFormData = new FormData(this)
         // console.log('test')
-        // console.log($('form').serialize())
+        console.log($('form').serialize())
         $.ajax({
                 url: "../includes/insert.warehouse.php",
                 method: "POST",
-                data: $('#upload-clothes-form').serialize(), // create the form to be passed
+                data: $('#upload-warehouse').serialize(), // create the form to be passed
                 dataType: "JSON"
 
             })
             .done(function(response) {
 
                 if (response.status === 1) {
-                    window.location = '../warehouses/warehouses.php'
+                    window.location = '../profile/warehouses.php'
                 } else {
                     $('#error_message').text(response.message)
                 }
