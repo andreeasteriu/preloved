@@ -5,6 +5,7 @@ require_once(__DIR__ . '/db-connect.php');
 
 
 $address = $_POST['address'];
+$name = $_POST['name'];
 $warehouse = $_POST['idWarehouse'];
 
 
@@ -16,17 +17,17 @@ $count = $stmt->rowCount();
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 if ($count == 1 && !empty($row)) {
 
-    $sql = "UPDATE warehouses SET addressWarehouse=:address 
+    $sql = "UPDATE warehouses SET addressWarehouse=:address, nameWarehouse=:name 
                     WHERE idWarehouse=:idWarehouse";
     if ($stmt = $dbh->prepare($sql)) {
 
         // Binding Post Values
-
         $stmt->bindParam(':address', $address, PDO::PARAM_STR);
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->bindParam(':idWarehouse', $warehouse, PDO::PARAM_STR);
         $stmt->execute();
         echo '{"status": 1, "message":"New record updated successfully", "line":"' . __LINE__ . '"}';
-        echo '<a href="../profile/warehouses.php">Return to warehouses</a>';
+        header("Location: http://localhost/preloved/profile/warehouses.php");
     } else {
         sendErrorMessage('* sql error', __LINE__);
     }

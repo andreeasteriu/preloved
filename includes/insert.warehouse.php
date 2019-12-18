@@ -4,7 +4,7 @@ session_start();
 
 if ($_POST) {
 
-    if (empty($_POST['address'])) {
+    if (empty($_POST['address']) || empty($_POST['name']) ) {
         sendErrorMessage('* Please fill in all fields', __LINE__);
     }
 }
@@ -14,6 +14,7 @@ if ($_POST) {
 
 //Getting Post Values
 $address = $_POST['address'];
+$name = $_POST['name'];
 
 // Query for validation of username and email-id
 $ret = "SELECT * FROM customers where idCustomer=:userName";
@@ -24,13 +25,13 @@ $results = $queryt->fetchAll(PDO::FETCH_OBJ);
 if ($queryt->rowCount() == 1) {
 
     // Query for Insertion
-    $sql = "INSERT INTO warehouses (`addressWarehouse`) 
-            VALUES (:addressWarehouse)";
+    $sql = "INSERT INTO warehouses (addressWarehouse, nameWarehouse) 
+            VALUES (:addressWarehouse, :nameWarehouse)";
     $query = $dbh->prepare($sql);
 
     // Binding Post Values
     $query->bindParam(':addressWarehouse', $address, PDO::PARAM_STR);
-
+    $query->bindParam(':nameWarehouse', $name, PDO::PARAM_STR);
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
