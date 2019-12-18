@@ -181,7 +181,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <p>Size.</p><input    data-id="' . $row['idProduct'] . '"  data-update="size" name="txtSize" type="text" data-type="string" data-min="1" data-max="3" value="' . $row['size'] . '">
             
             <p>Brand.</p><input   data-id="' . $row['idProduct'] . '" class="update-nodisplay" type="text" data-type="string" data-min="3" data-max="3000" value="' . $row['brandName'] . '">
-            <select class="update-select" name="txtBrand" data-update="idBrand">
+            <select class="update-select" name="txtBrand" data-update="idBrand" data-id="' . $row['idProduct'] . '">
                         <option value="">' . $row['brandName'] . '</option>
                         <option value="2">ZARA</option>
                         <option value="1">H&M</option>
