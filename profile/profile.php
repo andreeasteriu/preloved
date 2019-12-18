@@ -173,7 +173,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 <input id="image-product' . $row['idProduct'] . '"   data-id="' . $row['idProduct'] . '" class="image-product" data-update="image" type="file" name="image-product' . $row['idProduct'] . '"/>
                 </label>
                 <div class="view-clothes-edit" data-id="' . $row['idProduct'] . '"><img src="../graphics/edit.svg" alt=""></div>
-                <div onclick="deleteProduct()" class="view-clothes-delete" data-id="' . $row['idProduct'] . '" ><img src="../graphics/delete.svg" alt=""></div>
+                <div class="view-clothes-delete" data-id="' . $row['idProduct'] . '" ><img src="../graphics/delete.svg" alt=""></div>
             </span>
             <span class="view-clothes-inputs">
             <p>Title.</p><input   data-id="' . $row['idProduct'] . '" data-update="title" name="txtTitle" type="text" data-type="string" data-min="3" data-max="3000" value="' . $row['title'] . '">
@@ -256,9 +256,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     });
     /************************* Delete product ***************************** */
 
-    function deleteProduct() {
+    $().ready(function() {
+        $(".view-clothes-delete").click(function() {
 
-        var product_delete_id = $('.view-clothes-delete').attr('data-id')
+        var product_delete_id = $(this).attr('data-id')
         console.log(product_delete_id);
 
         $.ajax({
@@ -278,7 +279,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             console.log(response)
         })
 
-    }
+    })
+})
 </script>
 
 <script src="profile.js">
