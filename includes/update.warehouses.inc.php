@@ -26,6 +26,7 @@ if ($count == 1 && !empty($row)) {
         $stmt->bindParam(':idWarehouse', $warehouse, PDO::PARAM_STR);
         $stmt->execute();
         echo '{"status": 1, "message":"New record updated successfully", "line":"' . __LINE__ . '"}';
+        echo '<a href="../profile/warehouses.php">Return to warehouses</a>';
     } else {
         sendErrorMessage('* sql error', __LINE__);
     }
