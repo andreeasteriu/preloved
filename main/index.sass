@@ -3,12 +3,13 @@
 
 
 .category_grid
+		 
 		display: grid
-		grid-gap: 1px
+		max-width: 1000px 
+		grid-gap: 5px
+		padding: 1em
 		grid-template-columns: 1fr 1fr 
 		vertical-align: middle
-		
-
 		@media screen and (min-width : 768px)
 			display: grid
 			grid-gap: 10px
@@ -16,43 +17,37 @@
 			text-align: center
 		@media screen and (min-width : 1224px) 
 			display: grid
-			grid-gap: 30px
+			grid-gap: 1em
 			grid-template-columns: 1fr 1fr 1fr 1fr
 			text-align: center
-			width: auto
-			padding: 0 5% 5% 5%
+			margin: auto
+			margin-bottom: 10%
 			
 .column 
-	margin: 1vw
-	height: 200px 
-	width: auto
+	height: 250px 
 	display: grid
 	grid-auto-columns: 1fr 1fr
 	background-size: cover
 	align-content: center
+	text-align: center
 	@media screen and (min-width : 768px)
 		height: 300px 
-		width: auto 
 		align-items: center 		
 		background-repeat: no-repeat
 	@media screen and (min-width : 1224px) 
-		height: 300px 
-		width: auto
-	 
+		height: 330px 
 
 div.main_description a
-	&:link 
-		color: white 
-		text-decoration: none 
-		font-family: 'Montserrat', sans-serif
-		font-weight: 700
-		font-size: 3vh
+	color: #FFF 
+	text-decoration: none 
+	font-family: 'Montserrat', sans-serif
+	font-weight: 700
+	font-size: 3vh
 	@media screen and (max-width : 480px)
 		text-align: center
 		margin-top: 20% 
 	&:hover 
 		color: #e8a798 
-
 .row 
 	text-align: center 
 	justify-content: center 
@@ -64,27 +59,31 @@ div.main_description a
 	font-weight: 900 
 	color: #e8a798 
 #picture 
+	position: relative
 	width: 100%
 	height: 220px
 	background-repeat: no-repeat
-
-	@media screen and (min-width : 768px)
+	background-size: cover
+	background-image: url('../pictures/0.png')
+	@media screen and (min-width : 1224px)
 		width: auto
-		height: 500px 
-		background-size: cover
-		background-repeat: no-repeat
+		height: calc(100vh - 100px)
 		margin: 0
-
+.container-hero-text
+	width: 100%
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	
 	
 #main_title 
 	@media screen and (max-width : 480px)
 		display: none
 	
 	@media screen and (min-width : 480px)
-		padding: 30px 0 0 0 
 		text-align: center 
 		font-size: 5vh 
-		padding: 15% 0 0 0 
 		font-family: 'Montserrat', sans-serif 
 		font-weight: 900 
 		color: #e8a798 
@@ -129,20 +128,24 @@ div.main_description a
 		color: white 
 		font-family: 'Montserrat', sans-serif 
 #main_row 
-	padding: 5% 0 0 0 
+	position: absolute
+	bottom: 5em
+	left: 50%
+	transform: translate(-50%)
+	width: 950px
 	display: grid 
 	grid-template-columns: 1fr 1fr 
-	text-align: center 
+	grid-gap: 5em
 	align-items: center 
 	font-family: 'Montserrat', sans-serif 
+	margin: auto
 	
-div.cat_title a
-	&:link 
-		color: white 
-		text-decoration: none 
-		font-family: 'Montserrat', sans-serif
-		font-weight: 900
-		font-size: 3vh
+div.cat_title a 
+	color: white 
+	text-decoration: none 
+	font-family: 'Montserrat', sans-serif
+	font-weight: 900
+	font-size: 3vh
 	@media screen and (max-width : 480px)
 		text-align: center
 		margin-top: 20% 
@@ -150,4 +153,9 @@ div.cat_title a
 		color: #e8a798 
 
 
-  
+.grid-desc
+	display: grid
+	grid-template-columns: 1fr 1fr
+	padding-bottom: .5em
+.pay-buy-icon
+	justify-self: right
