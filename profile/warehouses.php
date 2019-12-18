@@ -27,16 +27,16 @@ if (empty($_SESSION)) {
 
                 echo '
     <div class="warehouse-container">
-        <form id="' . $row['idWarehouse'] . '" class="warehouses-about-container" method="post">
+        <form  action="../includes/update.warehouses.inc.php" id="' . $row['idWarehouse'] . '" class="warehouses-about-container" method="post">
 
             <div class="info">
                 <p><b>Warehouse ' . $row['idWarehouse'] . '</b> </p> 
                 
-                <p><b>Address</b> <input data-update="newAddress" type="text" name="address" class="edit-inputs" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Address" value="' . $row['addressWarehouse'] . '"></p>
+                <p><b>Address</b> <input data-update="newAddress" type="text" data name="address" class="edit-inputs" maxlength="100" data-type="string" data-min="5" data-max="100" placeholder="Address" value="' . $row['addressWarehouse'] . '"></p>
                 <input type="hidden" name="idWarehouse" value="' . $row['idWarehouse'] . '">
             </div>
             <div class="container-grid-buttons">
-                <div class="clicker" class="manage-plan" name="update"><img src="../graphics/edit.svg"></div>
+                <button>Update Product</button>
                 <div class="clicker-delete" class="manage-plan" name="update"><a href="../includes/delete.warehouse.php?id=' . $row['idWarehouse'] . '" class="warehouses-delete-link"><img src="../graphics/delete.svg"></a></div>
 
             </div>
@@ -67,13 +67,14 @@ if (empty($_SESSION)) {
 <script src="../validate.js"></script>
 <script>
     /************************* warehouses SECTION ***************************** */
-    $('.edit-inputs').attr({
-            'disabled': 'disabled'
-        })
-        .css("border", "none");
-    $('.btnUploadCreditCard').css("display", "none");
+    // $('.edit-inputs').attr({
+    //         'disabled': 'disabled'
+    //     })
+    //     .css("border", "none");
+    // $('.btnUploadCreditCard').css("display", "none");
 
     /************************* Update warehouses ***************************** */
+    var property_update_id = $(this).attr("data-id");
     $().ready(function() {
         $('.clicker').click(function() {
             $('.edit-inputs').each(function() {
@@ -100,19 +101,19 @@ if (empty($_SESSION)) {
         });
     });
 
-    $(document).on('blur', '.warehouses-about-container input', function(event) {
-        event.preventDefault()
-        // console.log($('#warehousesInfo').serialize())
-        $.ajax({
-                url: "../includes/update.warehouses.inc.php",
-                method: "POST",
-                data: $('.warehouses-about-container').serialize(), // create the form to be passed
-                dataType: "JSON"
-            })
-            .done(function() {
-                console.log('User has been updated')
-            })
-    });
+    // $(document).on('blur', '.warehouses-about-container input', function(event) {
+    //     event.preventDefault()
+    //     // console.log($('#warehousesInfo').serialize())
+    //     $.ajax({
+    //             url: "../includes/update.warehouses.inc.php",
+    //             method: "POST",
+    //             data: $('.warehouses-about-container').serialize(), // create the form to be passed
+    //             dataType: "JSON"
+    //         })
+    //         .done(function() {
+    //             console.log('User has been updated')
+    //         })
+    // });
 
     $('form#upload-clothes-form').submit(function(event) {
         event.preventDefault()
