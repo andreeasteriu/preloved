@@ -37,14 +37,13 @@ p {
 }
 
 .body-sign-up {
-  padding: 1em;
+  padding: 2em 1em;
   font-family: "Montserrat";
 }
 
 .signup {
   display: -ms-grid;
   display: grid;
-  height: 90vh;
   justify-items: center;
   -webkit-box-align: center;
       -ms-flex-align: center;

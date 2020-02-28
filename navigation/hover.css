@@ -1,0 +1,19 @@
+.call-button-sell {
+    display: none;
+}
+@media screen and (min-width : 1224px) {
+
+
+.nav-links li a:hover {
+    color: #f2cec5;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.nav-links-signup-login li a:hover {
+    color: #f2cec5 !important;
+    transition: .5s;
+    cursor: pointer;
+}
+
+}

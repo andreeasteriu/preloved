@@ -17,9 +17,9 @@ if (empty($_SESSION)) {
 
   <div id='picture'>
     <div class="container-hero-text">
-    <div id="main_title"><span style="color: #e6e6e6;">PRE</span><span style="color: #e8a798;">LOVED.</span></div>
+    <div class="main_title"><span style="color: #FFF;">PRE</span><span style="color: #e8a798">LOVED.</span></div>
     <div id='title_description'>Are you ready to show off your new wardrobe?</div>
-    </div>
+    
     <div id="main_row">
       <div id="main_column1">
         <div id='title1'>
@@ -29,16 +29,16 @@ if (empty($_SESSION)) {
       </div>
       <div id="main_column2">
         <div id='title2'>
-          <div class="main_description"><a href="../products-list/products-list.php" class="grid-desc">SELL <img class="pay-buy-icon" src="../graphics/pay-buy.svg" alt=""></a></div>
+          <div class="main_description"><a href="../profile/profile.php" class="grid-desc">SELL <img class="pay-buy-icon" src="../graphics/pay-buy.svg" alt=""></a></div>
         </div>
         <div id='text2'>Sell your preloved clothes and help the environment to breath.</div>
       </div>
 
     </div>
-  
+  </div>
 </div>
 
-<div id='category'><span style="color: #e6e6e6;">CAT</span><span style="color: #e8a798;">EGORIES.</span></div>
+<div class='category'><span style="color: #e6e6e6;">CAT</span><span style="color: #e8a798;">EGORIES.</span></div>
 <div class="category_grid">
   <div class="column" style="background-image: url('../pictures/1.png');">
     <div class="cat_title"><a href="../products-list/products-list.php?gender=&category=9&size=&brand=">JEANS</a></div>
@@ -55,7 +55,7 @@ if (empty($_SESSION)) {
   <div class="column" style="background-image: url('../pictures/5.png');">
     <div class="cat_title"><a href="../products-list/products-list.php?gender=&category=2&size=&brand=">HOODIES</a></div>
   </div>
-  <div class="column" style="background-image: url('../pictures/6.png');">
+  <div class="column" style="background-image: url('../pictures/6.jpeg');">
     <div class="cat_title"><a href="../products-list/products-list.php?gender=&category=7&size=&brand=">KNITS</a></div>
   </div>
   <div class="column" style="background-image: url('../pictures/7.png');">
@@ -65,6 +65,10 @@ if (empty($_SESSION)) {
     <div class="cat_title"><a href="../products-list/products-list.php?gender=1&category=4&size=&brand=">DRESSES</a></div>
   </div>
 
+</div>
+<div class='category get-inspired'><span style="color: #e6e6e6;">GET </span><span style="color: #e8a798;">INSPIRED.</span></div>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/-Z_VsPnaUUQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <?php require_once(__DIR__ . '/../footer/footer.php'); ?>

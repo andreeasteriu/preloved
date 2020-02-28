@@ -73,7 +73,7 @@ if(empty($_SESSION)){
                     </p>
                     <a href="https://www.facebook.com/paolakaz" class="team-link">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="team-content active-profile">
+            <div class="team-content">
                 <div class="team-profile image-andreea">
                 </div>
                     <h4 class="team-name">
@@ -103,11 +103,11 @@ if(empty($_SESSION)){
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     $('.team-content').hover(function(){
-        $(this).css({"background-color":"#f2cec5", "color":"#FFF", "opacity":"1"});
+        $(this).css({"background-color":"#f2cec5", "color":"#FFF", "transition": ".5s"});
         $('.team-link').css('opacity','1');
         
     }, function(){
-        $(this).css({"background-color":"#e6e6e6", "color":"#707070", "opacity":".4"});
+        $(this).css({"background-color":"#e6e6e6", "color":"#707070", "transition": ".5s"});
         $('.team-link').css('opacity','0');
        
     })

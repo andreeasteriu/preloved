@@ -69,7 +69,7 @@ if (empty($_SESSION)) {
                 <input type="hidden" name="category">
                 <div class="product-list-products-filter-input">
                     <select class="" name="size">
-                        <option value="">size</option>
+                        <option value="">Size</option>
                         <option value="S">S</option>
                         <option value="M">M</option>
                         <option value="L">L</option>
@@ -80,7 +80,7 @@ if (empty($_SESSION)) {
 
                 <div class="product-list-products-filter-input">
                     <select class="" name="brand">
-                        <option value="">brand</option>
+                        <option value="">Brand</option>
                         <option value="ZARA">ZARA</option>
                         <option value="H&M">H&M</option>
                         <option value="Calvin Klein">Calvin Klein</option>
@@ -88,6 +88,44 @@ if (empty($_SESSION)) {
                         <option value="Levis">Levis</option>
                         <option value="Gucci">Gucci</option>
                         <option value="Nike">Nike</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary"><img src="../graphics/filter.svg"></button>
+                </div>
+
+                <div class="product-list-products-filter-input">
+                    <select class="" name="brand">
+                        <option value="">Color</option>
+                        <option>Red</option>
+                        <option>Blue</option>
+                        <option>Yellow</option>
+                        <option>Pink</option>
+                        <option>Gray</option>
+                        <option>Black</option>
+                        <option>Green</option>
+                        <option>Orange</option>
+                        <option>Purple</option>
+                        <option>Brown</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary"><img src="../graphics/filter.svg"></button>
+                </div>
+
+                <div class="product-list-products-filter-input">
+                    <select class="" name="brand">
+                        <option>Material</option>
+                        <option>Wool</option>
+                        <option>Cotton</option>
+                        <option>Synthetic</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary"><img src="../graphics/filter.svg"></button>
+                </div>
+
+                <div class="product-list-products-filter-input">
+                    <select class="" name="brand">
+                        <option value="">Condition</option>
+                        <option>Not That Good</option>
+                        <option>Good</option>
+                        <option>Very Good</option>
+
                     </select>
                     <button type="submit" class="btn btn-primary"><img src="../graphics/filter.svg"></button>
                 </div>

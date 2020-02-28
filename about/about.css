@@ -159,7 +159,6 @@ p {
 
 @media screen and (min-width: 1224px) {
   .team-content {
-    opacity: .4;
     height: 350px;
   }
 }

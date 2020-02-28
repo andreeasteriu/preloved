@@ -31,7 +31,7 @@ if (empty($_SESSION)) {
         <input class="login-input date" type="number" name="year" placeholder="Year"  data-type="string" data-min="4" data-max="4"><span> /</span>
         <input class="login-input date" type="number" name="month" placeholder="Month"  data-type="string" data-min="1" data-max="2">
         </div>
-        <input class="login-input" type="text" name="cvv" placeholder="CVV"  data-type="string" data-min="3" data-max="3">
+        <input class="login-input" type="text" name="ccv" placeholder="CCV"  data-type="string" data-min="3" data-max="3">
         <input class="login-input" type="password" name="password" placeholder="Password" data-type="string" data-min="6" data-max="255">
         <div id="error_message"></div>
         </div>

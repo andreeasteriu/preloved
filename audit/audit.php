@@ -47,12 +47,13 @@ if (!$_POST) {
 } else {
 
     try {
-        $sql = 'CALL transaction(?, ?, ?)';
+        $sql = "CALL `doTransaction`(?, ?, ?)";
         $stmt = $dbh->prepare($sql);
 
         $customer = $_SESSION['username'];
         $creditCard = $_POST['idCreditcard'];
         $product = $_GET['id'];
+
 
         $stmt->bindParam(1, $customer, PDO::PARAM_STR | PDO::PARAM_INT, 11);
         $stmt->bindParam(2,  $creditCard, PDO::PARAM_INT, 11);

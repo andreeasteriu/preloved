@@ -43,6 +43,7 @@ if($_POST){
     $email =$_POST['email'];
     $password=$_POST['password'];    
     $phoneNr =$_POST['phoneNr'];
+    $totalAmount = 0.00;
     $userName = $_POST['userName'];
     $address = $_POST['address'];
     $date = date('Y-m-d H:i:s');
@@ -58,8 +59,8 @@ if($_POST){
     {
     // Query for Insertion
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $sql="INSERT INTO customers (`email`,`firstName`,`lastName`,`password`,`phoneNr`,`joiningDate`,`userName`,`address`) 
-            VALUES (:email,:firstName,:lastName,:password,:phoneNr,:joiningDate,:userName,:address)";
+    $sql="INSERT INTO customers (`email`,`firstName`,`lastName`,`password`,`phoneNr`,`totalAmount`,`joiningDate`,`userName`,`address`) 
+            VALUES (:email,:firstName,:lastName,:password,:phoneNr,:totalAmount,:joiningDate,:userName,:address)";
     $query = $dbh->prepare($sql);
     // Binding Post Values
     $query->bindParam(':email',$email,PDO::PARAM_STR);
@@ -67,6 +68,7 @@ if($_POST){
     $query->bindParam(':lastName',$lastName,PDO::PARAM_STR);
     $query->bindParam(':password',$hashedPassword,PDO::PARAM_STR);
     $query->bindParam(':phoneNr',$phoneNr,PDO::PARAM_STR);
+    $query->bindParam(':totalAmount',$totalAmount,PDO::PARAM_STR);
     $query->bindParam(':joiningDate',$date,PDO::PARAM_STR);
     $query->bindParam(':userName',$userName,PDO::PARAM_STR);
     $query->bindParam(':address',$address,PDO::PARAM_STR);

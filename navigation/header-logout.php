@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../products-list/products-list.css">
     <link rel="stylesheet" href="../footer/footer.css">
     <link rel="stylesheet" href="../navigation/header.css">
+    <link rel="stylesheet" href="../navigation/call-to-action-button.css">
     <title> <?php
             echo  $sPageName;
             ?> Preloved
@@ -20,6 +21,7 @@
         <nav class="header-nav">
             <div class="desktop-logo"><a href="../main/index.php"> <img src="../graphics/preloved_logo.svg" alt=""></a></div>
             <i class="fas fa-search"></i>
+            <a class="call-button-sell" href="../profile/profile.php">SELL YOUR CLOTHES</a>
             <div class="logo"><a href="../main/index.php">
                     <h3 class="logo-title">PRE<span class="logo-title-color">LOVED</span></h3>
                 </a>

@@ -1,0 +1,39 @@
+.call-button-sell {
+    display: none;
+}
+@media screen and (min-width : 1224px) {
+
+.fa-search {    
+    position: absolute;
+    right: 10.5em;
+}
+
+.call-button-sell {
+    display: block;
+    border: 2px solid #f2cec5; 
+    color:#e8a798;
+    font-weight: 600;
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 1em;
+}
+
+.call-button-sell:hover {
+    background-color: #f2cec5;
+    color: #FFF;
+    transition: .5s;
+}
+
+.nav-links li a:hover {
+    color: #f2cec5;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.nav-links-signup-login li a:hover {
+    color: #f2cec5 !important;
+    transition: .5s;
+    cursor: pointer;
+}
+
+}

@@ -8,7 +8,7 @@ if (isset($_SESSION['username'])) {
     require_once(__DIR__ . '/../navigation/header-logout.php');
 }
 if (empty($_SESSION)) {
-    require_once(__DIR__ . '/../navigation/header.php');
+    header('Location: ../sign-up/sign-up.php');
 }
 ?>
 
@@ -34,7 +34,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         <form id="profileInfo" class="profile-about-container" action="" method="POST">
             <div class="profile-pink-container"></div>
             <div class="profile-image"></div>
-            <h3 class="profile-name-wrap"><input data-update="newFirstName" type="text" name="firstName" class="edit-inputs profile-name" maxlength="60" data-type="string" data-min="1" data-max="60" placeholder="First Name" value="<?= $row['firstName']; ?>"><input data-update="newLastName" type="text" name="lastName" class="edit-inputs profile-name" maxlength="60" data-type="string" data-min="1" data-max="60" placeholder="Last Name" value="<?= $row['lastName']; ?>"></h3>
+            <h3 class="profile-name-wrap"><input data-update="newFirstName" type="text" name="firstName" class="edit-inputs profile-name first-name" maxlength="60" data-type="string" data-min="1" data-max="60" placeholder="First Name" value="<?= $row['firstName']; ?>">
+                <input data-update="newLastName" type="text" name="lastName" class="edit-inputs profile-name last-name" maxlength="60" data-type="string" data-min="1" data-max="60" placeholder="Last Name" value="<?= $row['lastName']; ?>"></h3>
             <div class="profile-links">
                 <a href="sell-clothes.php" class="profile-link sell"><img class="" src="../graphics/eye.svg"> Sell your clothes</a>
                 <a href="view-clothes.php" class="profile-link view"><img class="profile-icon" src="../graphics/payment-method.svg"> View your clothes</a>
@@ -61,7 +62,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     Automatically renewed on November 1, 2020</p>
             </div>
             <div class="container-grid-buttons">
-                <div id="clicker" class="manage-plan" name="update"><img src="../graphics/edit.svg"> Manage Profile</div>
+                <div id="clicker" class="manage-plan" name="update"><img src="../graphics/edit.svg"> Edit Profile</div>
                 <div id="clicker-delete" class="manage-plan" name="update"><a href="../includes/delete.profile.php" class="profile-delete-link"><img src="../graphics/delete.svg"> Delete Profile</a></div>
 
             </div>
@@ -84,6 +85,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
             <input class="sell-your-clothes-input" id="file" type="file" name="image" />
             <input class="sell-your-clothes-input" name="title" type="text" data-type="string" data-min="3" data-max="40" value="" placeholder="Title">
             <input class="sell-your-clothes-input" name="description" type="text" data-type="string" data-min="3" data-max="255" value="" placeholder="Description">
+            <input class="sell-your-clothes-input" name="color" type="text" data-type="string" data-min="3" data-max="30" value="" placeholder="Color">
             <select class="" name="category">
                 <option value="">Category</option>
                 <option value="1">Coats</option>
@@ -158,14 +160,14 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         <?php
 
- $stmt = $dbh->prepare("SELECT idProduct,idCustomer,image,title,description,price,size,products.condition,brands.idBrand,brands.brandName 
+        $stmt = $dbh->prepare("SELECT idProduct,idCustomer,image,title,description,price,color,size,products.condition,brands.idBrand,brands.brandName 
                                 FROM products 
                                 LEFT JOIN brands 
                                 ON products.idBrand = brands.idBrand 
                                 WHERE products.idCustomer= ?");
-  if ($stmt->execute(array($_SESSION['username']))) {
- while ($row = $stmt->fetch()) {
-  echo ' <form id="' . $row['idProduct'] . '"  data-id="' . $row['idProduct'] . '" enctype="multipart/form-data" class="view-clothes-container" method="POST">
+        if ($stmt->execute(array($_SESSION['username']))) {
+            while ($row = $stmt->fetch()) {
+                echo ' <form id="' . $row['idProduct'] . '"  data-id="' . $row['idProduct'] . '" enctype="multipart/form-data" class="view-clothes-container" method="POST">
 
             <span class="view-clothes-wrap">
                 <img class="view-clothes-image"   data-id="' . $row['idProduct'] . '" src="data:image/jpeg;base64,' . base64_encode($row['image']) . '">
@@ -193,11 +195,12 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         <option value="8">Other</option>
             </select>
             <p>Condition.</p><input    data-id="' . $row['idProduct'] . '" data-update="condition" name="txtCondition" type="text" data-type="string" data-min="3" data-max="3000" value="' . $row['condition'] . '">
-            <p>Price.</p><input data-update="price" name="txtPrice" type="number" data-type="integer" value="' . $row['price'] . '">
+            <p>Color.</p><input data-id="' . $row['idProduct'] . '" data-update="color" name="txtColor" type="text" data-type="string" value="' . $row['color'] . '">
+            <p>Price.</p><input data-id="' . $row['idProduct'] . '" data-update="price" name="txtPrice" type="number" data-type="integer" value="' . $row['price'] . '">
             </span>
         </form>';
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+            }
+        }
         ?>
 
     </section>
@@ -231,9 +234,12 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     $(this).attr({
                         'disabled': 'disabled'
                     });
-                    $(this).css("border", "none");
+                    $(this).css({
+                        "border": "none",
+                        'padding': '0 .5em'
+                    });
                     $('.btnUploadCreditCard').css("display", "none");
-                    $('#clicker').html("<img src='../graphics/edit.svg'> Manage Profile");
+                    $('#clicker').html("<img src='../graphics/edit.svg'> Edit Profile");
                 };
 
             });
@@ -259,28 +265,28 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $().ready(function() {
         $(".view-clothes-delete").click(function() {
 
-        var product_delete_id = $(this).attr('data-id')
-        console.log(product_delete_id);
+            var product_delete_id = $(this).attr('data-id')
+            console.log(product_delete_id);
 
-        $.ajax({
-            url: "../includes/delete.product.php", //the end point, "file"
-            method: "POST",
-            dataType: 'json',
-            data: {
-                id: product_delete_id
-            }
-        }).done(function(response) {
+            $.ajax({
+                url: "../includes/delete.product.php", //the end point, "file"
+                method: "POST",
+                dataType: 'json',
+                data: {
+                    id: product_delete_id
+                }
+            }).done(function(response) {
 
-            if (response.status === 1) {
-                window.location = '../profile/profile.php'
-            } else {
-                $('#error_message').text(response.message)
-            }
-            console.log(response)
+                if (response.status === 1) {
+                    window.location = '../profile/profile.php'
+                } else {
+                    $('#error_message').text(response.message)
+                }
+                console.log(response)
+            })
+
         })
-
     })
-})
 </script>
 
 <script src="profile.js">

@@ -5,7 +5,7 @@ session_start();
 
 if($_POST){ 
 
-    if (empty($_POST['iban']) || empty($_POST['month']) || empty($_POST['year']) || empty($_POST['cvv']) || empty($_POST['password'])) {
+    if (empty($_POST['iban']) || empty($_POST['month']) || empty($_POST['year']) || empty($_POST['ccv']) || empty($_POST['password'])) {
         sendErrorMessage('* Please fill in all fields', __LINE__ );   
     }
   
@@ -17,8 +17,8 @@ if($_POST){
         sendErrorMessage('* IBAN is not valid', __LINE__ );
     }
 
-    if (!preg_match("/^[0-9]{3}+$/", $_POST['cvv'])) {
-        sendErrorMessage('* CVV is not valid', __LINE__ );
+    if (!preg_match("/^[0-9]{3}+$/", $_POST['ccv'])) {
+        sendErrorMessage('* CCV is not valid', __LINE__ );
     }
   
     if (strlen($_POST['month']) > 2) {
@@ -35,7 +35,7 @@ if($_POST){
 $iban = $_POST['iban'];
 $month = $_POST['month'];
 $year = $_POST['year'];
-$cvv = $_POST['cvv'];
+$ccv = $_POST['ccv'];
 $password = $_POST['password'];
 
 $sql="SELECT * FROM customers where idCustomer=:idCustomer";
@@ -50,8 +50,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 sendErrorMessage('* wrong password', __LINE__ );
             }
             else if($passCheck == true){
-                $sql = "INSERT INTO creditcards (idCustomer, totalAmount, ibanCode, expirationDate, CVV) 
-                        VALUES (:idCustomer, :totalAmount, :ibanCode, :expirationDate, :CVV)";
+                $sql = "INSERT INTO creditcards (idCustomer, totalAmount, ibanCode, expirationDate, CCV) 
+                        VALUES (:idCustomer, :totalAmount, :ibanCode, :expirationDate, :CCV)";
                  
                 $stmt = $dbh->prepare($sql);
                 $totalAmount = 0;
@@ -61,7 +61,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 $stmt->bindParam(':totalAmount',$totalAmount,PDO::PARAM_STR);
                 $stmt->bindParam(':ibanCode',$iban,PDO::PARAM_STR);
                 $stmt->bindParam(':expirationDate',$expirationDate,PDO::PARAM_STR);
-                $stmt->bindParam(':CVV',$cvv,PDO::PARAM_STR);
+                $stmt->bindParam(':CCV',$ccv,PDO::PARAM_STR);
                 $stmt -> execute();
                
                 echo '{"status": 1, "message":"*New credit card inserted", "line":"'.__LINE__.'"}';

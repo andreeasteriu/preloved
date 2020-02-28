@@ -1,15 +1,20 @@
 @import  '../styles/variables'
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap')
 
-    
+
+.view_detail    
+    padding: 5px 0   
 div.view_grid
     display: flex
     justify-content: space-between
     align-items: center
-    margin: 0 300px 0 300px
-
-hr
-    width: 350px
+    grid-gap: 1em
+    width: 800px
+    margin: auto
+    @media screen and (min-width : 1224px) 
+        display: grid
+        grid-template-columns: 1fr 1fr
+    
 .view_picture
     height: 600px
     width: auto
@@ -17,27 +22,31 @@ hr
     background-size: cover
     background-repeat: no-repeat
     align-content: center
+    @media screen and (min-width : 1224px) 
+        justify-items: right
     img
-        height: 550px
         width: auto
+        height: 520px
         justify-content: center
+        @media screen and (min-width : 768px) 
+            height: 550px
+            width: auto
 
 div.view_column
     display: grid
-    width: 500px
     padding-left: 20px
 
 div.view_title
-    padding: 30 10 0 20
+    padding: 30px 10px 0 0
     margin: 0
     height: auto
     font-family: 'Montserrat', sans-serif
     font-weight: 700
-    font-size: 4vh
+    font-size: 2rem
     color: #e8a798
 
 div.view_description
-    padding: 0 10 10 20
+    padding: 1em 0
     margin: 0
     height: auto
     width: 400px
@@ -46,12 +55,12 @@ div.view_description
     color: #95989a
 
 div.details_column
-    padding: 5 10 5 10
+    padding: 5px 10px 5px 0
     margin: 0
     height: auto
     display: grid
     grid-gap: 1px
-    grid-template-columns: 2fr 1fr
+    grid-template-columns: 1fr 1fr
     font-family: 'Montserrat', sans-serif
     padding: 10px 0
 
@@ -61,9 +70,12 @@ div.details_first
 
 div.details_second
     color: #e8a798
-
+   
+.view_detail2
+    padding: 5px 0
+    text-align: right
 div.price
-    padding: 30 10 0 20
+    padding: 30px 0
     margin: 0
     height: auto
     font-family: 'Montserrat', sans-serif
@@ -72,9 +84,8 @@ div.price
     color: #707070
 
 div.add_button
-    padding: 0 10 0 10
+    padding: 1em 0
     margin: 0
-    text-align: center
     height: auto
     button
         font-family: 'Montserrat', sans-serif
@@ -83,20 +94,40 @@ div.add_button
         width: 160px
         color: #e8a798
         background-color: #ffffff
-        border: #e8a798 3px solid
+        border: 1px solid $secondary-color
         border-radius: 10px
-
-        font-size: 1.5vh
+        font-size: 1rem
         a
             color: #e8a798
         &:hover
-            background-color: #e8a798
+            background-color: $secondary-color
+            transition: .5s
             a
                 color: white
 
 hr
     color: #95989a
-
+    width: 100%
+.user
+    display: grid
+    grid-template-columns: 20% 70% 10%
+    align-items: center
+    background-color: $grey-light
+    padding: 1em
+    .fa-phone
+        padding-bottom: 10px
+.name-user
+    font-weight: 100
+    font-size: 1rem
+    padding: 5px 0
+.user-profile
+    background-image: url(../graphics/andreea.svg)
+    width: 60px
+    height: 60px
+    border-radius: 50%
+    background-position: center
+    background-repeat: no-repeat
+    background-size: contain
 .other_grid
     display: grid
     grid-gap: 1px
@@ -138,11 +169,12 @@ div.text
     #other
         display: none
     div.view_grid
+        max-width: 350px
         display: grid
         grid-gap: 1px
         grid-template-columns: 1fr
         vertical-align: middle
-        margin: 10px
+        margin: auto
         padding-top: 65px
     div.view_picture
         height: 900px
@@ -160,7 +192,6 @@ div.text
          margin-top: 10px
          align-items: center
     div.view_column
-        height: 400px
         padding-top: 100px
         padding-left: 0px
     .other_grid

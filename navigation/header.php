@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
     <link rel="stylesheet" href="../products-list/products-list.css">
     <link rel="stylesheet" href="../navigation/header.css">
+    <link rel="stylesheet" href="../navigation/hover.css">
     <title> <?php
             echo  $sPageName;
             ?> Preloved
