@@ -1,8 +1,8 @@
 <?php
 
     $dbServerName = 'localhost';
-    $dbUserName = 'customer';
-    $dbpassword = '';
+    $dbUserName = 'root';
+    $dbpassword = 'MyNewPass';
     $dbName = 'preloved';
     $charset = 'utf8';
    
